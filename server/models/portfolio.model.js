@@ -3,9 +3,12 @@ const Schema = mongoose.Schema
 
 const portfolioSchema = new Schema(
 	{
+		title: String,
 		owner: { type: Schema.Types.ObjectId, ref: 'User' },
-		myExperience: { type: Schema.Types.ObjectId, ref: 'myCV' },
-		templateType: { type: Schema.Types.ObjectId, ref: 'PortfolioTemplate' },
+		profile: Array,
+		education: Array,
+		experience: Array,
+		works: Array,
 		url: String,
 	},
 	{

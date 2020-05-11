@@ -1,0 +1,23 @@
+.menu {
+    background-color: white;
+    padding: 24px 0;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.to-link {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #B39898;
+    font-weight: 500;
+    margin: 0 12px;
+}
+
+.to-link:hover {
+    color: #6EA8B5;
+    text-decoration: underline;
+}

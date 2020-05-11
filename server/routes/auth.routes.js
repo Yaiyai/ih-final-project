@@ -10,6 +10,8 @@ const bcrypt = require('bcrypt')
 router.post('/signup', (req, res, next) => {
 	const username = req.body.username
 	const password = req.body.password
+	const email = req.body.email
+
 
 	if (!username || !password) {
 		res.status(400).json({ message: 'Provide username and password' })
@@ -41,9 +43,9 @@ router.post('/signup', (req, res, next) => {
 		const promisePortfolio = Portfolio.create(newPortfolio)
 
 		Promise.all([promiseCV, promisePortfolio])
-			.then((data) => User.create({ username: username, passport: hashPass, myCv: data[0].id, myPortfolios: data[1].id }))
+			.then((data) => User.create({ username: username, email: email, password: hashPass, myCv: data[0].id, myPortfolios: data[1].id }))
 			.then((newUser) => res.status(200).json(newUser))
-			.catch((err) => res.status(400).json({ message: 'Saving user to database went wrong.' }))
+			.catch(() => res.status(400).json({ message: 'Saving user to database went wrong.' }))
 	})
 })
 
@@ -88,6 +90,5 @@ router.get('/loggedin', (req, res, next) => {
 	}
 	res.status(403).json({ message: 'Unauthorized' })
 })
-
 
 module.exports = router

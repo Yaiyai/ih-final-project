@@ -12,7 +12,6 @@ router.post('/signup', (req, res, next) => {
 	const password = req.body.password
 	const email = req.body.email
 
-
 	if (!username || !password) {
 		res.status(400).json({ message: 'Provide username and password' })
 		return
@@ -37,13 +36,15 @@ router.post('/signup', (req, res, next) => {
 		const salt = bcrypt.genSaltSync(10)
 		const hashPass = bcrypt.hashSync(password, salt)
 
-		const newCV = { title: 'DefaultCV' }
-		const promiseCV = Cv.create(newCV)
-		const newPortfolio = { title: 'Default Portfolio' }
-		const promisePortfolio = Portfolio.create(newPortfolio)
+		User.create({ username: username, email: email, password: hashPass })
+			.then((user) => {
+				const newCV = { title: 'DefaultCV', owner: user.id }
+				const promiseCV = Cv.create(newCV)
+				const newPortfolio = { title: 'Default Portfolio', owner: user.id }
+				const promisePortfolio = Portfolio.create(newPortfolio)
 
-		Promise.all([promiseCV, promisePortfolio])
-			.then((data) => User.create({ username: username, email: email, password: hashPass, myCv: data[0].id, myPortfolios: data[1].id }))
+				Promise.all([promiseCV, promisePortfolio]).catch((err) => console.log(err))
+			})
 			.then((newUser) => res.status(200).json(newUser))
 			.catch(() => res.status(400).json({ message: 'Saving user to database went wrong.' }))
 	})

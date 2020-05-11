@@ -10,8 +10,6 @@ const userSchema = new Schema(
 		name: String,
 		lastName: String,
 		phone: String,
-		myCv: { type: Schema.Types.ObjectId, ref: 'myCV' },
-		myPortfolios: [{ type: Schema.Types.ObjectId, ref: 'Portfolio' }],
 	},
 	{
 		timestamps: true,

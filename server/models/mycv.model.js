@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const ExtraInfo = require('./subdocs/extrainfo.model')
 
 const cvSchema = new Schema(
 	{

@@ -8,6 +8,8 @@ import AuthServices from '../service/auth.service'
 // import User from './pages/user-list/User-list'
 import Home from './pages/home/Home'
 import Signup from './pages/signup/signup'
+import Login from './pages/login/Login'
+import Dashboard from './pages/dashboard/Dashboard'
 
 class App extends Component {
 	constructor() {
@@ -35,6 +37,8 @@ class App extends Component {
 				<Switch>
 					<Route path='/' exact render={() => <Home />} />
 					<Route path='/signup' render={(props) => <Signup {...props} setTheUser={this.setTheUser} />} />
+					<Route path='/login' render={(props) => <Login {...props} setTheUser={this.setTheUser} />} />
+					<Route path='/dashboard' render={(props) => <Dashboard />} />
 				</Switch>
 			</>
 		)

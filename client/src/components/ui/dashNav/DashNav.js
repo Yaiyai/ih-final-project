@@ -23,13 +23,13 @@ class DashNav extends Component {
 				<nav className='latNavBar'>
 					<div className='personalInfo'>
 						<figure className='logoDash'>
-							<img src='/imgs/dashboard/logo-dash.svg' alt='Cuentame más' />{' '}
+							<img src='/imgs/dashboard/logo-dash.svg' alt='Cuentame más' />
 						</figure>
 						<figure className='logoProfile'>
-							<img src='/imgs/ic/ic-signup.svg' alt='Cuentame más' />{' '}
+							{this.props.loggedInDash.avatar ? <img src={this.props.loggedInDash.avatar} alt='Cuentame más' /> : <img src='/imgs/ic/ic-signup.svg' alt='Cuentame más' />}
 						</figure>
-						<p className='dashName'>{this.props.loggedInDash.name}Yaiza del Río</p>
-						<p className='dashEmail'>{this.props.loggedInDash.email}user@email.com</p>
+						<p className='dashName'>{`${this.props.loggedInDash.name} ${this.props.loggedInDash.lastName}`}</p>
+						<p className='dashEmail'>{this.props.loggedInDash.email}</p>
 					</div>
 
 					<div className='buttonGroup'>

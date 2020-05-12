@@ -7,6 +7,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    background-image: url('/imgs/dashboard/nav-bkg.svg');
+    background-repeat: no-repeat;
+    background-position: bottom center;
 }
 
 .latNavBar .logoDash {
@@ -14,7 +17,7 @@
     margin-top: 24px;
 }
 
-.latNavBar .personalInfo{
+.latNavBar .personalInfo {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,7 +25,15 @@
 
 .latNavBar .personalInfo .logoProfile {
     width: 77px;
+    height: 77px;
     margin-top: 36px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.latNavBar .personalInfo .logoProfile img {
+    object-fit: contain;
+    object-position: bottom;
 }
 
 .latNavBar .personalInfo .dashName {
@@ -40,7 +51,7 @@
 }
 
 .latNavBar .dashLink {
-     border: none;
+    border: none;
     width: inherit;
     padding: 16px 24px;
     color: #B39898;
@@ -57,7 +68,7 @@
 }
 
 button {
-background-color: inherit;
+    background-color: inherit;
 }
 
 .latNavBar .dashLink:hover {

@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 
 import './DashNav.css'
-import AuthServices from './../../../service/auth.service'
-
-import { Link } from 'react-router-dom'
+import AuthService from './../../../service/auth.service'
 
 class DashNav extends Component {
-	constructor() {
-		super()
-		this.state = {}
-		this.authServices = new AuthServices()
+	constructor(props) {
+		super(props)
+		this.authServices = new AuthService()
 	}
 
-	logout = () => this.authServices.logout()
+	logout = () => {
+		this.props.setTheUser(false)
+		this.authServices.logout()
+	}
 
 	render() {
 		return (

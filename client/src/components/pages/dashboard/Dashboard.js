@@ -5,14 +5,13 @@ import DashNav from './../../ui/dashNav/DashNav'
 class Dashboard extends Component {
 	constructor(props) {
 		super(props)
-		this.state = {}
 	}
 
 	render() {
 		return (
 			<>
 				<h1>Dashboard</h1>
-				<DashNav />
+				<DashNav {...this.props} setTheUser={this.props.setTheUser} />
 			</>
 		)
 	}

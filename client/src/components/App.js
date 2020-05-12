@@ -10,15 +10,16 @@ import Home from './pages/home/Home'
 import Signup from './pages/signup/signup'
 import Login from './pages/login/Login'
 import Dashboard from './pages/dashboard/Dashboard'
+import DashNav from './ui/dashNav/DashNav'
 
 class App extends Component {
 	constructor() {
 		super()
-		this.state = { loggedInUser: null }
+		this.state = { loggedInUser: false }
 		this.authService = new AuthServices()
 	}
 
-	setTheUser = (userObj) => this.setState({ loggedInUser: userObj })
+	setTheUser = (userObj) => this.setState({ loggedInUser: userObj }, () => console.log('El estado es', this.state.loggedInUser))
 
 	fetchUser = () => {
 		if (this.state.loggedInUser === null) {
@@ -38,7 +39,7 @@ class App extends Component {
 					<Route path='/' exact render={() => <Home />} />
 					<Route path='/signup' render={(props) => <Signup {...props} setTheUser={this.setTheUser} />} />
 					<Route path='/login' render={(props) => <Login {...props} setTheUser={this.setTheUser} />} />
-					<Route path='/dashboard' render={(props) => <Dashboard />} />
+					<Route path='/dashboard' render={(props) => <Dashboard {...props} setTheUser={this.setTheUser} />} />
 				</Switch>
 			</>
 		)

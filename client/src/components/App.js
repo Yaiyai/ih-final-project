@@ -10,7 +10,6 @@ import Home from './pages/home/Home'
 import Signup from './pages/signup/signup'
 import Login from './pages/login/Login'
 import Dashboard from './pages/dashboard/Dashboard'
-import DashNav from './ui/dashNav/DashNav'
 
 class App extends Component {
 	constructor() {
@@ -39,7 +38,11 @@ class App extends Component {
 					<Route path='/' exact render={() => <Home />} />
 					<Route path='/signup' render={(props) => <Signup {...props} setTheUser={this.setTheUser} />} />
 					<Route path='/login' render={(props) => <Login {...props} setTheUser={this.setTheUser} />} />
-					<Route path='/dashboard' render={(props) => <Dashboard {...props} setTheUser={this.setTheUser} />} />
+					{this.state.loggedInUser && (
+						<>
+							<Route path='/dashboard' render={(props) => <Dashboard {...props} setTheUser={this.setTheUser} loggedIn={this.state.loggedInUser} />} />
+						</>
+					)}
 				</Switch>
 			</>
 		)

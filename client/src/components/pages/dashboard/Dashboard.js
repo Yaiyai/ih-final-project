@@ -10,7 +10,7 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<>
-				<h1>Dashboard</h1>
+				<h1>Dashboard de {this.props.loggedIn.username}</h1>
 				<DashNav {...this.props} setTheUser={this.props.setTheUser} />
 			</>
 		)

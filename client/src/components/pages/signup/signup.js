@@ -38,7 +38,7 @@ class Signup extends Component {
 			.signup(this.state.loginInfo)
 			.then((response) => {
 				this.props.setTheUser(response.data)
-				this.props.history.push('/')
+				this.props.history.push('/login')
 			})
 			.catch((err) => err.response.status === 400 && this.setState({ errorMessage: err.response.data.message }))
 	}

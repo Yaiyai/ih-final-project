@@ -1,0 +1,90 @@
+.homePage {
+    background-image: url('/imgs/home/bkg.svg');
+    background-size: cover;
+}
+
+.homePage h1 {
+    color: #B39898;
+}
+
+.homePage h2 {
+    color: #B39898;
+}
+
+.homePage h4 {
+    color: #B39898;
+}
+
+.homePage h5 {
+    color: #D9A5A6;
+    font-weight: 200;
+}
+
+.homePage .logo {
+    width: 286px;
+    margin: 64px 0 40px -21px;
+}
+
+.homePage .imgHeader {
+    width: 576px;
+    margin: 380px 0 0;
+}
+
+
+.homePage .features {
+    font-size: 18px;
+    color: #D9A5A6;
+    font-weight: 500;
+}
+
+.homePage .myButton {
+    margin-top: 40px;
+    width: 188px;
+}
+
+.homePage .infoSection {
+    padding: 200px 0;
+}
+
+.homePage .infoSection .imgInfo {
+    width: 364px;
+}
+
+.homePage .howWorks {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 104px;
+}
+
+.homePage .howWorks .groupCards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 48px;
+}
+
+.homePage .howWorks .groupCards .eachCard {
+    height: 278px;
+    width: 258px;
+    border: 6px solid #FCCCD2;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 36px 60px;
+    text-align: center;
+    margin-right: 24px;
+}
+
+.homePage .howWorks .groupCards .eachCard .icons {
+    width: 18px;
+}
+
+.homePage .howWorks .groupCards .eachCard .icons img {
+    object-fit: contain;
+    object-position: top;
+}
+

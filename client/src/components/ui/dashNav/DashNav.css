@@ -1,0 +1,74 @@
+.latNavBar {
+    background-color: #FDFCFB;
+    width: 256px;
+    height: 100vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.latNavBar .logoDash {
+    width: 147px;
+    margin-top: 24px;
+}
+
+.latNavBar .personalInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.latNavBar .personalInfo .logoProfile {
+    width: 77px;
+    margin-top: 36px;
+}
+
+.latNavBar .personalInfo .dashName {
+    color: #B39898;
+    font-size: 22px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.latNavBar .personalInfo .dashEmail {
+    color: #B39898;
+    font-size: 18px;
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+.latNavBar .dashLink {
+     border: none;
+    width: inherit;
+    padding: 16px 24px;
+    color: #B39898;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.latNavBar .buttonGroup {
+    width: inherit;
+}
+
+button {
+background-color: inherit;
+}
+
+.latNavBar .dashLink:hover {
+    background-color: white;
+    border-left: #FCCCD2 5px solid;
+    border-right: #FCCCD2 5px solid;
+    text-decoration: none;
+    padding: 16px 19px;
+
+}
+
+.latNavBar .dashLink img {
+    width: 15px;
+}

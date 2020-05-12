@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="76px" height="76px" viewBox="0 0 76 76" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ic-signup</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard" transform="translate(-254.000000, -158.000000)" fill="#FCCCD2" stroke="#FCCCD2">
+            <g id="lat-navbar" transform="translate(163.000000, 23.000000)">
+                <g id="ic-signup" transform="translate(91.000000, 133.000000)">
+                    <g id="Group" fill="none" transform="translate(0.000000, 2.105263)">
+                        <ellipse id="Oval" stroke-width="4.47999999" cx="38" cy="37.8947368" rx="35.76" ry="35.6547368"></ellipse>
+                        <ellipse id="Oval" stroke-width="4.47999999" cx="38" cy="29.7012802" rx="9.0572973" ry="9.02600285"></ellipse>
+                        <path  d="M18.4864865,67.5960171 L18.4864865,61.2948964 C18.4864865,54.5933867 24.0042744,49.1607397 30.8108108,49.1607397 L45.1891892,49.1607397 C51.9957256,49.1607397 57.5135135,54.5933867 57.5135135,61.2948964 L57.5135135,67.5960171" id="Path" stroke-width="4.47999999"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

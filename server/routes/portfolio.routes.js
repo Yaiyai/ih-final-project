@@ -3,6 +3,8 @@ const router = express.Router()
 const User = require('../models/user.model')
 const Portfolio = require('../models/portfolio.model')
 
+
+
 router.post('/createPortfolio', (req, res, next) => {
 	Portfolio.create(req.body)
 		.then((newPortfolio) => User.findByIdAndUpdate(req.user.id, { $push: { myPortfolios: newPortfolio.id } }))

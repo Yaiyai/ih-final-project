@@ -1,17 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const User = require('../models/user.model')
 const Cv = require('../models/mycv.model')
-const Info = require('../models/subdocs/extrainfo.model')
 
-router.post('/createCv', (req, res, next) => {
-    let newCV = {
-        owner: req.user.id,
-        title: req.body.title,
-        socialMedia: req.body.socialMedia,
-        skills: req.body.skills,
-        whatIveDone: req.body
-    }
+router.get('/findMyCvs', (req, res, next) => {
+	Cv.find({ owner: req.user.id })
+		.then((data) => res.json(data))
+		.catch((err) => new Error(err))
 })
 
 module.exports = router

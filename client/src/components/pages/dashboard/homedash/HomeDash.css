@@ -1,8 +1,12 @@
 .homeDash {
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
+    align-items: center;
+}
+
+.homeDash h4 {
+    color: #B39898;
 }
 
 .homeDash .welcomeBox {
@@ -20,4 +24,67 @@
 .homeDash .welcomeBox p {
     width: 400px;
     margin-top: 24px;
+}
+
+.homeDash .homePortfolios,
+.homeDash .homeCv {
+    border: 6px solid #FDFBFB;
+    border-radius: 20px;
+    padding: 32px;
+    margin: 32px 0;
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.homeDash .homePortfolios .everyPortfolio .eachPortfolio,
+.homeDash .homeCv .everyCv .eachCv {
+    background-color: #FDFBFB;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    padding: 24px;
+    width: 245px;
+    margin: 24px 24px 0 0;
+}
+
+.homeDash .homePortfolios .everyPortfolio .eachPortfolio.add,
+.homeDash .homeCv .everyCv .eachCv.add {
+    background-color: #F5F6F9;
+}
+
+.homeDash .homePortfolios .everyPortfolio .eachPortfolio figure,
+.homeDash .homeCv .everyCv .eachCv figure {
+    width: 44px;
+    height: 44px;
+    overflow: hidden;
+    margin: 0;
+}
+
+.homeDash .homePortfolios .everyPortfolio .eachPortfolio img,
+.homeDash .homeCv .everyCv .eachCv img {
+    object-fit: cover;
+    object-position: center;
+}
+
+.homeDash .homePortfolios .eachPortfolio .titlePortfolio,
+.homeDash .homeCv .everyCv .eachCv .titleCv {
+    color: #FCCCD2;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 21px;
+    margin: 0;
+    text-align: right;
+}
+
+.homeDash .homePortfolios .eachPortfolio .addPortfolio,
+.homeDash .homeCv .everyCv .eachCv .addCv {
+    color: #F0D1D2;
+    font-size: 18px;
+    letter-spacing: 0.34px;
+    line-height: 22px;
+    margin: 0;
 }

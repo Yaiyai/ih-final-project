@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PortfolioService from '../../../../service/portfolio.service'
+import CvService from '../../../../service/cv.service'
 
 import './HomeDash.css'
 
@@ -10,8 +11,10 @@ class dashHome extends Component {
 		super(props)
 		this.state = {
 			portfolios: [],
+			cvs: [],
 		}
 		this.portfolioService = new PortfolioService()
+		this.cvService = new CvService()
 	}
 
 	getMyPortfolios = () => {
@@ -22,9 +25,16 @@ class dashHome extends Component {
 			.then((response) => this.setState({ portfolios: response.data }))
 			.catch((err) => new Error(err))
 	}
+	getMyCv = () => {
+		this.cvService
+			.findMyCvs(this.props.loggedInDash._id)
+			.then((response) => this.setState({ cvs: response.data }))
+			.catch((err) => new Error(err))
+	}
 
 	componentDidMount = () => {
 		this.getMyPortfolios()
+		this.getMyCv()
 	}
 
 	render() {
@@ -42,14 +52,49 @@ class dashHome extends Component {
 							<img src='/imgs/dashboard/img-welcome.svg' alt='Cuentame más' />{' '}
 						</figure>
 					</Row>
+
 					<Row as='article' className='homePortfolios'>
-						<p>
-							dash home, aqui se verán los portfolios availables<br></br>
-						</p>
-						<p>-------</p>
-						{this.state.portfolios.map((portfolio, idx) => (
-							<p key={idx}>{portfolio.title}</p>
-						))}
+						<h4>Mis portfolios</h4>
+
+						<Row as='article' className='everyPortfolio'>
+							{this.state.portfolios.map((portfolio, idx) => (
+								<article className='eachPortfolio'>
+									<figure>
+										<img src='/imgs/ic/ic-signup.svg' alt='' />
+									</figure>
+									<p className='titlePortfolio'>{portfolio.title}</p>
+								</article>
+							))}
+
+							<div className='eachPortfolio add'>
+								<figure>
+									<img src='/imgs/ic/ic-addnew-portfolio.svg' alt='' />
+								</figure>
+								<p className='addPortfolio'>Nuevo Portfolio</p>
+							</div>
+						</Row>
+					</Row>
+
+					<Row as='article' className='homeCv'>
+						<h4>Mis CV</h4>
+
+						<Row as='article' className='everyCv'>
+							{this.state.cvs.map((cv, idx) => (
+								<article className='eachCv'>
+									<figure>
+										<img src='/imgs/ic/ic-signup.svg' alt='' />
+									</figure>
+									<p className='titleCv'>{cv.title}</p>
+								</article>
+							))}
+
+							<div className='eachCv add'>
+								<figure>
+									<img src='/imgs/ic/ic-addnew-portfolio.svg' alt='' />
+								</figure>
+								<p className='addCv'>Nuevo Cv</p>
+							</div>
+						</Row>
 					</Row>
 				</section>
 			</>

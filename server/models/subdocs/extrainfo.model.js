@@ -6,6 +6,10 @@ const extrainfoSchema = new Schema(
 		place: String,
 		duration: String,
 		experienceInfo: String,
+		typeOfInfo: {
+			type: 'String',
+			enum: ['Education','Job']
+		}
 	},
 	{
 		timestamps: true,

@@ -13,14 +13,31 @@ router.post('/signup', (req, res, next) => {
 	const email = req.body.email
 
 	if (!username || !password) {
-		res.status(400).json({ message: 'Provide username and password' })
+		res.status(400).json({ message: 'Rellena usuario y contraseña' })
 		return
 	}
 
 	if (password.length < 2) {
-		res.status(400).json({ message: 'Please make your password at least 8 characters long for security purposes.' })
+		res.status(400).json({ message: 'La contraseña debe tener mínimo 3 caracteres.' })
 		return
 	}
+
+	// User.findOne({ username })
+	// 	.then((foundUser) => {
+	// 		if (foundUser) {
+	// 			res.status(400).json({ message: 'Username taken. Choose another one.' })
+	// 			return
+	// 		} else {
+	// 			const salt = bcrypt.genSaltSync(10)
+	// 			const hashPass = bcrypt.hashSync(password, salt)
+	// 			return User.create({ username: username, email: email, password: hashPass })
+	// 		}
+	// 	})
+	// 	.catch(() => res.status(500).json({ message: 'Username check went bad.' }))
+	// 	.then((createdUser) => req.login(createdUser))
+	// 	.catch(() => res.status(400).json({ message: 'Login after signup went bad.' }))
+	// 	.then((loggedUser) => res.status(200).json(loggedUser))
+	// 	.catch(() => res.status(400).json({ message: 'Saving user to database went wrong.' }))
 
 	User.findOne({ username }, (err, foundUser) => {
 		if (err) {

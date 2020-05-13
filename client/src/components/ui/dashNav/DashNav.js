@@ -40,7 +40,7 @@ class DashNav extends Component {
 						<Link className='dashLink' to='/dashboard'>
 							dashboard <img src='/imgs/ic/ic-dashboard.svg' alt='' />
 						</Link>
-						<Link className='dashLink' to='/'>
+						<Link className='dashLink' to='/dashboard/cv'>
 							experiencia <img src='/imgs/ic/ic-cv.svg' alt='' />
 						</Link>
 						<Link className='dashLink' to='/'>

@@ -3,6 +3,7 @@ import PortfolioService from '../../../../service/portfolio.service'
 import CvService from '../../../../service/cv.service'
 
 import './HomeDash.css'
+import {Link} from 'react-router-dom'
 
 import Row from 'react-bootstrap/Row'
 
@@ -41,7 +42,6 @@ class dashHome extends Component {
 		return (
 			<>
 				<section className='homeDash'>
-					
 					<Row as='article' className='welcomeBox'>
 						<div>
 							<h4>Bienvenid@ {this.props.loggedInUser.name}</h4>
@@ -54,16 +54,19 @@ class dashHome extends Component {
 					</Row>
 
 					<Row as='article' className='homePortfolios'>
+						
 						<h4>Mis portfolios</h4>
 
 						<Row as='article' className='everyPortfolio'>
 							{this.state.portfolios.map((portfolio, idx) => (
-								<article key={idx} className='eachPortfolio'>
-									<figure>
-										<img src='/imgs/ic/ic-signup.svg' alt='' />
-									</figure>
-									<p className='titlePortfolio'>{portfolio.title}</p>
-								</article>
+								<Link key={idx} to=''>
+									<article className='eachPortfolio'>
+										<figure>
+											<img src='/imgs/ic/ic-signup.svg' alt='' />
+										</figure>
+										<p className='titlePortfolio'>{portfolio.title}</p>
+									</article>
+								</Link>
 							))}
 
 							<div className='eachPortfolio add'>
@@ -76,16 +79,19 @@ class dashHome extends Component {
 					</Row>
 
 					<Row as='article' className='homeCv'>
+						
 						<h4>Mis CV</h4>
 
 						<Row as='article' className='everyCv'>
 							{this.state.cvs.map((cv, idx) => (
-								<article key={idx} className='eachCv'>
-									<figure>
-										<img src='/imgs/ic/ic-signup.svg' alt='' />
-									</figure>
-									<p className='titleCv'>{cv.title}</p>
-								</article>
+								<Link key={idx} to={`/dashboard/cv/${cv._id}`}>
+									<article className='eachCv'>
+										<figure>
+											<img src='/imgs/ic/ic-signup.svg' alt='' />
+										</figure>
+										<p className='titleCv'>{cv.title}</p>
+									</article>
+								</Link>
 							))}
 
 							<div className='eachCv add'>

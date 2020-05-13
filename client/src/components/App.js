@@ -18,7 +18,7 @@ class App extends Component {
 		this.authService = new AuthServices()
 	}
 
-	setTheUser = (userObj) => this.setState({ loggedInUser: userObj }, () => console.log('El estado es', this.state.loggedInUser))
+	setTheUser = (userObj) => this.setState({ loggedInUser: userObj }, () => console.log('El estado es', this.state))
 
 	fetchUser = () => {
 		if (this.state.loggedInUser === null) {
@@ -38,13 +38,9 @@ class App extends Component {
 					<Route path='/' exact render={() => <Home />} />
 					<Route path='/signup' render={(props) => <Signup {...props} setTheUser={this.setTheUser} />} />
 					<Route path='/login' render={(props) => <Login {...props} setTheUser={this.setTheUser} />} />
-					{this.state.loggedInUser ? (
+					{this.state.loggedInUser && (
 						<>
 							<Route path='/dashboard' render={(props) => <Dashboard {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
-						</>
-					) : (
-						<>
-							<Route path='/dashboard' render={() => <Home />} />
 						</>
 					)}
 				</Switch>

@@ -9,6 +9,7 @@ class services {
 	}
 
 	findMyCvs = (userID) => this.service.get('/findMyCvs', userID)
+	findThisCv = (cvId) => this.service.get('/findThisCv', cvId)
 }
 
 export default services

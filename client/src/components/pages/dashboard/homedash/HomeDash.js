@@ -42,6 +42,7 @@ class dashHome extends Component {
 		return (
 			<>
 				<section className='homeDash'>
+					
 					<Row as='article' className='welcomeBox'>
 						<div>
 							<h4>Bienvenid@ {this.props.loggedInUser.name}</h4>

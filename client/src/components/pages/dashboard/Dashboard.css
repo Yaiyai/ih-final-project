@@ -1,5 +1,8 @@
 .dashPage {
     display: flex;
     justify-content: space-between;
-    height: 100vh;
+    max-height: 95vh;
+    overflow: scroll;
+    margin-top: 16px;
+
 }

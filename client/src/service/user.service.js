@@ -8,7 +8,7 @@ class services {
 		})
 	}
 
-	getUsers = () => this.service.get('/users')
+	editUser = (userId, editedUser) => this.service.post(`/updateUser/${userId}`, editedUser)
 }
 
 export default services

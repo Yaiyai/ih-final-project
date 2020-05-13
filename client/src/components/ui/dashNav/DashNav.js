@@ -28,16 +28,17 @@ class DashNav extends Component {
 						<figure className='logoProfile'>
 							{this.props.loggedInDash.avatar ? <img src={this.props.loggedInDash.avatar} alt='Cuentame más' /> : <img src='/imgs/ic/ic-signup.svg' alt='Cuentame más' />}
 						</figure>
-						<p className='dashName'>{`${this.props.loggedInDash.name} ${this.props.loggedInDash.lastName}`}</p>
+						{this.props.loggedInDash.name ? <p className='dashName'>{`${this.props.loggedInDash.name} ${this.props.loggedInDash.lastName}`}</p> : <p className='dashName'>Añade nombre</p>}
+
 						<p className='dashEmail'>{this.props.loggedInDash.email}</p>
+						<Link to='/dashboard/profile' className='myButton mini'>
+							Editar perfil
+						</Link>
 					</div>
 
 					<div className='buttonGroup'>
-						<Link className='dashLink' to='/'>
+						<Link className='dashLink' to='/dashboard'>
 							dashboard <img src='/imgs/ic/ic-dashboard.svg' alt='' />
-						</Link>
-						<Link className='dashLink' to='/'>
-							perfil <img src='/imgs/ic/ic-profile.svg' alt='' />
 						</Link>
 						<Link className='dashLink' to='/'>
 							experiencia <img src='/imgs/ic/ic-cv.svg' alt='' />

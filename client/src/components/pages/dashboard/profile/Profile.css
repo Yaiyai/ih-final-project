@@ -1,0 +1,24 @@
+.profilePage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 256px;
+    padding: 32px 64px;
+}
+
+.profilePage h4 {
+    color: #B39898;
+}
+
+.profilePage .profileImg {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 100px;
+}
+
+.profilePage .profileImg img {
+    object-fit: cover;
+    object-position: center;
+}

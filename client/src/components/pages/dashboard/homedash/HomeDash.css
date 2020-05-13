@@ -5,6 +5,9 @@
     align-items: center;
     justify-content: flex-start;
     margin-left: 256px;
+    background-image: url('/imgs/home/bkg.svg');
+    background-size: cover;
+
 }
 
 .homeDash h4 {
@@ -31,7 +34,7 @@
 .homeDash .homePortfolios,
 .homeDash .homeCv {
     border: 6px solid #FDFBFB;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     padding: 32px;
     margin: 16px 0;
@@ -44,8 +47,6 @@
 .homeDash .homePortfolios .everyPortfolio .eachPortfolio,
 .homeDash .homeCv .everyCv .eachCv {
     background-color: #FDFBFB;
-    background-color: white;
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;

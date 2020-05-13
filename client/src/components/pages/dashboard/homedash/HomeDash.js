@@ -18,8 +18,8 @@ class dashHome extends Component {
 	}
 
 	getMyPortfolios = () => {
-		console.log('username is', this.props.loggedInDash.username)
-		console.log('user id', this.props.loggedInDash._id)
+		// console.log('username is', this.props.loggedInDash.username)
+		// console.log('user id', this.props.loggedInDash._id)
 		this.portfolioService
 			.findMyPortfolios(this.props.loggedInDash._id)
 			.then((response) => this.setState({ portfolios: response.data }))
@@ -38,7 +38,6 @@ class dashHome extends Component {
 	}
 
 	render() {
-		console.log(this.state.portfolios)
 		return (
 			<>
 				<section className='homeDash'>
@@ -59,7 +58,7 @@ class dashHome extends Component {
 
 						<Row as='article' className='everyPortfolio'>
 							{this.state.portfolios.map((portfolio, idx) => (
-								<article className='eachPortfolio'>
+								<article key={idx} className='eachPortfolio'>
 									<figure>
 										<img src='/imgs/ic/ic-signup.svg' alt='' />
 									</figure>
@@ -81,7 +80,7 @@ class dashHome extends Component {
 
 						<Row as='article' className='everyCv'>
 							{this.state.cvs.map((cv, idx) => (
-								<article className='eachCv'>
+								<article key={idx} className='eachCv'>
 									<figure>
 										<img src='/imgs/ic/ic-signup.svg' alt='' />
 									</figure>

@@ -155,17 +155,26 @@ let myPortfolios = []
 let myEducationInfo = []
 let myJobsInfo = []
 
+let jobsPromise = ExtraInfo.create(jobsInfo)
+let educationPromise = ExtraInfo.create(educations)
+let portfoliosPromise = Portfolio.create(portfolios)
+let cvsPromise = MyCV.create(cvs)
+
 User.create(users)
 	.then((usersCreated) => usersCreated.forEach((user) => myUsers.push(user.id)))
-	.then(() => ExtraInfo.create(educations).then((educationsCreated) => educationsCreated.forEach((education) => myEducationInfo.push(education.id))))
-	.then(() => ExtraInfo.create(jobsInfo).then((jobsCreated) => jobsCreated.forEach((jobs) => myJobsInfo.push(jobs.id))))
-	.then(() => MyCV.create(cvs).then((cvsCreated) => cvsCreated.forEach((cv) => myCvs.push(cv.id))))
-	.then(() => Portfolio.create(portfolios).then((portfoliosCreated) => portfoliosCreated.forEach((protfolio) => myPortfolios.push(protfolio.id))))
+	.then(() => Promise.all([cvsPromise, portfoliosPromise, educationPromise, jobsPromise]))
+	.then((promises) => {
+		promises[0].forEach((cv) => myCvs.push(cv.id))
+		promises[1].forEach((portfolio) => myPortfolios.push(portfolio.id))
+		promises[2].forEach((education) => myEducationInfo.push(education.id))
+		promises[3].forEach((job) => myJobsInfo.push(job.id))
+	})
+	.then(() => MyCV.findByIdAndUpdate(myCvs[0], { owner: myUsers[0], education: [myEducationInfo[0], myEducationInfo[1]], jobs: [myJobsInfo[0], myJobsInfo[1]] }, { new: true }))
+	.then(() => MyCV.findByIdAndUpdate(myCvs[1], { owner: myUsers[1], education: [myEducationInfo[2]], jobs: [myJobsInfo[2]] }, { new: true }))
 
-	.then(() => MyCV.findByIdAndUpdate(myCvs[0], { owner: myUsers[0], education: [myEducationInfo[0], myEducationInfo[1]], jobs: [myJobsInfo[0], myJobsInfo[1]] }, { new: true }).then())
-	.then(() => MyCV.findByIdAndUpdate(myCvs[1], { owner: myUsers[1], education: [myEducationInfo[2]], jobs: [myJobsInfo[2]] }, { new: true }).then())
+	.then(() => Portfolio.findByIdAndUpdate(myPortfolios[0], { owner: myUsers[0] }, { new: true }))
+	.then(() => Portfolio.findByIdAndUpdate(myPortfolios[1], { owner: myUsers[1] }, { new: true }))
 
-	.then(() => Portfolio.findByIdAndUpdate(myPortfolios[0], { owner: myUsers[0] }, { new: true }).then())
-	.then(() => Portfolio.findByIdAndUpdate(myPortfolios[1], { owner: myUsers[1] }, { new: true }).then())
 	.then(() => mongoose.connection.close())
 	.catch((err) => new Error(err))
+

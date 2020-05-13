@@ -6,7 +6,8 @@ import './Dashboard.css'
 
 import { Switch, Route } from 'react-router-dom'
 
-import Row from 'react-bootstrap/Row'
+
+import HomeDash from './homedash/HomeDash'
 
 class Dashboard extends Component {
 	constructor(props) {
@@ -18,20 +19,7 @@ class Dashboard extends Component {
 			<>
 				<main className='dashPage'>
 					<DashNav {...this.props} setTheUser={this.props.setTheUser} loggedInDash={this.props.loggedInUser} />
-
-						<Row className='dashInfo' as='section'>
-							<article className='welcomeBox'>
-								<div>
-									<h4>Bienvenid@ {this.props.loggedInUser.name}</h4>
-									<p>Este es tu dashboard de usuario. En él encontrarás todos los portfolios creados hasta el momento.</p>
-									<p>¡Recuerda añadir tus trabajos para tener el portfolio a la última!</p>
-								</div>
-								<figure>
-									<img src='/imgs/dashboard/img-welcome.svg' alt='Cuentame más' />{' '}
-								</figure>
-							</article>
-					</Row>
-					
+					<HomeDash {...this.props} loggedInDash={this.props.loggedInUser} />
 				</main>
 				<Switch>
 					<Route to='/dasboard'></Route>

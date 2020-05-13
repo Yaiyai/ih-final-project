@@ -23,17 +23,15 @@ class Profile extends Component {
 
 	handleChange = (e) => {
 		const { name, value } = e.target
-		this.setState({
-			[name]: value,
-		})
+		this.setState({ [name]: value })
 	}
 
 	submitEdits = (e) => {
 		e.preventDefault()
 		this.userService
 			.editUser(this.props.loggedInDash._id, this.state)
-			.then((response) => {
-				this.setState(response.data)
+			.then(() => {
+				this.props.setTheUser(this.state)
 				this.props.history.push('/dashboard')
 			})
 			.catch((err) => new Error(err))

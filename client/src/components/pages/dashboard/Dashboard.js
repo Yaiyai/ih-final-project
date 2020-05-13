@@ -21,7 +21,7 @@ class Dashboard extends Component {
 
 					<Switch>
 						<Route exact path='/dashboard' render={() => <HomeDash {...this.props} loggedInDash={this.props.loggedInUser} />} />
-						<Route path='/dashboard/profile' render={() => <Profile {...this.props} loggedInDash={this.props.loggedInUser} />} />
+						<Route path='/dashboard/profile' render={() => <Profile {...this.props} setTheUser={this.props.setTheUser} loggedInDash={this.props.loggedInUser} />} />
 					</Switch>
 				</main>
 			</>

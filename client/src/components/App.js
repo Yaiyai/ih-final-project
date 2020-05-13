@@ -14,7 +14,7 @@ import Dashboard from './pages/dashboard/Dashboard'
 class App extends Component {
 	constructor() {
 		super()
-		this.state = { loggedInUser: false }
+		this.state = { loggedInUser: null }
 		this.authService = new AuthServices()
 	}
 
@@ -38,12 +38,15 @@ class App extends Component {
 					<Route path='/' exact render={() => <Home />} />
 					<Route path='/signup' render={(props) => <Signup {...props} setTheUser={this.setTheUser} />} />
 					<Route path='/login' render={(props) => <Login {...props} setTheUser={this.setTheUser} />} />
-					{/* {this.state.loggedInUser && (
+					{this.state.loggedInUser ? (
 						<>
 							<Route path='/dashboard' render={(props) => <Dashboard {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
 						</>
-					)} */}
-					<Route path='/dashboard' render={(props) => <Dashboard {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
+					) : (
+						<>
+							<Route path='/dashboard' render={() => <Home />} />
+						</>
+					)}
 				</Switch>
 			</>
 		)

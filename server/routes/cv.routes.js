@@ -7,8 +7,11 @@ router.get('/findMyCvs', (req, res, next) => {
 		.then((data) => res.json(data))
 		.catch((err) => new Error(err))
 })
-router.get('/findThisCv', (req, res, next) => {
+router.get('/findThisCv/:id', (req, res, next) => {
 	Cv.findById(req.params.id)
+		.populate('education')
+		.populate('jobs')
+		.populate('owner')
 		.then((data) => res.json(data))
 		.catch((err) => new Error(err))
 })

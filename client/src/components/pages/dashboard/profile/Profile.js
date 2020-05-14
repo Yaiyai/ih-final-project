@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import Row from 'react-bootstrap/Row'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
@@ -27,7 +26,7 @@ class Profile extends Component {
 	}
 
 	submitEdits = (e) => {
-		e.preventDefault()
+		// e.preventDefault()
 		this.userService
 			.editUser(this.props.loggedInDash._id, this.state)
 			.then(() => {

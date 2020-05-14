@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import DashNav from './../../ui/dashNav/DashNav'
 import Profile from './profile/Profile'
 import HomeDash from './homedash/HomeDash'
-import CvDets from './cv/CvDets'
+import Cv from './cv/CvDets'
 
 import './Dashboard.css'
 
@@ -22,8 +22,8 @@ class Dashboard extends Component {
 
 					<Switch>
 						<Route exact path='/dashboard' render={() => <HomeDash {...this.props} loggedInDash={this.props.loggedInUser} />} />
-						<Route path='/dashboard/profile' render={() => <Profile setTheUser={this.props.setTheUser} loggedInDash={this.props.loggedInUser} />} />
-						<Route path='/dashboard/cv/:id' render={(props) => <CvDets {...props} />} />
+						<Route path='/dashboard/profile' render={() => <Profile {...this.props} setTheUser={this.props.setTheUser} loggedInDash={this.props.loggedInUser} />} />
+						<Route path='/dashboard/cv/:id' render={(props) => <Cv {...props} />} />
 					</Switch>
 				</main>
 			</>

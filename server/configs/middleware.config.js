@@ -2,9 +2,10 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const cors = require('cors')
+require('dotenv').config()
 
 // CORS setup
-const whitelist = 'http://localhost:3000'
+const whitelist = process.env.DOMAIN
 const corsOptions = {
 	origin: (origin, cb) => {
 		const originIsWhitelisted = whitelist.includes(origin)

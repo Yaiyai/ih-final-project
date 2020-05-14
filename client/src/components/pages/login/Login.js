@@ -67,7 +67,7 @@ class Signup extends Component {
 					<p>
 						¿No tienes cuenta?{' '}
 						<Link className='mini-link' to='/signup'>
-							Registrarme
+							Iniciar sesión
 						</Link>
 					</p>
 				</Container>

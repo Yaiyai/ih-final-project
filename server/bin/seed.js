@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const mongoose = require('mongoose')
 const User = require('../models/user.model')
 const MyCV = require('../models/mycv.model')
@@ -8,11 +10,11 @@ const bcrypt = require('bcrypt')
 const bcryptSalt = 10
 const salt = bcrypt.genSaltSync(bcryptSalt)
 
-mongoose.connect(`mongodb://localhost/cuentamemasih`, { useNewUrlParser: true, useUnifiedTopology: true })
-User.collection.drop()
-MyCV.collection.drop()
-Portfolio.collection.drop()
-ExtraInfo.collection.drop()
+mongoose.connect(process.env.REMOTEDB, { useNewUrlParser: true, useUnifiedTopology: true })
+// User.collection.drop()
+// MyCV.collection.drop()
+// Portfolio.collection.drop()
+// ExtraInfo.collection.drop()
 
 const users = [
 	{
@@ -177,4 +179,3 @@ User.create(users)
 
 	.then(() => mongoose.connection.close())
 	.catch((err) => new Error(err))
-

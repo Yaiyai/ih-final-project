@@ -29,6 +29,8 @@ class Cv extends Component {
 
 	componentDidMount = () => {
 		this.getMyCv()
+		this.getMyJobs()
+		this.getMyEducations()
 	}
 
 	render() {

@@ -11,10 +11,10 @@ const bcryptSalt = 10
 const salt = bcrypt.genSaltSync(bcryptSalt)
 
 mongoose.connect(process.env.REMOTEDB, { useNewUrlParser: true, useUnifiedTopology: true })
-// User.collection.drop()
-// MyCV.collection.drop()
-// Portfolio.collection.drop()
-// ExtraInfo.collection.drop()
+User.collection.drop()
+MyCV.collection.drop()
+Portfolio.collection.drop()
+ExtraInfo.collection.drop()
 
 const users = [
 	{
@@ -171,11 +171,20 @@ User.create(users)
 		promises[2].forEach((education) => myEducationInfo.push(education.id))
 		promises[3].forEach((job) => myJobsInfo.push(job.id))
 	})
-	.then(() => MyCV.findByIdAndUpdate(myCvs[0], { owner: myUsers[0], education: [myEducationInfo[0], myEducationInfo[1]], jobs: [myJobsInfo[0], myJobsInfo[1]] }, { new: true }))
-	.then(() => MyCV.findByIdAndUpdate(myCvs[1], { owner: myUsers[1], education: [myEducationInfo[2]], jobs: [myJobsInfo[2]] }, { new: true }))
+	.then(() => MyCV.findByIdAndUpdate(myCvs[0], { owner: myUsers[0] }, { new: true }))
+	.then(() => MyCV.findByIdAndUpdate(myCvs[1], { owner: myUsers[1] }, { new: true }))
 
 	.then(() => Portfolio.findByIdAndUpdate(myPortfolios[0], { owner: myUsers[0] }, { new: true }))
 	.then(() => Portfolio.findByIdAndUpdate(myPortfolios[1], { owner: myUsers[1] }, { new: true }))
+
+	.then(() => ExtraInfo.findByIdAndUpdate(myEducationInfo[0], { cv: myCvs[0] }, { new: true }))
+	.then(() => ExtraInfo.findByIdAndUpdate(myEducationInfo[1], { cv: myCvs[0] }, { new: true }))
+	.then(() => ExtraInfo.findByIdAndUpdate(myEducationInfo[3], { cv: myCvs[1] }, { new: true }))
+	.then(() => ExtraInfo.findByIdAndUpdate(myEducationInfo[4], { cv: myCvs[1] }, { new: true }))
+
+	.then(() => ExtraInfo.findByIdAndUpdate(myJobsInfo[0], { cv: myCvs[0] }, { new: true }))
+	.then(() => ExtraInfo.findByIdAndUpdate(myJobsInfo[1], { cv: myCvs[0] }, { new: true }))
+	.then(() => ExtraInfo.findByIdAndUpdate(myJobsInfo[2], { cv: myCvs[1] }, { new: true }))
 
 	.then(() => mongoose.connection.close())
 	.catch((err) => new Error(err))

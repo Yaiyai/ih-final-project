@@ -5,7 +5,7 @@ const cors = require('cors')
 require('dotenv').config()
 
 // CORS setup
-const whitelist = process.env.DOMAIN
+const whitelist = [process.env.DOMAIN]
 const corsOptions = {
 	origin: (origin, cb) => {
 		const originIsWhitelisted = whitelist.includes(origin)

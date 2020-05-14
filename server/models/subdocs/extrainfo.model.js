@@ -8,8 +8,9 @@ const extrainfoSchema = new Schema(
 		experienceInfo: String,
 		typeOfInfo: {
 			type: 'String',
-			enum: ['Education','Job']
-		}
+			enum: ['Education', 'Job'],
+		},
+		cv: { type: Schema.Types.ObjectId, ref: 'myCV' },
 	},
 	{
 		timestamps: true,

@@ -21,7 +21,6 @@ router.post('/editCv/:id', (req, res, next) => {
 		title: req.body.title,
 		whatIveDone: req.body.whatIveDone,
 	}
-	console.log(newCv)
 
 	Cv.findByIdAndUpdate(req.params.id, newCv, { new: true })
 		.then((data) => res.json(data))

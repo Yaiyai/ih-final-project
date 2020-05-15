@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import DashNav from './../../ui/dashNav/DashNav'
 import Profile from './profile/Profile'
@@ -9,26 +9,22 @@ import './Dashboard.css'
 
 import { Switch, Route } from 'react-router-dom'
 
-class Dashboard extends Component {
-	constructor(props) {
-		super(props)
-	}
+const Dashboard = props => {
 
-	render() {
 		return (
 			<>
 				<main className='dashPage'>
-					<DashNav {...this.props} setTheUser={this.props.setTheUser} loggedInDash={this.props.loggedInUser} />
+					<DashNav {...props} setTheUser={props.setTheUser} loggedInDash={props.loggedInUser} />
 
 					<Switch>
-						<Route exact path='/dashboard' render={() => <HomeDash {...this.props} loggedInDash={this.props.loggedInUser} />} />
-						<Route path='/dashboard/profile' render={() => <Profile {...this.props} setTheUser={this.props.setTheUser} loggedInDash={this.props.loggedInUser} />} />
+						<Route exact path='/dashboard' render={() => <HomeDash {...props} loggedInDash={props.loggedInUser} />} />
+						<Route path='/dashboard/profile' render={() => <Profile {...props} setTheUser={props.setTheUser} loggedInDash={props.loggedInUser} />} />
 						<Route path='/dashboard/cv/:id' render={(props) => <Cv {...props} />} />
 					</Switch>
 				</main>
 			</>
 		)
 	}
-}
+
 
 export default Dashboard

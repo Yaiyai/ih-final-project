@@ -12,6 +12,7 @@ class Cv extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
+			modalId: 'skills',
 			modalShow: false,
 			newSkill: '',
 			cv: {
@@ -29,7 +30,29 @@ class Cv extends Component {
 		this.id = this.props.match.params.id
 	}
 
-	handleModal = (visible) => this.setState({ modalShow: visible })
+	handleModal = (visible, modalId) => this.setState({ modalShow: visible, modalId: modalId })
+
+	displayModal = (modalId) => {
+		if (this.state.modalShow) {
+			switch (modalId) {
+				case 'skills':
+					return (
+						<Form onSubmit={this.handleSkillSubmit}>
+							<Form.Group>
+								<Form.Label>Añadir Skill</Form.Label>
+								<Form.Control onChange={this.handleSkill} type='text' placeholder='Añadir Skill' />
+							</Form.Group>
+
+							<Button className='myButton' type='submit'>
+								Submit
+							</Button>
+						</Form>
+					)
+				case 'kike':
+					return <h1>ola kike ke ase</h1>
+			}
+		}
+	}
 
 	getMyCv() {
 		this.cvServices
@@ -102,21 +125,16 @@ class Cv extends Component {
 						<p key={idx}>{skill}</p>
 					))}
 
-					<button onClick={() => this.handleModal(true)} className='myButton'>
+					<button onClick={() => this.handleModal(true, 'skills')} className='myButton'>
 						Añadir Skill
 					</button>
 
-					<Modal show={this.state.modalShow}>
-						<Form onSubmit={this.handleSkillSubmit}>
-							<Form.Group>
-								<Form.Label>Añadir Skill</Form.Label>
-								<Form.Control onChange={this.handleSkill} type='text' placeholder='Añadir Skill' />
-							</Form.Group>
+					<button onClick={() => this.handleModal(true, 'kike')} className='myButton'>
+						Tal
+					</button>
 
-							<Button className='myButton' type='submit'>
-								Submit
-							</Button>
-						</Form>
+					<Modal show={this.state.modalShow}>
+						{this.displayModal(this.state.modalId)}
 
 						<button onClick={() => this.handleModal(false)}>cerrar</button>
 					</Modal>

@@ -40,7 +40,7 @@ class Signup extends Component {
 				this.props.setTheUser(response.data)
 				this.props.history.push('/login')
 			})
-			.catch((err) => err.response.status === 400 && this.setState({ errorMessage: err.response.data.message }))
+			.catch((err) => console.log(err))
 	}
 
 	render() {

@@ -10,6 +10,7 @@ class services {
 
 	findMyCvs = (userID) => this.service.get('/findMyCvs', userID)
 	findThisCv = (cvId) => this.service.get(`/findThisCv/${cvId}`)
+	editThisCv = (cvId, changes) => this.service.post(`/editCv/${cvId}`, changes)
 }
 
 export default services

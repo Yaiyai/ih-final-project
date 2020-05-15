@@ -14,4 +14,18 @@ router.get('/findThisCv/:id', (req, res, next) => {
 		.catch((err) => new Error(err))
 })
 
+router.post('/editCv/:id', (req, res, next) => {
+	let newCv = {
+		skills: req.body.skills,
+		socialMedia: req.body.socialMedia,
+		title: req.body.title,
+		whatIveDone: req.body.whatIveDone,
+	}
+	console.log(newCv)
+
+	Cv.findByIdAndUpdate(req.params.id, newCv, { new: true })
+		.then((data) => res.json(data))
+		.catch((err) => new Error(err))
+})
+
 module.exports = router

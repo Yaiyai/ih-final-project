@@ -13,6 +13,7 @@ class Cv extends Component {
 		super(props)
 		this.state = {
 			modalShow: false,
+			newSkill: '',
 			cv: {
 				socialMedia: [],
 				skills: [],
@@ -59,9 +60,31 @@ class Cv extends Component {
 		this.getMyEducations()
 	}
 
-	handleSkill = e => {
-		// const { name, value } = e.target
-		// this.setState({$push: {cv.skills: }})
+	handleSkill = (e) => {
+		let prueba = e.target.value
+
+		this.setState({ newSkill: prueba })
+	}
+
+	handleSkillSubmit = (e) => {
+		e.preventDefault()
+		let skill = this.state.newSkill
+		let skillsCopy = [...this.state.cv.skills, skill]
+
+		this.setState(
+			{
+				cv: {
+					...this.state.cv,
+					skills: skillsCopy,
+				},
+			},
+			() => {
+				this.cvServices
+					.editThisCv(this.id, this.state.cv)
+					.then(() => this.handleModal(false))
+					.catch((err) => new Error(err))
+			}
+		)
 	}
 
 	render() {
@@ -71,6 +94,10 @@ class Cv extends Component {
 					<p>{this.state.cv.owner.name}</p>
 					<p>{this.state.cv.title}</p>
 
+					{this.state.cv.socialMedia.map((sm, idx) => (
+						<p key={idx}>{sm}</p>
+					))}
+
 					{this.state.cv.skills.map((skill, idx) => (
 						<p key={idx}>{skill}</p>
 					))}
@@ -79,15 +106,14 @@ class Cv extends Component {
 						Añadir Skill
 					</button>
 
-					<Modal show={this.state.modalShow} onHide={() => this.handleModal(false)}>
-						<Form>
-
-							<Form.Group controlId='formBasicEmail'>
+					<Modal show={this.state.modalShow}>
+						<Form onSubmit={this.handleSkillSubmit}>
+							<Form.Group>
 								<Form.Label>Añadir Skill</Form.Label>
-								<Form.Control type='text' placeholder='Añadir Skill' value={this.state.cv.skills} />
+								<Form.Control onChange={this.handleSkill} type='text' placeholder='Añadir Skill' />
 							</Form.Group>
 
-							<Button variant='primary' type='submit'>
+							<Button className='myButton' type='submit'>
 								Submit
 							</Button>
 						</Form>
@@ -95,7 +121,6 @@ class Cv extends Component {
 						<button onClick={() => this.handleModal(false)}>cerrar</button>
 					</Modal>
 
-					{/* {this.state.eds && console.log(this.state.eds.place)} */}
 					{this.state.eds &&
 						this.state.eds.map((ed, idx) => (
 							<article key={idx}>

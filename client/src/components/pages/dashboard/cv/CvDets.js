@@ -12,9 +12,8 @@ class Cv extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			modalId: 'skills',
 			modalShow: false,
-			newSkill: '',
+			modalId: '',
 			cv: {
 				socialMedia: [],
 				skills: [],
@@ -37,10 +36,10 @@ class Cv extends Component {
 			switch (modalId) {
 				case 'skills':
 					return (
-						<Form onSubmit={this.handleSkillSubmit}>
+						<Form onSubmit={this.handleCv}>
 							<Form.Group>
 								<Form.Label>Añadir Skill</Form.Label>
-								<Form.Control onChange={this.handleSkill} type='text' placeholder='Añadir Skill' />
+								<Form.Control name='newSkill' onChange={this.handleChange} type='text' placeholder='Añadir Skill' />
 							</Form.Group>
 
 							<Button className='myButton' type='submit'>
@@ -48,8 +47,32 @@ class Cv extends Component {
 							</Button>
 						</Form>
 					)
-				case 'kike':
-					return <h1>ola kike ke ase</h1>
+				case 'social':
+					return (
+						<Form onSubmit={this.handleCv}>
+							<Form.Group>
+								<Form.Label>Añadir Red Social</Form.Label>
+								<Form.Control name='newSocial' onChange={this.handleChange} type='text' placeholder='Añadir Red Social' />
+							</Form.Group>
+
+							<Button className='myButton' type='submit'>
+								Submit
+							</Button>
+						</Form>
+					)
+				case 'title':
+					return (
+						<Form onSubmit={this.handleCv}>
+							<Form.Group>
+								<Form.Label>Cambiar título a tu Cv</Form.Label>
+								<Form.Control name='newTitle' onChange={this.handleChange} type='text' placeholder='Añadir Red Social' />
+							</Form.Group>
+
+							<Button className='myButton' type='submit'>
+								Submit
+							</Button>
+						</Form>
+					)
 			}
 		}
 	}
@@ -83,22 +106,24 @@ class Cv extends Component {
 		this.getMyEducations()
 	}
 
-	handleSkill = (e) => {
-		let prueba = e.target.value
-
-		this.setState({ newSkill: prueba })
+	handleChange = (e) => {
+		const { name, value } = e.target
+		this.setState({ [name]: value })
 	}
 
-	handleSkillSubmit = (e) => {
+	handleCv = (e) => {
 		e.preventDefault()
-		let skill = this.state.newSkill
-		let skillsCopy = [...this.state.cv.skills, skill]
+
+		let skillsCopy = [...this.state.cv.skills, this.state.newSkill]
+		let socialCopy = [...this.state.cv.socialMedia, this.state.newSocial]
 
 		this.setState(
 			{
 				cv: {
 					...this.state.cv,
 					skills: skillsCopy,
+					socialMedia: socialCopy,
+					title: this.state.newTitle,
 				},
 			},
 			() => {
@@ -117,20 +142,22 @@ class Cv extends Component {
 					<p>{this.state.cv.owner.name}</p>
 					<p>{this.state.cv.title}</p>
 
+					<button onClick={() => this.handleModal(true, 'title')} className='myButton'>
+						Editar título
+					</button>
 					{this.state.cv.socialMedia.map((sm, idx) => (
 						<p key={idx}>{sm}</p>
 					))}
 
+					<button onClick={() => this.handleModal(true, 'social')} className='myButton'>
+						Añadir Red Social
+					</button>
 					{this.state.cv.skills.map((skill, idx) => (
 						<p key={idx}>{skill}</p>
 					))}
 
 					<button onClick={() => this.handleModal(true, 'skills')} className='myButton'>
 						Añadir Skill
-					</button>
-
-					<button onClick={() => this.handleModal(true, 'kike')} className='myButton'>
-						Tal
 					</button>
 
 					<Modal show={this.state.modalShow}>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="10px" viewBox="0 0 13 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ic-addnew copy 4</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-18.000000, -171.000000)" fill="#B39898" fill-rule="nonzero">
+            <g id="ic-logout" transform="translate(12.000000, 164.000000)">
+                <g id="sign-out-alt-solid" fill="none" transform="translate(6.000000, 7.000000)">
+                    <path style="fill:#B39898" d="M12.425,5.25 L8.225,9.45 C7.85,9.825 7.2,9.5625 7.2,9.025 L7.2,6.625 L3.8,6.625 C3.4675,6.625 3.2,6.3575 3.2,6.025 L3.2,3.625 C3.2,3.2925 3.4675,3.025 3.8,3.025 L7.2,3.025 L7.2,0.625 C7.2,0.09 7.8475,-0.175 8.225,0.2 L12.425,4.4 C12.6575,4.635 12.6575,5.015 12.425,5.25 Z M4.8,9.325 L4.8,8.325 C4.8,8.16 4.665,8.025 4.5,8.025 L2.4,8.025 C1.9575,8.025 1.6,7.6675 1.6,7.225 L1.6,2.425 C1.6,1.9825 1.9575,1.625 2.4,1.625 L4.5,1.625 C4.665,1.625 4.8,1.49 4.8,1.325 L4.8,0.325 C4.8,0.16 4.665,0.025 4.5,0.025 L2.4,0.025 C1.075,0.025 0,1.1 0,2.425 L0,7.225 C0,8.55 1.075,9.625 2.4,9.625 L4.5,9.625 C4.665,9.625 4.8,9.49 4.8,9.325 Z" id="Shape" fill="#000000"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

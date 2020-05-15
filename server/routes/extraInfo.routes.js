@@ -2,13 +2,16 @@ const express = require('express')
 const router = express.Router()
 const ExtraInfo = require('./../models/subdocs/extrainfo.model')
 
-router.get('/getJobs/:id', (req, res, next) => {
+const checkAuth = (req, res, next) => (req.isAuthenticated() ? next() : res.redirect('/login'))
+
+router.get('/getJobs/:id', checkAuth, (req, res, next) => {
+	console.log(checkAuth)
 	ExtraInfo.find({ cv: req.params.id, typeOfInfo: 'Job' })
 		.then((data) => res.json(data))
 		.catch((err) => new Error(err))
 })
 
-router.get('/getEducations/:id', (req, res, next) => {
+router.get('/getEducations/:id', checkAuth, (req, res, next) => {
 	ExtraInfo.find({ cv: req.params.id, typeOfInfo: 'Education' })
 		.then((data) => res.json(data))
 		.catch((err) => new Error(err))
@@ -16,20 +19,28 @@ router.get('/getEducations/:id', (req, res, next) => {
 
 //Create more jobs or education
 
-router.post('/addJob/:id', (req, res, next) => {
-	let place = req.body.place
-	let duration = req.body.duration
+router.post('/addJob/:id', checkAuth, (req, res, next) => {
 
-	ExtraInfo.create({ place: place, duration: duration, typeOfInfo: 'Job', cv: req.params.id })
+	const newJob = {
+		place: req.body.place,
+		duration: req.body.duration,
+		typeOfInfo: 'Job',
+		cv: req.params.id
+	}
+
+	ExtraInfo.create(newJob)
 		.then((data) => res.json(data))
 		.catch((err) => new Error(err))
 })
 
-router.post('/addEducation/:id', (req, res, next) => {
-	let place = req.body.place
-	let duration = req.body.duration
-
-	ExtraInfo.create({ place: place, duration: duration, typeOfInfo: 'Education', cv: req.params.id })
+router.post('/addEducation/:id', checkAuth, (req, res, next) => {
+		const newEd = {
+			place: req.body.place,
+			duration: req.body.duration,
+			typeOfInfo: 'Job',
+			cv: req.params.id,
+		}
+	ExtraInfo.create(newEd)
 		.then((data) => res.json(data))
 		.catch((err) => new Error(err))
 })

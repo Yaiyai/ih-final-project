@@ -20,10 +20,10 @@ require('./configs/locals.config')(app)
 
 // Base URLS
 app.use('/api', require('./routes/auth.routes'))
-app.use('/api', require('./routes/user.routes'))
-app.use('/api', require('./routes/portfolio.routes'))
-app.use('/api', require('./routes/cv.routes'))
-app.use('/api', require('./routes/extraInfo.routes'))
+app.use('/api/user', require('./routes/user.routes'))
+app.use('/api/portfolio', require('./routes/portfolio.routes'))
+app.use('/api/cv', require('./routes/cv.routes'))
+app.use('/api/extraInfo', require('./routes/extraInfo.routes'))
 
 app.use((req, res) => {
 	res.sendFile(__dirname + '/public/index.html')

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import './App.css'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 import AuthServices from '../service/auth.service'
 
@@ -38,11 +38,7 @@ class App extends Component {
 					<Route path='/' exact render={() => <Home />} />
 					<Route path='/signup' render={(props) => <Signup {...props} setTheUser={this.setTheUser} />} />
 					<Route path='/login' render={(props) => <Login {...props} setTheUser={this.setTheUser} />} />
-					{this.state.loggedInUser && (
-						<>
-							<Route path='/dashboard' render={(props) => <Dashboard {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
-						</>
-					)}
+					<Route path='/dashboard' render={() => (this.state.loggedInUser ? <Dashboard setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} /> : <Redirect to='/login' />)} />
 				</Switch>
 			</>
 		)

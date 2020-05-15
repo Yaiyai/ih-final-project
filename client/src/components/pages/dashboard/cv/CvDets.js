@@ -36,7 +36,7 @@ class Cv extends Component {
 			switch (modalId) {
 				case 'skills':
 					return (
-						<Form onSubmit={this.handleCv}>
+						<Form onSubmit={this.handleClose}>
 							<Form.Group>
 								<Form.Label>Añadir Skill</Form.Label>
 								<Form.Control name='newSkill' onChange={this.handleChange} type='text' placeholder='Añadir Skill' />
@@ -49,7 +49,7 @@ class Cv extends Component {
 					)
 				case 'social':
 					return (
-						<Form onSubmit={this.handleCv}>
+						<Form onSubmit={this.handleClose}>
 							<Form.Group>
 								<Form.Label>Añadir Red Social</Form.Label>
 								<Form.Control name='newSocial' onChange={this.handleChange} type='text' placeholder='Añadir Red Social' />
@@ -62,10 +62,10 @@ class Cv extends Component {
 					)
 				case 'title':
 					return (
-						<Form onSubmit={this.handleCv}>
+						<Form onSubmit={this.handleClose}>
 							<Form.Group>
 								<Form.Label>Cambiar título a tu Cv</Form.Label>
-								<Form.Control name='newTitle' onChange={this.handleChange} type='text' placeholder='Añadir Red Social' />
+								<Form.Control name='newTitle' onChange={this.handleChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
 							</Form.Group>
 
 							<Button className='myButton' type='submit'>
@@ -73,10 +73,29 @@ class Cv extends Component {
 							</Button>
 						</Form>
 					)
+				case 'works':
+					return (
+						<>
+							<input name='newWork' type='file' onChange={this.handleUpload} />
+						</>
+					)
 			}
 		}
 	}
 
+	fileChangedHandler = (event) => {
+		this.setState({ newWork: event.target.files[0] })
+	}
+
+	handleUpload = (e) => {
+		const uploadData = new FormData()
+		uploadData.append('newWork', e.target.files[0])
+		console.log(e.target.files[0])
+		this.cvServices
+			.upload(uploadData)
+			.then((response) => this.setState({ ...this.state, newWork: response.data.secure_url }))
+			.catch((error) => console.error(error))
+	}
 	getMyCv() {
 		this.cvServices
 			.findThisCv(this.id)
@@ -108,30 +127,32 @@ class Cv extends Component {
 
 	handleChange = (e) => {
 		const { name, value } = e.target
-		this.setState({ [name]: value })
+		this.setState({ ...this.state, [name]: value })
+	}
+
+	handleClose = (e) => {
+		this.handleModal(false)
 	}
 
 	handleCv = (e) => {
 		e.preventDefault()
 
-		let skillsCopy = [...this.state.cv.skills, this.state.newSkill]
-		let socialCopy = [...this.state.cv.socialMedia, this.state.newSocial]
-
 		this.setState(
 			{
 				cv: {
 					...this.state.cv,
-					skills: skillsCopy,
-					socialMedia: socialCopy,
+					skills: [...this.state.cv.skills, this.state.newSkill],
+					socialMedia: [...this.state.cv.socialMedia, this.state.newSocial],
+					whatIveDone: [...this.state.cv.whatIveDone, this.state.newWork],
 					title: this.state.newTitle,
 				},
-			},
-			() => {
-				this.cvServices
-					.editThisCv(this.id, this.state.cv)
-					.then(() => this.handleModal(false))
-					.catch((err) => new Error(err))
 			}
+			// () => {
+			// 	this.cvServices
+			// 		.editThisCv(this.id, this.state.cv)
+			// 		.then(() => this.handleModal(false))
+			// 		.catch((err) => new Error(err))
+			// }
 		)
 	}
 
@@ -158,6 +179,9 @@ class Cv extends Component {
 
 					<button onClick={() => this.handleModal(true, 'skills')} className='myButton'>
 						Añadir Skill
+					</button>
+					<button onClick={this.handleCv} className='myButton'>
+						Guardar Cambios
 					</button>
 
 					<Modal show={this.state.modalShow}>
@@ -187,6 +211,9 @@ class Cv extends Component {
 					{this.state.cv.whatIveDone.map((work, idx) => (
 						<img key={idx} src={work} />
 					))}
+					<button onClick={() => this.handleModal(true, 'works')} className='myButton'>
+						Añadir Trabajos
+					</button>
 				</section>
 			</>
 		)

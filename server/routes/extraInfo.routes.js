@@ -5,7 +5,6 @@ const ExtraInfo = require('./../models/subdocs/extrainfo.model')
 const checkAuth = (req, res, next) => (req.isAuthenticated() ? next() : res.redirect('/login'))
 
 router.get('/getJobs/:id', checkAuth, (req, res, next) => {
-	console.log(checkAuth)
 	ExtraInfo.find({ cv: req.params.id, typeOfInfo: 'Job' })
 		.then((data) => res.json(data))
 		.catch((err) => new Error(err))

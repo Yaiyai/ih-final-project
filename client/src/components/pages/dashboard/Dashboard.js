@@ -14,7 +14,7 @@ const Dashboard = props => {
 		return (
 			<>
 				<main className='dashPage'>
-					<DashNav {...props} setTheUser={props.setTheUser} loggedInDash={props.loggedInUser} />
+					<DashNav setTheUser={props.setTheUser} loggedInDash={props.loggedInUser} />
 
 					<Switch>
 						<Route exact path='/dashboard' render={() => <HomeDash {...props} loggedInDash={props.loggedInUser} />} />

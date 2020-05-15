@@ -4,10 +4,15 @@ import CvServices from '../../../../service/cv.service'
 import InfoServices from '../../../../service/info.service'
 import './CvDets.css'
 
+import Modal from 'react-bootstrap/Modal'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+
 class Cv extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
+			modalShow: false,
 			cv: {
 				socialMedia: [],
 				skills: [],
@@ -22,6 +27,8 @@ class Cv extends Component {
 		this.infoServices = new InfoServices()
 		this.id = this.props.match.params.id
 	}
+
+	handleModal = (visible) => this.setState({ modalShow: visible })
 
 	getMyCv() {
 		this.cvServices
@@ -52,6 +59,11 @@ class Cv extends Component {
 		this.getMyEducations()
 	}
 
+	handleSkill = e => {
+		// const { name, value } = e.target
+		// this.setState({$push: {cv.skills: }})
+	}
+
 	render() {
 		return (
 			<>
@@ -63,6 +75,26 @@ class Cv extends Component {
 						<p key={idx}>{skill}</p>
 					))}
 
+					<button onClick={() => this.handleModal(true)} className='myButton'>
+						Añadir Skill
+					</button>
+
+					<Modal show={this.state.modalShow} onHide={() => this.handleModal(false)}>
+						<Form>
+
+							<Form.Group controlId='formBasicEmail'>
+								<Form.Label>Añadir Skill</Form.Label>
+								<Form.Control type='text' placeholder='Añadir Skill' value={this.state.cv.skills} />
+							</Form.Group>
+
+							<Button variant='primary' type='submit'>
+								Submit
+							</Button>
+						</Form>
+
+						<button onClick={() => this.handleModal(false)}>cerrar</button>
+					</Modal>
+
 					{/* {this.state.eds && console.log(this.state.eds.place)} */}
 					{this.state.eds &&
 						this.state.eds.map((ed, idx) => (
@@ -71,9 +103,7 @@ class Cv extends Component {
 								<p>{ed.duration}</p>
 								<p>{ed.experienceInfo}</p>
 							</article>
-						)) }
-					
-							
+						))}
 
 					{this.state.experience &&
 						this.state.experience.map((job, idx) => (
@@ -82,11 +112,11 @@ class Cv extends Component {
 								<p>{job.duration}</p>
 								<p>{job.experienceInfo}</p>
 							</article>
-						)) }
-					
-					{ this.state.cv.whatIveDone.map((work, idx) => 
-						<img key={idx} src={work}/>
-					) }
+						))}
+
+					{this.state.cv.whatIveDone.map((work, idx) => (
+						<img key={idx} src={work} />
+					))}
 				</section>
 			</>
 		)

@@ -4,6 +4,7 @@ import DashNav from './../../ui/dashNav/DashNav'
 import Profile from './profile/Profile'
 import HomeDash from './homedash/HomeDash'
 import Cv from './cv/CvDets'
+import T1 from './portfolios/templates/Template1'
 
 import './Dashboard.css'
 
@@ -19,6 +20,7 @@ const Dashboard = (props) => {
 					<Route exact path='/dashboard' render={() => <HomeDash {...props} loggedInDash={props.loggedInUser} />} />
 					<Route path='/dashboard/profile' render={() => <Profile {...props} setTheUser={props.setTheUser} loggedInDash={props.loggedInUser} />} />
 					<Route path='/dashboard/cv/:id' render={(props) => <Cv {...props} />} />
+					<Route path='/dashboard/portfolio/t1' render={(props) => <T1 {...props} />} />
 				</Switch>
 			</main>
 		</>

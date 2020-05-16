@@ -4,4 +4,8 @@
     max-height: 95vh;
     overflow: scroll;
     margin-top: 16px;
+    background-image: url('/imgs/home/bkg.svg');
+    background-size: cover;
+    background-attachment: scroll;
+
 }

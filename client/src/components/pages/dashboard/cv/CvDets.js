@@ -68,9 +68,9 @@ class Cv extends Component {
 			switch (modalId) {
 				case 'skills':
 					return (
-						<Form className='myForm' onSubmit={this.handleClose}>
+						<Form className='myForm' onSubmit={this.skillSubmit}>
 							<Form.Label className='form-label'>Añadir Skill</Form.Label>
-							<Form.Control className='form-input' name='newSkill' onChange={this.handleChange} type='text' placeholder='Añadir Skill' />
+							<Form.Control className='form-input' name='newSkill' onChange={this.handleSkill} type='text' placeholder='Añadir Skill' />
 							<Button className='form-button' type='submit'>
 								Añadir
 							</Button>
@@ -78,23 +78,10 @@ class Cv extends Component {
 					)
 				case 'social':
 					return (
-						<Form className='myForm' onSubmit={this.handleClose}>
+						<Form className='myForm' onSubmit={this.socialSubmit}>
 							<Form.Group>
 								<Form.Label className='form-label'>Añadir Red Social</Form.Label>
-								<Form.Control className='form-input' name='newSocial' onChange={this.handleChange} type='text' placeholder='Añadir Red Social' />
-							</Form.Group>
-
-							<Button className='form-button' type='submit'>
-								Añadir
-							</Button>
-						</Form>
-					)
-				case 'title':
-					return (
-						<Form className='myForm' onSubmit={this.handleClose}>
-							<Form.Group>
-								<Form.Label className='form-label'>Cambiar título a tu Cv</Form.Label>
-								<Form.Control className='form-input' name='newTitle' onChange={this.handleChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
+								<Form.Control className='form-input' name='newSocial' onChange={this.handleSocial} type='text' placeholder='Añadir Red Social' />
 							</Form.Group>
 
 							<Button className='form-button' type='submit'>
@@ -110,7 +97,7 @@ class Cv extends Component {
 					)
 				case 'education':
 					return (
-						<Form className='myForm' onSubmit={this.handleClose}>
+						<Form className='myForm' onSubmit={this.edSubmit}>
 							<Form.Group>
 								<Form.Label className='form-label'>Lugar de estudios</Form.Label>
 								<Form.Control className='form-input' name='place' onChange={this.handleEducationChange} type='text' placeholder='Lugar de estudios' />
@@ -131,7 +118,7 @@ class Cv extends Component {
 					)
 				case 'job':
 					return (
-						<Form className='myForm' onSubmit={this.handleClose}>
+						<Form className='myForm' onSubmit={this.jobSubmit}>
 							<Form.Group>
 								<Form.Label className='form-label'>Puesto en la empresa</Form.Label>
 								<Form.Control className='form-input' name='place' onChange={this.handleJobChange} type='text' placeholder='Lugar de estudios' />
@@ -151,7 +138,7 @@ class Cv extends Component {
 						</Form>
 					)
 				default:
-					return <h1>Holi</h1>
+					return <h1>¡Bug!</h1>
 			}
 		}
 	}
@@ -174,25 +161,59 @@ class Cv extends Component {
 			.catch((error) => console.error(error))
 	}
 
-	handleChange = (e) => {
+	handleSkill = (e) => {
 		const { name, value } = e.target
 		this.setState({ ...this.state, [name]: value })
 	}
 
-	handleEducationChange = (e) => {
-		let infoCopy = { ...this.state.edInfo }
+	skillSubmit = (e) => {
+		e.preventDefault()
+		console.log(this.state.newSkill)
+		this.setState({ cv: { ...this.state.cv, skills: [...this.state.cv.skills, this.state.newSkill] } }, () => this.handleModal(false))
+	}
+
+	handleSocial = (e) => {
 		const { name, value } = e.target
-		infoCopy = { ...infoCopy, [name]: value }
-		console.log(infoCopy)
-		this.setState({ edInfo: infoCopy })
+		this.setState({ ...this.state, [name]: value })
+	}
+
+	socialSubmit = (e) => {
+		e.preventDefault()
+		console.log(this.state.newSocial)
+		this.setState({ cv: { ...this.state.cv, socialMedia: [...this.state.cv.socialMedia, this.state.newSocial] } }, () => this.handleModal(false))
+	}
+
+	handleEducationChange = (e) => {
+		let edCopy = { ...this.state.edInfo }
+		const { name, value } = e.target
+		edCopy = { ...edCopy, [name]: value }
+		this.setState({ edInfo: edCopy })
+	}
+
+	edSubmit = (e) => {
+		e.preventDefault()
+		this.infoServices
+			.createEducation(this.id, this.state.edInfo)
+			.then(() => this.setState({ eds: [...this.state.eds, this.state.edInfo] }))
+			.then(() => this.handleModal(false))
+			.catch((err) => new Error(err))
 	}
 
 	handleJobChange = (e) => {
 		let jobCopy = { ...this.state.jobInfo }
 		const { name, value } = e.target
 		jobCopy = { ...jobCopy, [name]: value }
-		console.log(jobCopy)
+
 		this.setState({ jobInfo: jobCopy })
+	}
+	jobSubmit = (e) => {
+		e.preventDefault()
+		console.log(this.state.jobInfo)
+		this.infoServices
+			.createJob(this.id, this.state.jobInfo)
+			.then(() => this.setState({ experience: [...this.state.experience, this.state.jobInfo] }))
+			.then(() => this.handleModal(false))
+			.catch((err) => new Error(err))
 	}
 
 	handleClose = (e) => {
@@ -217,49 +238,43 @@ class Cv extends Component {
 		worksCopy.splice(idx, 1)
 		this.setState({ cv: { ...this.state.cv, whatIveDone: worksCopy } })
 	}
-	removeEducation = (idx) => {
-		let educationCopy = [...this.state.eds]
-		educationCopy.splice(idx, 1)
-		this.setState({ ...this.state, eds: educationCopy })
+	removeEducation = (idx, id) => {
+		this.infoServices
+			.deleteInfo(id)
+			.then(() => {
+				let educationCopy = [...this.state.eds]
+				educationCopy.splice(idx, 1)
+				this.setState({ ...this.state, eds: educationCopy })
+			})
+			.catch((err) => new Error(err))
 	}
-	removeJob = (idx) => {
-		let jobsCopy = [...this.state.eds]
-		jobsCopy.splice(idx, 1)
-		this.setState({ ...this.state, experience: jobsCopy })
+
+	removeJob = (idx, id) => {
+		this.infoServices
+			.deleteInfo(id)
+			.then(() => {
+				let jobsCopy = [...this.state.experience]
+				jobsCopy.splice(idx, 1)
+				this.setState({ ...this.state, experience: jobsCopy })
+			})
+			.catch((err) => new Error(err))
 	}
 
 	//send all changes to the DB
 
 	handleCv = (e) => {
 		e.preventDefault()
-
-		this.setState(
-			{
-				cv: {
-					...this.state.cv,
-					skills: [...this.state.cv.skills, this.state.newSkill],
-					socialMedia: [...this.state.cv.socialMedia, this.state.newSocial],
-					whatIveDone: this.state.cv.whatIveDone,
-				},
-				eds: [...this.state.eds, this.state.edInfo],
-				experience: [...this.state.experience, this.state.jobInfo],
-			},
-			() => {
-				let educationPromise = this.infoServices.createEducation(this.id, this.state.edInfo)
-				let jobPromise = this.infoServices.createJob(this.id, this.state.jobInfo)
-				let cvPromise = this.cvServices.editThisCv(this.id, this.state.cv)
-				Promise.all([educationPromise, jobPromise, cvPromise])
-					.then(() => this.handleModal(false))
-					.catch((err) => new Error(err))
-			}
-		)
+		this.cvServices
+			.editThisCv(this.id, this.state.cv)
+			.then(() => this.handleModal(false))
+			.catch((err) => new Error(err))
 	}
 
 	render() {
 		return (
 			<>
 				<section className='cvPage'>
-					<h2>¡Hola {this.state.cv.owner.name}!</h2>
+					{this.state.cv.owner && <h2>¡Hola {this.state.cv.owner.name}!</h2>}
 					<h6>Aquí puedes añadir y editar los elementos de tu CV</h6>
 
 					<section className='everySection'>
@@ -314,7 +329,7 @@ class Cv extends Component {
 										<h6>{ed.place}</h6>
 										<p>{ed.duration}</p>
 										<p>{ed.experienceInfo}</p>
-										<Button onClick={() => this.removeEducation(idx)} className='myButton mini outlined'>
+										<Button onClick={() => this.removeEducation(idx, ed._id)} className='myButton mini outlined'>
 											Borrar
 										</Button>
 									</article>
@@ -336,7 +351,7 @@ class Cv extends Component {
 										<h6>{job.place}</h6>
 										<p>{job.duration}</p>
 										<p>{job.experienceInfo}</p>
-										<Button onClick={() => this.removeJob(idx)} className='myButton mini outlined'>
+										<Button onClick={() => this.removeJob(idx, job._id)} className='myButton mini outlined'>
 											Borrar
 										</Button>
 									</article>
@@ -353,9 +368,9 @@ class Cv extends Component {
 						</article>
 						<Row as='article' className='workSection'>
 							{this.state.cv.whatIveDone.map((work, idx) => (
-								<article className='workTag'>
-									<figure className='workImage' key={idx}>
-										<img key={idx} src={work} />
+								<article key={idx} className='workTag'>
+									<figure className='workImage'>
+										<img key={idx} src={work} alt='' />
 									</figure>
 									<Button onClick={() => this.removeWork(idx)} className='myButton mini outlined'>
 										Borrar
@@ -369,7 +384,7 @@ class Cv extends Component {
 						Guardar Cambios
 					</button>
 
-					<Modal className='myModal' show={this.state.modalShow}>
+					<Modal className='myModal' show={this.state.modalShow} onHide={() => this.handleModal(false)}>
 						{this.displayModal(this.state.modalId)}
 
 						<button className='mini-link' onClick={() => this.handleModal(false)}>

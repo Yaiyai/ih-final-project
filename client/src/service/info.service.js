@@ -10,8 +10,9 @@ class services {
 
 	findJobs = (cvID) => this.service.get(`/getJobs/${cvID}`)
 	findEducations = (cvID) => this.service.get(`/getEducations/${cvID}`)
-	createJob = (cvID, { place, duration, experienceInfo }) => this.service.post(`/addJob/${cvID}`, { place, duration, experienceInfo })
-	createEducation = (cvID, { place, duration, experienceInfo }) => this.service.post(`/addEducation/${cvID}`, { place, duration, experienceInfo })
+	createJob = (cvID, theJob) => this.service.post(`/addJob/${cvID}`, theJob)
+	createEducation = (cvID, theEducation) => this.service.post(`/addEducation/${cvID}`, theEducation)
+	deleteInfo = (id) => this.service.post(`/delete/${id}`)
 }
 
 export default services

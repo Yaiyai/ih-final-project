@@ -4,20 +4,35 @@ import { Link } from 'react-router-dom'
 
 import './DashNav.css'
 import AuthService from './../../../service/auth.service'
+import CvService from '../../../service/cv.service'
 
 class DashNav extends Component {
 	constructor(props) {
 		super(props)
+		this.state = {
+			cv: '',
+		}
 		this.authServices = new AuthService()
+		this.cvService = new CvService()
 	}
 
 	logout = () => {
 		this.authServices
-
-		.logout()
+			.logout()
 			.then(() => this.props.setTheUser(false))
 			.then(() => this.props.history.push('/login'))
 			.catch((err) => new Error(err))
+	}
+
+	getMyCv = () => {
+		this.cvService
+			.findMyCvs(this.props.loggedInDash._id)
+			.then((response) => this.setState({ ...this.state, cv: response.data }))
+			.catch((err) => new Error(err))
+	}
+
+	componentDidMount = () => {
+		this.getMyCv()
 	}
 
 	render() {
@@ -43,10 +58,12 @@ class DashNav extends Component {
 						<Link className='dashLink' to='/dashboard'>
 							dashboard <img src='/imgs/ic/ic-dashboard.svg' alt='' />
 						</Link>
-						<Link className='dashLink' to='/dashboard/cv'>
-							experiencia <img src='/imgs/ic/ic-cv.svg' alt='' />
-						</Link>
-						<Link className='dashLink' to='#'>
+						{this.state.cv && (
+							<Link className='dashLink' to={`/dashboard/cv/${this.state.cv[0]._id}`}>
+								experiencia <img src='/imgs/ic/ic-cv.svg' alt='' />
+							</Link>
+						)}
+						<Link className='dashLink' to='/dashboard/portfolio/t1'>
 							portfolios <img src='/imgs/ic/ic-addnew.svg' alt='' />
 						</Link>
 					</div>

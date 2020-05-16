@@ -16,7 +16,6 @@ class Signup extends Component {
 		this.state = {
 			loginInfo: {
 				username: '',
-				email: '',
 				password: '',
 			},
 			errorMessage: '',
@@ -28,7 +27,7 @@ class Signup extends Component {
 		let loginInfoCopy = { ...this.state.loginInfo }
 		const { name, value } = e.target
 		loginInfoCopy = { ...loginInfoCopy, [name]: value }
-
+		console.log(loginInfoCopy)
 		this.setState({ loginInfo: loginInfoCopy })
 	}
 
@@ -52,12 +51,12 @@ class Signup extends Component {
 					<Form onSubmit={this.handleSubmit} className='my-form'>
 						<Form.Group>
 							<Form.Label className='form-label'>Username</Form.Label>
-							<Form.Control className='form-input' name='username' onChange={this.handleInputChange} value={this.state.username} type='text' placeholder='Introduce un nombre de usuario' />
+							<Form.Control className='form-input' name='username' onChange={this.handleInputChange} value={this.state.loginInfo.username} type='text' placeholder='Introduce un nombre de usuario' />
 						</Form.Group>
 
 						<Form.Group>
 							<Form.Label>Contraseña</Form.Label>
-							<Form.Control className='form-input' name='password' onChange={this.handleInputChange} value={this.state.password} type='password' placeholder='Contraseña' />
+							<Form.Control className='form-input' name='password' onChange={this.handleInputChange} value={this.state.loginInfo.password} type='password' placeholder='Contraseña' />
 						</Form.Group>
 
 						<Button className='form-button' type='submit'>

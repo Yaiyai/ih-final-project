@@ -19,28 +19,22 @@ router.get('/getEducations/:id', checkAuth, (req, res, next) => {
 //Create more jobs or education
 
 router.post('/addJob/:id', checkAuth, (req, res, next) => {
-	const newJob = {
-		place: req.body.place,
-		duration: req.body.duration,
-		experienceInfo: req.body.experienceInfo,
-		typeOfInfo: 'Job',
-		cv: req.params.id,
-	}
-
-	ExtraInfo.create(newJob)
+	const { place, duration, experienceInfo } = req.body
+	ExtraInfo.create({ place, duration, experienceInfo, typeOfInfo: 'Job', cv: req.params.id })
 		.then((data) => res.json(data))
 		.catch((err) => new Error(err))
 })
 
 router.post('/addEducation/:id', checkAuth, (req, res, next) => {
-	const newEd = {
-		place: req.body.place,
-		duration: req.body.duration,
-		experienceInfo: req.body.experienceInfo,
-		typeOfInfo: 'Education',
-		cv: req.params.id,
-	}
-	ExtraInfo.create(newEd)
+	const { place, duration, experienceInfo } = req.body
+	ExtraInfo.create({ place, duration, experienceInfo, typeOfInfo: 'Education', cv: req.params.id })
+		.then((data) => res.json(data))
+		.catch((err) => new Error(err))
+})
+
+//delete
+router.post('/delete/:id', checkAuth, (req, res, next) => {
+	ExtraInfo.findByIdAndRemove(req.params.id)
 		.then((data) => res.json(data))
 		.catch((err) => new Error(err))
 })

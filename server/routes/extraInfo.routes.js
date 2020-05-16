@@ -40,7 +40,6 @@ router.post('/addEducation/:id', checkAuth, (req, res, next) => {
 		typeOfInfo: 'Education',
 		cv: req.params.id,
 	}
-	console.log(newEd)
 	ExtraInfo.create(newEd)
 		.then((data) => res.json(data))
 		.catch((err) => new Error(err))

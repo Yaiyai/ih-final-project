@@ -13,7 +13,8 @@ class DashNav extends Component {
 
 	logout = () => {
 		this.authServices
-			.logout()
+
+		.logout()
 			.then(() => this.props.setTheUser(false))
 			.then(() => this.props.history.push('/login'))
 			.catch((err) => new Error(err))

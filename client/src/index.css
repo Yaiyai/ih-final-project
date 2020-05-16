@@ -56,6 +56,14 @@ p {
 
 }
 
+.myButton.mini.outlined {
+  color: #FF576F;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font-size: 12px;
+}
+
 footer {
   height: 60px;
   width: 100%;
@@ -69,6 +77,8 @@ footer p {
   line-height: 12px;
   text-align: center;
 }
+
+/* Modal syle handler */
 
 .modal-backdrop {
   background-color: #D9A5A6;

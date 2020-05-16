@@ -3,10 +3,90 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: flex-start;
     margin-left: 256px;
     padding: 32px 64px;
 }
 
-.cvPage .myModal .modal-content {
-    background-color: red;
+.cvPage .everySection {
+    width: inherit;
+    border: 6px solid #FDFBFB;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 24px 0;
+    border-radius: 20px;
+
+}
+
+.cvPage .everySection .sectionHead {
+    width: inherit;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cvPage .everySection .sectionHead h4 {
+    color: #B39898;
+    margin-right: 24px;
+}
+
+.cvPage .workSection,
+.cvPage .infoSection,
+.cvPage .skillSection,
+.cvPage .socialSection {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.cvPage .skillTag,
+.cvPage .socialTag {
+    background-color: #FDFBFB;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    padding: 16px;
+    border-radius: 10px;
+    margin: 12px 8px;
+}
+
+.cvPage .infoTag {
+    background-color: #FDFBFB;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 350px;
+    padding: 16px;
+    border-radius: 10px;
+    margin: 12px 8px;
+}
+
+.cvPage .workTag {
+    background-color: #FDFBFB;
+    padding: 24px;
+    margin: 12px 8px;
+    border-radius: 10px;
+}
+
+.cvPage .workImage {
+    width: 302px;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cvPage .workImage img {
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.cvPage .skillTag p,
+.cvPage .socialTag p {
+    margin: 0;
+
 }

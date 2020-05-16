@@ -19,12 +19,12 @@ router.get('/getEducations/:id', checkAuth, (req, res, next) => {
 //Create more jobs or education
 
 router.post('/addJob/:id', checkAuth, (req, res, next) => {
-
 	const newJob = {
 		place: req.body.place,
 		duration: req.body.duration,
+		experienceInfo: req.body.experienceInfo,
 		typeOfInfo: 'Job',
-		cv: req.params.id
+		cv: req.params.id,
 	}
 
 	ExtraInfo.create(newJob)
@@ -33,12 +33,14 @@ router.post('/addJob/:id', checkAuth, (req, res, next) => {
 })
 
 router.post('/addEducation/:id', checkAuth, (req, res, next) => {
-		const newEd = {
-			place: req.body.place,
-			duration: req.body.duration,
-			typeOfInfo: 'Job',
-			cv: req.params.id,
-		}
+	const newEd = {
+		place: req.body.place,
+		duration: req.body.duration,
+		experienceInfo: req.body.experienceInfo,
+		typeOfInfo: 'Education',
+		cv: req.params.id,
+	}
+	console.log(newEd)
 	ExtraInfo.create(newEd)
 		.then((data) => res.json(data))
 		.catch((err) => new Error(err))

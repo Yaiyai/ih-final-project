@@ -23,6 +23,8 @@ class Cv extends Component {
 			},
 			experience: [],
 			eds: [],
+			edInfo: {},
+			jobInfo: {},
 		}
 		this.cvServices = new CvServices()
 		this.infoServices = new InfoServices()
@@ -43,7 +45,7 @@ class Cv extends Component {
 							</Form.Group>
 
 							<Button className='myButton' type='submit'>
-								Submit
+								Añadir
 							</Button>
 						</Form>
 					)
@@ -56,7 +58,7 @@ class Cv extends Component {
 							</Form.Group>
 
 							<Button className='myButton' type='submit'>
-								Submit
+								Añadir
 							</Button>
 						</Form>
 					)
@@ -69,7 +71,7 @@ class Cv extends Component {
 							</Form.Group>
 
 							<Button className='myButton' type='submit'>
-								Submit
+								Añadir
 							</Button>
 						</Form>
 					)
@@ -79,6 +81,50 @@ class Cv extends Component {
 							<input name='newWork' type='file' onChange={this.handleUpload} />
 						</>
 					)
+				case 'education':
+					return (
+						<Form onSubmit={this.handleClose}>
+							<Form.Group>
+								<Form.Label>Lugar de estudios</Form.Label>
+								<Form.Control name='place' onChange={this.handleEducationChange} type='text' placeholder='Lugar de estudios' />
+							</Form.Group>
+							<Form.Group>
+								<Form.Label>Duración</Form.Label>
+								<Form.Control name='duration' onChange={this.handleEducationChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
+							</Form.Group>
+							<Form.Group>
+								<Form.Label>¿Qué aprendiste?</Form.Label>
+								<Form.Control name='experienceInfo' onChange={this.handleEducationChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
+							</Form.Group>
+
+							<Button className='myButton' type='submit'>
+								Añadir
+							</Button>
+						</Form>
+					)
+				case 'job':
+					return (
+						<Form onSubmit={this.handleClose}>
+							<Form.Group>
+								<Form.Label>Puesto en la empresa</Form.Label>
+								<Form.Control name='place' onChange={this.handleJobChange} type='text' placeholder='Lugar de estudios' />
+							</Form.Group>
+							<Form.Group>
+								<Form.Label>Duración</Form.Label>
+								<Form.Control name='duration' onChange={this.handleJobChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
+							</Form.Group>
+							<Form.Group>
+								<Form.Label>Cuéntanos tus tareas</Form.Label>
+								<Form.Control name='experienceInfo' onChange={this.handleJobChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
+							</Form.Group>
+
+							<Button className='myButton' type='submit'>
+								Añadir
+							</Button>
+						</Form>
+					)
+				default:
+					return <h1>Holi</h1>
 			}
 		}
 	}
@@ -130,6 +176,22 @@ class Cv extends Component {
 		this.setState({ ...this.state, [name]: value })
 	}
 
+	handleEducationChange = (e) => {
+		let infoCopy = { ...this.state.edInfo }
+		const { name, value } = e.target
+		infoCopy = { ...infoCopy, [name]: value }
+		console.log(infoCopy)
+		this.setState({ edInfo: infoCopy })
+	}
+
+	handleJobChange = (e) => {
+		let jobCopy = { ...this.state.jobInfo }
+		const { name, value } = e.target
+		jobCopy = { ...jobCopy, [name]: value }
+		console.log(jobCopy)
+		this.setState({ jobInfo: jobCopy })
+	}
+
 	handleClose = (e) => {
 		this.handleModal(false)
 	}
@@ -146,6 +208,15 @@ class Cv extends Component {
 					whatIveDone: [...this.state.cv.whatIveDone, this.state.newWork],
 					title: this.state.newTitle,
 				},
+				eds: [...this.state.eds, this.state.edInfo],
+				experience: [...this.state.experience, this.state.jobInfo],
+			},
+			() => {
+				let educationPromise = this.infoServices.createEducation(this.id, this.state.edInfo)
+				let jobPromise = this.infoServices.createJob(this.id, this.state.jobInfo)
+				Promise.all([educationPromise, jobPromise])
+					.then(() => this.handleModal(false))
+					.catch((err) => new Error(err))
 			}
 			// () => {
 			// 	this.cvServices
@@ -180,6 +251,7 @@ class Cv extends Component {
 					<button onClick={() => this.handleModal(true, 'skills')} className='myButton'>
 						Añadir Skill
 					</button>
+
 					<button onClick={this.handleCv} className='myButton'>
 						Guardar Cambios
 					</button>
@@ -199,6 +271,10 @@ class Cv extends Component {
 							</article>
 						))}
 
+					<button onClick={() => this.handleModal(true, 'education')} className='myButton'>
+						Añadir Educación
+					</button>
+
 					{this.state.experience &&
 						this.state.experience.map((job, idx) => (
 							<article key={idx}>
@@ -207,6 +283,9 @@ class Cv extends Component {
 								<p>{job.experienceInfo}</p>
 							</article>
 						))}
+					<button onClick={() => this.handleModal(true, 'job')} className='myButton'>
+						Añadir Experiencia
+					</button>
 
 					{this.state.cv.whatIveDone.map((work, idx) => (
 						<img key={idx} src={work} />

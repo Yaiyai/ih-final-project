@@ -38,39 +38,36 @@ class Cv extends Component {
 			switch (modalId) {
 				case 'skills':
 					return (
-						<Form onSubmit={this.handleClose}>
-							<Form.Group>
-								<Form.Label>Añadir Skill</Form.Label>
-								<Form.Control name='newSkill' onChange={this.handleChange} type='text' placeholder='Añadir Skill' />
-							</Form.Group>
-
-							<Button className='myButton' type='submit'>
+						<Form className='myForm' onSubmit={this.handleClose}>
+							<Form.Label className='form-label'>Añadir Skill</Form.Label>
+							<Form.Control className='form-input' name='newSkill' onChange={this.handleChange} type='text' placeholder='Añadir Skill' />
+							<Button className='form-button' type='submit'>
 								Añadir
 							</Button>
 						</Form>
 					)
 				case 'social':
 					return (
-						<Form onSubmit={this.handleClose}>
+						<Form className='myForm' onSubmit={this.handleClose}>
 							<Form.Group>
-								<Form.Label>Añadir Red Social</Form.Label>
-								<Form.Control name='newSocial' onChange={this.handleChange} type='text' placeholder='Añadir Red Social' />
+								<Form.Label className='form-label'>Añadir Red Social</Form.Label>
+								<Form.Control className='form-input' name='newSocial' onChange={this.handleChange} type='text' placeholder='Añadir Red Social' />
 							</Form.Group>
 
-							<Button className='myButton' type='submit'>
+							<Button className='form-button' type='submit'>
 								Añadir
 							</Button>
 						</Form>
 					)
 				case 'title':
 					return (
-						<Form onSubmit={this.handleClose}>
+						<Form className='myForm' onSubmit={this.handleClose}>
 							<Form.Group>
-								<Form.Label>Cambiar título a tu Cv</Form.Label>
-								<Form.Control name='newTitle' onChange={this.handleChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
+								<Form.Label className='form-label'>Cambiar título a tu Cv</Form.Label>
+								<Form.Control className='form-input' name='newTitle' onChange={this.handleChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
 							</Form.Group>
 
-							<Button className='myButton' type='submit'>
+							<Button className='form-button' type='submit'>
 								Añadir
 							</Button>
 						</Form>
@@ -78,47 +75,47 @@ class Cv extends Component {
 				case 'works':
 					return (
 						<>
-							<input name='newWork' type='file' onChange={this.handleUpload} />
+							<input className='form-upload' name='newWork' type='file' onChange={this.handleUpload} />
 						</>
 					)
 				case 'education':
 					return (
-						<Form onSubmit={this.handleClose}>
+						<Form className='myForm' onSubmit={this.handleClose}>
 							<Form.Group>
-								<Form.Label>Lugar de estudios</Form.Label>
-								<Form.Control name='place' onChange={this.handleEducationChange} type='text' placeholder='Lugar de estudios' />
+								<Form.Label className='form-label'>Lugar de estudios</Form.Label>
+								<Form.Control className='form-input' name='place' onChange={this.handleEducationChange} type='text' placeholder='Lugar de estudios' />
 							</Form.Group>
 							<Form.Group>
-								<Form.Label>Duración</Form.Label>
-								<Form.Control name='duration' onChange={this.handleEducationChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
+								<Form.Label className='form-label'>Duración</Form.Label>
+								<Form.Control className='form-input' name='duration' onChange={this.handleEducationChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
 							</Form.Group>
 							<Form.Group>
 								<Form.Label>¿Qué aprendiste?</Form.Label>
-								<Form.Control name='experienceInfo' onChange={this.handleEducationChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
+								<Form.Control className='form-input' name='experienceInfo' onChange={this.handleEducationChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
 							</Form.Group>
 
-							<Button className='myButton' type='submit'>
+							<Button className='form-button' type='submit'>
 								Añadir
 							</Button>
 						</Form>
 					)
 				case 'job':
 					return (
-						<Form onSubmit={this.handleClose}>
+						<Form className='myForm' onSubmit={this.handleClose}>
 							<Form.Group>
-								<Form.Label>Puesto en la empresa</Form.Label>
-								<Form.Control name='place' onChange={this.handleJobChange} type='text' placeholder='Lugar de estudios' />
+								<Form.Label className='form-label'>Puesto en la empresa</Form.Label>
+								<Form.Control className='form-input' name='place' onChange={this.handleJobChange} type='text' placeholder='Lugar de estudios' />
 							</Form.Group>
 							<Form.Group>
-								<Form.Label>Duración</Form.Label>
-								<Form.Control name='duration' onChange={this.handleJobChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
+								<Form.Label className='form-label'>Duración</Form.Label>
+								<Form.Control className='form-input' name='duration' onChange={this.handleJobChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
 							</Form.Group>
 							<Form.Group>
-								<Form.Label>Cuéntanos tus tareas</Form.Label>
-								<Form.Control name='experienceInfo' onChange={this.handleJobChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
+								<Form.Label className='form-label'>Cuéntanos tus tareas</Form.Label>
+								<Form.Control className='form-input' name='experienceInfo' onChange={this.handleJobChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
 							</Form.Group>
 
-							<Button className='myButton' type='submit'>
+							<Button className='form-button' type='submit'>
 								Añadir
 							</Button>
 						</Form>
@@ -210,17 +207,12 @@ class Cv extends Component {
 				},
 				eds: [...this.state.eds, this.state.edInfo],
 				experience: [...this.state.experience, this.state.jobInfo],
-			},
-			() => {
-				let educationPromise = this.infoServices.createEducation(this.id, this.state.edInfo)
-				let jobPromise = this.infoServices.createJob(this.id, this.state.jobInfo)
-				Promise.all([educationPromise, jobPromise])
-					.then(() => this.handleModal(false))
-					.catch((err) => new Error(err))
 			}
 			// () => {
-			// 	this.cvServices
-			// 		.editThisCv(this.id, this.state.cv)
+			// 	let educationPromise = this.infoServices.createEducation(this.id, this.state.edInfo)
+			// 	let jobPromise = this.infoServices.createJob(this.id, this.state.jobInfo)
+			// 	let cvPromise = this.cvServices.editThisCv(this.id, this.state.cv)
+			// 	Promise.all([educationPromise, jobPromise, cvPromise])
 			// 		.then(() => this.handleModal(false))
 			// 		.catch((err) => new Error(err))
 			// }
@@ -240,10 +232,10 @@ class Cv extends Component {
 					{this.state.cv.socialMedia.map((sm, idx) => (
 						<p key={idx}>{sm}</p>
 					))}
-
 					<button onClick={() => this.handleModal(true, 'social')} className='myButton'>
 						Añadir Red Social
 					</button>
+
 					{this.state.cv.skills.map((skill, idx) => (
 						<p key={idx}>{skill}</p>
 					))}
@@ -255,12 +247,6 @@ class Cv extends Component {
 					<button onClick={this.handleCv} className='myButton'>
 						Guardar Cambios
 					</button>
-
-					<Modal show={this.state.modalShow}>
-						{this.displayModal(this.state.modalId)}
-
-						<button onClick={() => this.handleModal(false)}>cerrar</button>
-					</Modal>
 
 					{this.state.eds &&
 						this.state.eds.map((ed, idx) => (
@@ -293,6 +279,13 @@ class Cv extends Component {
 					<button onClick={() => this.handleModal(true, 'works')} className='myButton'>
 						Añadir Trabajos
 					</button>
+					<Modal className='myModal' show={this.state.modalShow}>
+						{this.displayModal(this.state.modalId)}
+
+						<button className='mini-link' onClick={() => this.handleModal(false)}>
+							cerrar
+						</button>
+					</Modal>
 				</section>
 			</>
 		)

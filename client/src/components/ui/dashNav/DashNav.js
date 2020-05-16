@@ -12,8 +12,11 @@ class DashNav extends Component {
 	}
 
 	logout = () => {
-		this.props.setTheUser(false)
-		this.authServices.logout()
+		this.authServices
+			.logout()
+			.then(() => this.props.setTheUser(false))
+			.then(() => this.props.history.push('/login'))
+			.catch((err) => new Error(err))
 	}
 
 	render() {

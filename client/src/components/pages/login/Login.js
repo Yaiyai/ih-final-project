@@ -51,12 +51,12 @@ class Signup extends Component {
 					<Form onSubmit={this.handleSubmit} className='my-form'>
 						<Form.Group>
 							<Form.Label className='form-label'>Username</Form.Label>
-							<Form.Control className='form-input' name='username' onChange={this.handleInputChange} value={this.state.loginInfo.username} type='text' placeholder='Introduce un nombre de usuario' />
+							<Form.Control className='form-input' name='username' onChange={this.handleInputChange} type='text' placeholder='Introduce un nombre de usuario' />
 						</Form.Group>
 
 						<Form.Group>
 							<Form.Label>Contraseña</Form.Label>
-							<Form.Control className='form-input' name='password' onChange={this.handleInputChange} value={this.state.loginInfo.password} type='password' placeholder='Contraseña' />
+							<Form.Control className='form-input' name='password' onChange={this.handleInputChange} type='password' placeholder='Contraseña' />
 						</Form.Group>
 
 						<Button className='form-button' type='submit'>

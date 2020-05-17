@@ -10,6 +10,13 @@ router.get('/findMyCvs', checkAuth, (req, res, next) => {
 		.then((data) => res.json(data))
 		.catch((err) => new Error(err))
 })
+
+router.get('/findOneCv', checkAuth, (req, res, next) => {
+	Cv.findOne({ owner: req.user.id })
+		.then((data) => res.json(data))
+		.catch((err) => new Error(err))
+})
+
 router.get('/findThisCv/:id', checkAuth, (req, res, next) => {
 	Cv.findById(req.params.id)
 		.populate('owner')

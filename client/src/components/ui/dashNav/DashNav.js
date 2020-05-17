@@ -63,9 +63,12 @@ class DashNav extends Component {
 								experiencia <img src='/imgs/ic/ic-cv.svg' alt='' />
 							</Link>
 						)}
-						<Link className='dashLink' to='/dashboard/portfolio/t1'>
+						<Link className='dashLink' to='/dashboard/portfolio'>
 							portfolios <img src='/imgs/ic/ic-addnew.svg' alt='' />
 						</Link>
+						{/* <Link className='dashLink' to='/dashboard/portfolio/t1'>
+							portfolios <img src='/imgs/ic/ic-addnew.svg' alt='' />
+						</Link> */}
 					</div>
 					<button className='dashLink' onClick={this.logout}>
 						Cerrar Sesión <img src='/imgs/ic/ic-close.svg' alt='' />

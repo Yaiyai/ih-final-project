@@ -279,25 +279,6 @@ class Cv extends Component {
 
 					<section className='everySection'>
 						<article className='sectionHead'>
-							<h4>Mis redes Sociales</h4>
-							<button onClick={() => this.handleModal(true, 'social')} className='myButton mini outlined'>
-								Añadir
-							</button>
-						</article>
-						<Row className='socialSection' as='article'>
-							{this.state.cv.socialMedia.map((sm, idx) => (
-								<article key={idx} className='socialTag'>
-									<p>{sm}</p>
-									<Button onClick={() => this.removeSocial(idx)} className='myButton mini outlined'>
-										Borrar
-									</Button>
-								</article>
-							))}
-						</Row>
-					</section>
-
-					<section className='everySection'>
-						<article className='sectionHead'>
 							<h4>My skills</h4>
 							<button onClick={() => this.handleModal(true, 'skills')} className='myButton mini outlined'>
 								Añadir
@@ -308,6 +289,25 @@ class Cv extends Component {
 								<article key={idx} className='skillTag'>
 									<p>{skill}</p>
 									<Button onClick={() => this.removeSkill(idx)} className='myButton mini outlined'>
+										Borrar
+									</Button>
+								</article>
+							))}
+						</Row>
+					</section>
+
+					<section className='everySection'>
+						<article className='sectionHead'>
+							<h4>Mis redes Sociales</h4>
+							<button onClick={() => this.handleModal(true, 'social')} className='myButton mini outlined'>
+								Añadir
+							</button>
+						</article>
+						<Row className='socialSection' as='article'>
+							{this.state.cv.socialMedia.map((sm, idx) => (
+								<article key={idx} className='socialTag'>
+									<p>{sm}</p>
+									<Button onClick={() => this.removeSocial(idx)} className='myButton mini outlined'>
 										Borrar
 									</Button>
 								</article>

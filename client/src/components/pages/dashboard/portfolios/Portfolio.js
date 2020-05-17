@@ -12,7 +12,12 @@ class PortfolioCreator extends Component {
 			cv: '',
 			education: '',
 			experience: '',
-			portfolio: '',
+			portfolio: {
+				profile: '',
+				education: '',
+				experience: '',
+				works: '',
+			},
 		}
 		this.cvServices = new CvServices()
 		this.infoServices = new InfoServices()
@@ -32,6 +37,7 @@ class PortfolioCreator extends Component {
 	componentDidMount() {
 		this.getMyThings()
 	}
+
 	//Drag and Drop Methods
 	drop = (e) => {
 		e.preventDefault()
@@ -46,20 +52,89 @@ class PortfolioCreator extends Component {
 		e.preventDefault()
 	}
 
-	dragStart = (e) => {
+	dragStartWork = (e) => {
 		const target = e.target
 		e.dataTransfer.setData('card_id', target.id)
 
 		setTimeout(() => {
 			target.style.display = 'none'
-            target.className = 'prueba'
-            this.setState({ portfolio: [...this.state.portfolio, target.id] })
+			target.className = 'newAdd'
+			this.setState({
+				portfolio: {
+					...this.state.portfolio,
+					works: [...this.state.portfolio.works, target.id],
+				},
+			})
+		}, 0)
+	}
+	dragStartSkill = (e) => {
+		const target = e.target
+		e.dataTransfer.setData('card_id', target.id)
+
+		setTimeout(() => {
+			target.style.display = 'none'
+			target.className = 'newAdd'
+			this.setState({
+				portfolio: {
+					...this.state.portfolio,
+					profile: [...this.state.portfolio.profile, target.id],
+				},
+			})
+		}, 0)
+	}
+	dragStartEducation = (e) => {
+		const target = e.target
+		e.dataTransfer.setData('card_id', target.id)
+
+		setTimeout(() => {
+			target.style.display = 'none'
+			target.className = 'newAdd'
+			this.setState({
+				portfolio: {
+					...this.state.portfolio,
+					education: [...this.state.portfolio.education, target.id],
+				},
+			})
+		}, 0)
+	}
+	dragStartJob = (e) => {
+		const target = e.target
+		e.dataTransfer.setData('card_id', target.id)
+
+		setTimeout(() => {
+			target.style.display = 'none'
+			target.className = 'newAdd'
+			this.setState({
+				portfolio: {
+					...this.state.portfolio,
+					experience: [...this.state.portfolio.experience, target.id],
+				},
+			})
+		}, 0)
+	}
+	dragStartEducation = (e) => {
+		const target = e.target
+		e.dataTransfer.setData('card_id', target.id)
+
+		setTimeout(() => {
+			target.style.display = 'none'
+			target.className = 'newAdd'
+			this.setState({
+				portfolio: {
+					...this.state.portfolio,
+					education: [...this.state.portfolio.education, target.id],
+				},
+			})
 		}, 0)
 	}
 
 	dragOver = (e) => {
 		e.stopPropagation()
-	}
+    }
+    
+    createPortfolio = () => {
+        
+    }
 
 	render() {
 		return (
@@ -69,28 +144,28 @@ class PortfolioCreator extends Component {
 						<article className='selector'>
 							{this.state.cv &&
 								this.state.cv.whatIveDone.map((work, idx) => (
-									<figure onDragStart={this.dragStart} onDragOver={this.dragOver} id={work} key={idx} draggable='true' className='selectorTag'>
+									<figure onDragStart={this.dragStartWork} onDragOver={this.dragOver} id={work} key={idx} draggable='true' className='selectorTag'>
 										<img src={work} alt='' />
 									</figure>
 								))}
 
 							{this.state.cv &&
 								this.state.cv.socialMedia.map((social, idx) => (
-									<article onDragStart={this.dragStart} onDragOver={this.dragOver} id={social} draggable='true' key={idx} className='selectorTag'>
+									<article onDragStart={this.dragStartSkill} onDragOver={this.dragOver} id={social} draggable='true' key={idx} className='selectorTag'>
 										<p>{social}</p>
 									</article>
 								))}
 
 							{this.state.cv &&
 								this.state.cv.skills.map((skill, idx) => (
-									<article onDragStart={this.dragStart} onDragOver={this.dragOver} id={skill} draggable='true' key={idx} className='selectorTag'>
+									<article onDragStart={this.dragStartSkill} onDragOver={this.dragOver} id={skill} draggable='true' key={idx} className='selectorTag'>
 										<p>{skill}</p>
 									</article>
 								))}
 
 							{this.state.education &&
 								this.state.education.map((ed, idx) => (
-									<article onDragStart={this.dragStart} onDragOver={this.dragOver} id={ed} draggable='true' key={idx} className='selectorTag'>
+									<article onDragStart={this.dragStartEducation} onDragOver={this.dragOver} id={ed._id} draggable='true' key={idx} className='selectorTag'>
 										<h6>{ed.place}</h6>
 										<p>{ed.duration}</p>
 										<p>{ed.experienceInfo}</p>
@@ -99,7 +174,7 @@ class PortfolioCreator extends Component {
 
 							{this.state.experience &&
 								this.state.experience.map((job, idx) => (
-									<article onDragStart={this.dragStart} onDragOver={this.dragOver} id={job} draggable='true' key={idx} className='selectorTag'>
+									<article onDragStart={this.dragStartJob} onDragOver={this.dragOver} id={job._id} draggable='true' key={idx} className='selectorTag'>
 										<h6>{job.place}</h6>
 										<p>{job.duration}</p>
 										<p>{job.experienceInfo}</p>

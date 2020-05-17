@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PortfolioService from '../../../../service/portfolio.service'
 
 import './HomeDash.css'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Row from 'react-bootstrap/Row'
 
@@ -14,7 +14,6 @@ class dashHome extends Component {
 		}
 		this.portfolioService = new PortfolioService()
 	}
-
 
 	getMyPortfolios = () => {
 		this.portfolioService
@@ -43,12 +42,11 @@ class dashHome extends Component {
 					</Row>
 
 					<Row as='article' className='homePortfolios'>
-						
 						<h4>Mis portfolios</h4>
 
 						<Row as='article' className='everyPortfolio'>
 							{this.state.portfolios.map((portfolio, idx) => (
-								<Link key={idx} to=''>
+								<Link key={idx} to={`/portfolio/${portfolio._id}`}>
 									<article className='eachPortfolio'>
 										<figure>
 											<img src='/imgs/ic/ic-signup.svg' alt='' />
@@ -57,16 +55,16 @@ class dashHome extends Component {
 									</article>
 								</Link>
 							))}
-
-							<div className='eachPortfolio add'>
-								<figure>
-									<img src='/imgs/ic/ic-addnew-portfolio.svg' alt='' />
-								</figure>
-								<p className='addPortfolio'>Nuevo Portfolio</p>
-							</div>
+							<Link to='/dashboard/portfolio'>
+								<div className='eachPortfolio add'>
+									<figure>
+										<img src='/imgs/ic/ic-addnew-portfolio.svg' alt='' />
+									</figure>
+									<p className='addPortfolio'>Nuevo Portfolio</p>
+								</div>
+							</Link>
 						</Row>
 					</Row>
-
 				</section>
 			</>
 		)

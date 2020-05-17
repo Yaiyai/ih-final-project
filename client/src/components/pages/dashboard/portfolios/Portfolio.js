@@ -13,10 +13,10 @@ class PortfolioCreator extends Component {
 			education: '',
 			experience: '',
 			portfolio: {
-				profile: '',
-				education: '',
-				experience: '',
-				works: '',
+				profile: [],
+				education: [],
+				experience: [],
+				works: [],
 			},
 		}
 		this.cvServices = new CvServices()
@@ -135,6 +135,7 @@ class PortfolioCreator extends Component {
 	}
 
 	createPortfolio = () => {
+		console.log('hola')
 		this.portfolioServices
 			.createNew(this.props.loggedInDash._id, this.state.portfolio)
 			.then((response) => console.log(response))
@@ -150,27 +151,28 @@ class PortfolioCreator extends Component {
 					</button>
 					<section className='allElements'>
 						<article className='selector'>
+							<h6 className='sectionTitle'>Mis trabajos</h6>
 							{this.state.cv &&
 								this.state.cv.whatIveDone.map((work, idx) => (
 									<figure onDragStart={this.dragStartWork} onDragOver={this.dragOver} id={work} key={idx} draggable='true' className='selectorTag'>
 										<img src={work} alt='' />
 									</figure>
 								))}
-
+							<h6 className='sectionTitle'>Mis Redes Sociales</h6>
 							{this.state.cv &&
 								this.state.cv.socialMedia.map((social, idx) => (
 									<article onDragStart={this.dragStartSkill} onDragOver={this.dragOver} id={social} draggable='true' key={idx} className='selectorTag'>
 										<p>{social}</p>
 									</article>
 								))}
-
+							<h6 className='sectionTitle'>Mis Skills</h6>
 							{this.state.cv &&
 								this.state.cv.skills.map((skill, idx) => (
 									<article onDragStart={this.dragStartSkill} onDragOver={this.dragOver} id={skill} draggable='true' key={idx} className='selectorTag'>
 										<p>{skill}</p>
 									</article>
 								))}
-
+							<h6 className='sectionTitle'>Mi Eduacación</h6>
 							{this.state.education &&
 								this.state.education.map((ed, idx) => (
 									<article onDragStart={this.dragStartEducation} onDragOver={this.dragOver} id={ed._id} draggable='true' key={idx} className='selectorTag'>
@@ -179,7 +181,7 @@ class PortfolioCreator extends Component {
 										<p>{ed.experienceInfo}</p>
 									</article>
 								))}
-
+							<h6 className='sectionTitle'>Mi Experiencia</h6>
 							{this.state.experience &&
 								this.state.experience.map((job, idx) => (
 									<article onDragStart={this.dragStartJob} onDragOver={this.dragOver} id={job._id} draggable='true' key={idx} className='selectorTag'>

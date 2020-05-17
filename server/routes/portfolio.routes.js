@@ -10,9 +10,18 @@ router.get('/findMyPortfolios', checkAuth, (req, res, next) => {
 		.catch((err) => new Error(err))
 })
 
+router.get('/findThisPortfolio/:id', checkAuth, (req, res, next) => {
+	Portfolio.findById(req.params.id)
+		.populate('experience')
+		.populate('education')
+		.then((data) => res.json(data))
+		.catch((err) => new Error(err))
+})
+
 router.post('/newPortfolio/:id', checkAuth, (req, res, next) => {
 	const { profile, works, experience, education } = req.body
 	console.log({ profile, works, experience, education, owner: req.params.id })
+
 	Portfolio.create({ profile, works, experience, education, owner: req.params.id })
 		.then((data) => res.json(data))
 		.catch((err) => new Error(err))

@@ -32,6 +32,34 @@ class PortfolioCreator extends Component {
 	componentDidMount() {
 		this.getMyThings()
 	}
+	//Drag and Drop Methods
+	drop = (e) => {
+		e.preventDefault()
+		const tag = e.dataTransfer.getData('card_id')
+		const card = document.getElementById(tag)
+
+		card.style.display = 'block'
+		e.target.appendChild(card)
+	}
+
+	dragOverReceptor = (e) => {
+		e.preventDefault()
+	}
+
+	dragStart = (e) => {
+		const target = e.target
+		e.dataTransfer.setData('card_id', target.id)
+
+		setTimeout(() => {
+			target.style.display = 'none'
+            target.className = 'prueba'
+            this.setState({ portfolio: [...this.state.portfolio, target.id] })
+		}, 0)
+	}
+
+	dragOver = (e) => {
+		e.stopPropagation()
+	}
 
 	render() {
 		return (
@@ -41,28 +69,28 @@ class PortfolioCreator extends Component {
 						<article className='selector'>
 							{this.state.cv &&
 								this.state.cv.whatIveDone.map((work, idx) => (
-									<figure key={idx} className='selectorTag'>
-										<img src={work} alt='' srcset='' />
+									<figure onDragStart={this.dragStart} onDragOver={this.dragOver} id={work} key={idx} draggable='true' className='selectorTag'>
+										<img src={work} alt='' />
 									</figure>
 								))}
 
 							{this.state.cv &&
 								this.state.cv.socialMedia.map((social, idx) => (
-									<article key={idx} className='selectorTag'>
+									<article onDragStart={this.dragStart} onDragOver={this.dragOver} id={social} draggable='true' key={idx} className='selectorTag'>
 										<p>{social}</p>
 									</article>
 								))}
 
 							{this.state.cv &&
 								this.state.cv.skills.map((skill, idx) => (
-									<article key={idx} className='selectorTag'>
+									<article onDragStart={this.dragStart} onDragOver={this.dragOver} id={skill} draggable='true' key={idx} className='selectorTag'>
 										<p>{skill}</p>
 									</article>
 								))}
 
 							{this.state.education &&
 								this.state.education.map((ed, idx) => (
-									<article key={idx} className='selectorTag'>
+									<article onDragStart={this.dragStart} onDragOver={this.dragOver} id={ed} draggable='true' key={idx} className='selectorTag'>
 										<h6>{ed.place}</h6>
 										<p>{ed.duration}</p>
 										<p>{ed.experienceInfo}</p>
@@ -71,7 +99,7 @@ class PortfolioCreator extends Component {
 
 							{this.state.experience &&
 								this.state.experience.map((job, idx) => (
-									<article key={idx} className='selectorTag'>
+									<article onDragStart={this.dragStart} onDragOver={this.dragOver} id={job} draggable='true' key={idx} className='selectorTag'>
 										<h6>{job.place}</h6>
 										<p>{job.duration}</p>
 										<p>{job.experienceInfo}</p>
@@ -79,11 +107,21 @@ class PortfolioCreator extends Component {
 								))}
 						</article>
 						<article className='portfolioConstructor'>
-							<article className='endContainer'>Arrastra redes</article>
-							<article className='endContainer'>Arrastra skill</article>
-							<article className='endContainer'>Arrastra trayectoria profesional</article>
-							<article className='endContainer'>Arrastra educacion</article>
-							<article className='endContainer'>Arrastra works</article>
+							<article id='socialReceptor' onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
+								Arrastra redes
+							</article>
+							<article id='skillsReceptor' onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
+								Arrastra skill
+							</article>
+							<article id='jobsReceptor' onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
+								Arrastra trayectoria profesional
+							</article>
+							<article id='edsReceptor' onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
+								Arrastra educacion
+							</article>
+							<article id='worksReceptor' onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
+								Arrastra works
+							</article>
 						</article>
 					</section>
 				</main>

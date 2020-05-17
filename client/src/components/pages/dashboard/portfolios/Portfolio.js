@@ -67,6 +67,7 @@ class PortfolioCreator extends Component {
 			})
 		}, 0)
 	}
+
 	dragStartSkill = (e) => {
 		const target = e.target
 		e.dataTransfer.setData('card_id', target.id)
@@ -82,6 +83,7 @@ class PortfolioCreator extends Component {
 			})
 		}, 0)
 	}
+
 	dragStartEducation = (e) => {
 		const target = e.target
 		e.dataTransfer.setData('card_id', target.id)
@@ -130,16 +132,22 @@ class PortfolioCreator extends Component {
 
 	dragOver = (e) => {
 		e.stopPropagation()
-    }
-    
-    createPortfolio = () => {
-        
-    }
+	}
+
+	createPortfolio = () => {
+		this.portfolioServices
+			.createNew(this.props.loggedInDash._id, this.state.portfolio)
+			.then((response) => console.log(response))
+			.catch((err) => new Error(err))
+	}
 
 	render() {
 		return (
 			<>
 				<main className='portfolioCreator'>
+					<button className='myButton' onClick={this.createPortfolio}>
+						Crear Portfolio
+					</button>
 					<section className='allElements'>
 						<article className='selector'>
 							{this.state.cv &&

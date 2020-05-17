@@ -9,6 +9,7 @@ class services {
 	}
 
 	findMyPortfolios = (userID) => this.service.get('/findMyPortfolios', userID)
+	createNew = (userID, thePortfolio) => this.service.post(`/newPortfolio/${userID}`, thePortfolio)
 }
 
 export default services

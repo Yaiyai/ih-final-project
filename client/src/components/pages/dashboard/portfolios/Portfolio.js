@@ -14,12 +14,16 @@ class PortfolioCreator extends Component {
 			education: '',
 			experience: '',
 			portfolio: {
-				profile: [],
+				title: '',
+				skills: [],
+				socialMedia: [],
+				companyName: 'prueba',
+				companyAvatar: '',
 				education: [],
 				experience: [],
 				works: [],
 				avatar: '',
-				url: 'cuidao-que-molo',
+				url: '',
 			},
 		}
 		this.cvServices = new CvServices()
@@ -40,6 +44,22 @@ class PortfolioCreator extends Component {
 
 	componentDidMount() {
 		this.getMyThings()
+	}
+
+	handleChange = (e) => {
+		const { name, value } = e.target
+		this.setState({ ...this.state, [name]: value })
+	}
+	handleSubmit = (e) => {
+		e.preventDefault()
+		this.setState({
+			portfolio: {
+				...this.state.portfolio,
+				title: this.state.portfolioTitle,
+				companyName: this.state.companyName,
+				url: `${this.props.loggedInDash.name}-for-${this.state.companyName}`,
+			},
+		})
 	}
 
 	//Drag and Drop Methods
@@ -98,7 +118,23 @@ class PortfolioCreator extends Component {
 			this.setState({
 				portfolio: {
 					...this.state.portfolio,
-					profile: [...this.state.portfolio.profile, target.id],
+					skills: [...this.state.portfolio.skills, target.id],
+				},
+			})
+		}, 0)
+	}
+
+	dragStartSocial = (e) => {
+		const target = e.target
+		e.dataTransfer.setData('card_id', target.id)
+
+		setTimeout(() => {
+			target.style.display = 'none'
+			target.className = 'newAdd'
+			this.setState({
+				portfolio: {
+					...this.state.portfolio,
+					socialMedia: [...this.state.portfolio.socialMedia, target.id],
 				},
 			})
 		}, 0)
@@ -134,21 +170,6 @@ class PortfolioCreator extends Component {
 			})
 		}, 0)
 	}
-	// dragStartEducation = (e) => {
-	// 	const target = e.target
-	// 	e.dataTransfer.setData('card_id', target.id)
-
-	// 	setTimeout(() => {
-	// 		target.style.display = 'none'
-	// 		target.className = 'newAdd'
-	// 		this.setState({
-	// 			portfolio: {
-	// 				...this.state.portfolio,
-	// 				education: [...this.state.portfolio.education, target.id],
-	// 			},
-	// 		})
-	// 	}, 0)
-	// }
 
 	dragOver = (e) => {
 		e.stopPropagation()
@@ -168,6 +189,15 @@ class PortfolioCreator extends Component {
 					<button className='myButton' onClick={this.createPortfolio}>
 						Crear Portfolio
 					</button>
+
+					<form onSubmit={this.handleSubmit}>
+						<input name='portfolioTitle' onChange={this.handleChange} className='form-input' type='text' placeholder='introducre el titulo de tu portfolio' />
+						<input name='companyName' onChange={this.handleChange} className='form-input' type='text' placeholder='introduce el nombre de la empresa' />
+						<button type='submit' className='myButton'>
+							guardar datos
+						</button>
+					</form>
+
 					<section className='allElements'>
 						<article className='selector'>
 							<figure draggable='true' onDragStart={this.dragStartAvatar} onDragOver={this.dragOver} id={this.props.loggedInDash.avatar} className='selectorTag'>
@@ -184,7 +214,7 @@ class PortfolioCreator extends Component {
 							<h6 className='sectionTitle'>Mis Redes Sociales</h6>
 							{this.state.cv &&
 								this.state.cv.socialMedia.map((social, idx) => (
-									<article onDragStart={this.dragStartSkill} onDragOver={this.dragOver} id={social} draggable='true' key={idx} className='selectorTag'>
+									<article onDragStart={this.dragStartSocial} onDragOver={this.dragOver} id={social} draggable='true' key={idx} className='selectorTag'>
 										<p>{social}</p>
 									</article>
 								))}
@@ -215,27 +245,15 @@ class PortfolioCreator extends Component {
 								))}
 						</article>
 						<article className='portfolioConstructor'>
-							<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='creatorHeader'>
-								
-							</article>
+							<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='creatorHeader'></article>
 							<figure onDrop={this.drop} onDragOver={this.dragOverReceptor} className='avatarReceptor'></figure>
 
 							<article className='portfolioContent'>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
-									
-								</article>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
-									
-								</article>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
-									
-								</article>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
-									
-								</article>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer workReceptor'>
-									
-								</article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'></article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'></article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'></article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'></article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer workReceptor'></article>
 							</article>
 						</article>
 					</section>

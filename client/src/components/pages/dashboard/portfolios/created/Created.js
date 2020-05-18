@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import UrlServices from '../../../../../service/url.service'
+import { Link } from 'react-router-dom'
+
 
 import Container from 'react-bootstrap/Container'
 
@@ -10,10 +12,16 @@ class Created extends Component {
 		super(props)
 		this.state = {
 			portfolio: {
+				title: '',
+				skills: [],
+				socialMedia: [],
+				companyName: '',
+				companyAvatar: '',
 				education: [],
 				experience: [],
-				profile: [],
+				works: [],
 				avatar: '',
+				url: '',
 				owner: {},
 			},
 		}
@@ -24,7 +32,7 @@ class Created extends Component {
 	getThisPortfolio() {
 		this.urlService
 			.createPublicUrl(this.url)
-			.then((response) => this.setState({ ...this.state.portfolio, portfolio: response.data }))
+			.then((response) => this.setState({ portfolio: response.data }))
 			.catch((err) => new Error(err))
 	}
 	componentDidMount() {
@@ -32,21 +40,20 @@ class Created extends Component {
 	}
 
 	render() {
-		console.log(this.url)
 		return (
 			<>
+				{this.props.loggedInUser && <Link to="/dashboard" className="myButton">Volver al dashboard</Link>}
 				<main className='portfolioPage'>
 					<Container className='portfolioInfo'>
 						<h1>
-							Hola {this.state.portfolio.owner.name} Soy tu portfolio id {this.state.portfolio._id} que quieres enviarle a la empresa TAL
+							Hola {this.state.portfolio.owner.name} Soy tu portfolio id {this.state.portfolio._id} que quieres enviarle a la empresa {this.state.portfolio.companyName}
 						</h1>
-						<section className='ownerData'>
-						</section>
-							{this.state.portfolio.owner.avatar && (
-								<figure className="ownerAvatar">
-									<img src={this.state.portfolio.owner.avatar} alt=''/>
-								</figure>
-							)}
+						<section className='ownerData'></section>
+						{this.state.portfolio.owner.avatar && (
+							<figure className='ownerAvatar'>
+								<img src={this.state.portfolio.owner.avatar} alt='' />
+							</figure>
+						)}
 					</Container>
 				</main>
 				{/* {this.state.portfolio.experience &&

@@ -99,19 +99,19 @@ footer p {
 
 
 
-.myModal .form-label {
+.form-label {
   font-size: 14px;
   margin: 4px 0;
 }
 
-.myModal .form-input {
+.form-input {
   background-color: rgba(252, 204, 210, 0.1);
   border: none;
   border-bottom: solid #FCCCD2 2px;
   width: 368px;
 }
 
-.myModal .form-button {
+.form-button {
   background-color: #FF576F;
   border-radius: 50px;
   text-transform: uppercase;
@@ -124,7 +124,7 @@ footer p {
 }
 
 
-.myModal .form-input::placeholder {
+.form-input::placeholder {
   font-size: 12px;
 }
 

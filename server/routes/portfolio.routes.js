@@ -19,10 +19,8 @@ router.get('/findThisPortfolio/:id', checkAuth, (req, res, next) => {
 })
 
 router.post('/newPortfolio/:id', checkAuth, (req, res, next) => {
-	const { profile, works, experience, education, avatar, url } = req.body
-	console.log({ profile, works, experience, education, owner: req.params.id })
-
-	Portfolio.create({ profile, works, experience, education, avatar, url, owner: req.params.id })
+	const { companyName, companyAvatar, title, skills, socialMedia, works, url, experience, education, avatar } = req.body
+	Portfolio.create({ companyName, companyAvatar, title, skills, socialMedia, works, url, experience, education, avatar, owner: req.params.id })
 		.then((data) => res.json(data))
 		.catch((err) => new Error(err))
 })

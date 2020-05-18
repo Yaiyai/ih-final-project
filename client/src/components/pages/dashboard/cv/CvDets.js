@@ -168,7 +168,7 @@ class Cv extends Component {
 
 	skillSubmit = (e) => {
 		e.preventDefault()
-		console.log(this.state.newSkill)
+
 		this.setState({ cv: { ...this.state.cv, skills: [...this.state.cv.skills, this.state.newSkill] } }, () => this.handleModal(false))
 	}
 
@@ -179,7 +179,7 @@ class Cv extends Component {
 
 	socialSubmit = (e) => {
 		e.preventDefault()
-		
+
 		this.setState({ cv: { ...this.state.cv, socialMedia: [...this.state.cv.socialMedia, this.state.newSocial] } }, () => this.handleModal(false))
 	}
 

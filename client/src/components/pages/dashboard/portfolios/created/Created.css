@@ -1,0 +1,28 @@
+.portfolioPage {
+    background-image: url('/imgs/home/bkg.svg');
+    background-size: cover;
+}
+
+.portfolioInfo {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.portfolioPage .ownerData {
+    border: 6px solid #FDFBFB;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 32px;
+    margin: 16px 0;
+    width: 100%;
+    padding: 54px 0;
+}
+
+.portfolioPage .ownerAvatar {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 100px;
+    margin: -100px -200px 0 0 ;
+}

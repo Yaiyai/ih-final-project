@@ -134,21 +134,21 @@ class PortfolioCreator extends Component {
 			})
 		}, 0)
 	}
-	dragStartEducation = (e) => {
-		const target = e.target
-		e.dataTransfer.setData('card_id', target.id)
+	// dragStartEducation = (e) => {
+	// 	const target = e.target
+	// 	e.dataTransfer.setData('card_id', target.id)
 
-		setTimeout(() => {
-			target.style.display = 'none'
-			target.className = 'newAdd'
-			this.setState({
-				portfolio: {
-					...this.state.portfolio,
-					education: [...this.state.portfolio.education, target.id],
-				},
-			})
-		}, 0)
-	}
+	// 	setTimeout(() => {
+	// 		target.style.display = 'none'
+	// 		target.className = 'newAdd'
+	// 		this.setState({
+	// 			portfolio: {
+	// 				...this.state.portfolio,
+	// 				education: [...this.state.portfolio.education, target.id],
+	// 			},
+	// 		})
+	// 	}, 0)
+	// }
 
 	dragOver = (e) => {
 		e.stopPropagation()
@@ -216,25 +216,25 @@ class PortfolioCreator extends Component {
 						</article>
 						<article className='portfolioConstructor'>
 							<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='creatorHeader'>
-								Header
+								
 							</article>
 							<figure onDrop={this.drop} onDragOver={this.dragOverReceptor} className='avatarReceptor'></figure>
 
 							<article className='portfolioContent'>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer socialReceptor'>
-									Arrastra redes
-								</article>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer skillReceptor'>
-									Arrastra skill
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
+									
 								</article>
 								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
-									Arrastra trayectoria profesional
+									
 								</article>
 								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
-									Arrastra educacion
+									
+								</article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
+									
 								</article>
 								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer workReceptor'>
-									Arrastra works
+									
 								</article>
 							</article>
 						</article>

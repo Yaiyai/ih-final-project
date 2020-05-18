@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
 import UrlServices from '../../../../../service/url.service'
 
+import Container from 'react-bootstrap/Container'
+
+import './Created.css'
+
 class Created extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-            portfolio: {
-                education: [],
-                experience: [],
-                profile: [],
-                avatar: '',
+			portfolio: {
+				education: [],
+				experience: [],
+				profile: [],
+				avatar: '',
 				owner: {},
 			},
 		}
@@ -31,10 +35,21 @@ class Created extends Component {
 		console.log(this.url)
 		return (
 			<>
-				<h1>
-					Hola {this.state.portfolio.owner.name} Soy tu portfolio id {this.state.portfolio._id} que quieres enviarle a la empresa TAL
-				</h1>
-				{this.state.portfolio.experience &&
+				<main className='portfolioPage'>
+					<Container className='portfolioInfo'>
+						<h1>
+							Hola {this.state.portfolio.owner.name} Soy tu portfolio id {this.state.portfolio._id} que quieres enviarle a la empresa TAL
+						</h1>
+						<section className='ownerData'>
+						</section>
+							{this.state.portfolio.owner.avatar && (
+								<figure className="ownerAvatar">
+									<img src={this.state.portfolio.owner.avatar} alt=''/>
+								</figure>
+							)}
+					</Container>
+				</main>
+				{/* {this.state.portfolio.experience &&
 					this.state.portfolio.experience.map((job, idx) => (
 						<article key={idx}>
 							<p>{job.place}</p>
@@ -55,7 +70,7 @@ class Created extends Component {
 						<article key={idx}>
 							<p>{elm}</p>
 						</article>
-					))}
+					))} */}
 			</>
 		)
 	}

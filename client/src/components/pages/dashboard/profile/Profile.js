@@ -38,12 +38,11 @@ class Profile extends Component {
 	}
 
 	submitEdits = (e) => {
-		// e.preventDefault()
+		e.preventDefault()
 		this.userService
 			.editUser(this.props.loggedInDash._id, this.state)
-			.then(() => {
-				this.props.setTheUser(this.state)
-				this.props.history.push('/dashboard')
+			.then((response) => {
+				this.props.setTheUser(response.data)
 			})
 			.catch((err) => new Error(err))
 	}

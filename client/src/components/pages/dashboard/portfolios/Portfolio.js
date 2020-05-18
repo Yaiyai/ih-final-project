@@ -17,6 +17,7 @@ class PortfolioCreator extends Component {
 				education: [],
 				experience: [],
 				works: [],
+				avatar: '',
 			},
 		}
 		this.cvServices = new CvServices()
@@ -50,6 +51,22 @@ class PortfolioCreator extends Component {
 
 	dragOverReceptor = (e) => {
 		e.preventDefault()
+	}
+
+	dragStartAvatar = (e) => {
+		const target = e.target
+		e.dataTransfer.setData('card_id', target.id)
+
+		setTimeout(() => {
+			target.style.display = 'none'
+			target.className = 'newAvatar'
+			this.setState({
+				portfolio: {
+					...this.state.portfolio,
+					avatar: target.id,
+				},
+			})
+		}, 0)
 	}
 
 	dragStartWork = (e) => {
@@ -135,10 +152,9 @@ class PortfolioCreator extends Component {
 	}
 
 	createPortfolio = () => {
-		console.log('hola')
 		this.portfolioServices
 			.createNew(this.props.loggedInDash._id, this.state.portfolio)
-			.then((response) => console.log(response))
+			.then((response) => this.portfolioServices.createUrl(response.data._id, 'yaiza-mola'))
 			.catch((err) => new Error(err))
 	}
 
@@ -151,6 +167,10 @@ class PortfolioCreator extends Component {
 					</button>
 					<section className='allElements'>
 						<article className='selector'>
+							<figure draggable='true' onDragStart={this.dragStartAvatar} onDragOver={this.dragOver} id={this.props.loggedInDash.avatar} className='selectorTag'>
+								<img src={this.props.loggedInDash.avatar} alt='' />
+							</figure>
+
 							<h6 className='sectionTitle'>Mis trabajos</h6>
 							{this.state.cv &&
 								this.state.cv.whatIveDone.map((work, idx) => (
@@ -192,20 +212,26 @@ class PortfolioCreator extends Component {
 								))}
 						</article>
 						<article className='portfolioConstructor'>
-							<article id='socialReceptor' onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
-								Arrastra redes
+							<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='creatorHeader'>
+								Header
 							</article>
-							<article id='skillsReceptor' onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
-								Arrastra skill
-							</article>
-							<article id='jobsReceptor' onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
-								Arrastra trayectoria profesional
-							</article>
-							<article id='edsReceptor' onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
-								Arrastra educacion
-							</article>
-							<article id='worksReceptor' onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
-								Arrastra works
+							<figure onDrop={this.drop} onDragOver={this.dragOverReceptor} className='avatarReceptor'></figure>
+							<article className='portfolioContent'>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
+									Arrastra redes
+								</article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
+									Arrastra skill
+								</article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
+									Arrastra trayectoria profesional
+								</article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
+									Arrastra educacion
+								</article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
+									Arrastra works
+								</article>
 							</article>
 						</article>
 					</section>

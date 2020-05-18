@@ -21,7 +21,7 @@ const Dashboard = (props) => {
 					<Route exact path='/dashboard' render={() => <HomeDash {...props} loggedInDash={props.loggedInUser} />} />
 					<Route path='/dashboard/profile' render={() => <Profile {...props} setTheUser={props.setTheUser} loggedInDash={props.loggedInUser} />} />
 					<Route path='/dashboard/cv/:id' render={(props) => <Cv {...props} />} />
-					<Route path='/dashboard/portfolio' exact render={() => <PortfolioCreator {...props} loggedInDash={props.loggedInUser} />} />
+					<Route exact path='/dashboard/portfolio' render={() => <PortfolioCreator {...props} loggedInDash={props.loggedInUser} />} />
 					<Route path='/dashboard/portfolio/t1' render={(props) => <T1 {...props} />} />
 				</Switch>
 			</main>

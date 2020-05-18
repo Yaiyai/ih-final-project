@@ -19,13 +19,19 @@ router.get('/findThisPortfolio/:id', checkAuth, (req, res, next) => {
 })
 
 router.post('/newPortfolio/:id', checkAuth, (req, res, next) => {
-	const { profile, works, experience, education } = req.body
+	const { profile, works, experience, education, avatar } = req.body
 	console.log({ profile, works, experience, education, owner: req.params.id })
 
-	Portfolio.create({ profile, works, experience, education, owner: req.params.id })
+	Portfolio.create({ profile, works, experience, education, avatar, owner: req.params.id })
 		.then((data) => res.json(data))
 		.catch((err) => new Error(err))
 })
 
+//Gereate URL to share
+router.post('/createUrlPortfolio/:portfolioID/:newUrl', (req, res, next) => {
+	Portfolio.findByIdAndUpdate(req.params.portfolioID, { url: req.params.newUrl }, { new: true })
+		.then((data) => res.json(data))
+		.catch((err) => new Error(err))
+})
 
 module.exports = router

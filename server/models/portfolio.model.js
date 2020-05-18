@@ -10,6 +10,7 @@ const portfolioSchema = new Schema(
 		experience: [{ type: Schema.Types.ObjectId, ref: 'ExtraInfo' }],
 		works: Array,
 		url: String,
+		avatar: String,
 	},
 	{
 		timestamps: true,

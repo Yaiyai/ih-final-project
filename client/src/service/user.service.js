@@ -9,6 +9,7 @@ class services {
 	}
 
 	editUser = (userId, editedUser) => this.service.post(`/updateUser/${userId}`, editedUser)
+	upload = (picture) => this.service.post('/upload', picture)
 }
 
 export default services

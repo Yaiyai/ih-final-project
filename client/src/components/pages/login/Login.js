@@ -27,7 +27,6 @@ class Signup extends Component {
 		let loginInfoCopy = { ...this.state.loginInfo }
 		const { name, value } = e.target
 		loginInfoCopy = { ...loginInfoCopy, [name]: value }
-		console.log(loginInfoCopy)
 		this.setState({ loginInfo: loginInfoCopy })
 	}
 

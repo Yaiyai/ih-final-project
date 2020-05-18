@@ -16,8 +16,20 @@ class Profile extends Component {
 			lastName: this.props.loggedInDash.lastName,
 			email: this.props.loggedInDash.email,
 			phone: this.props.loggedInDash.phone,
+			avatar: this.props.loggedInDash.avatar,
 		}
 		this.userService = new UserServices()
+	}
+
+	handleUpload = (e) => {
+		const uploadData = new FormData()
+		uploadData.append('newAvatar', e.target.files[0])
+		console.log(e.target.files[0])
+		this.userService
+			.upload(uploadData)
+			.then((response) => this.setState({ ...this.state, newAvatar: response.data.secure_url }))
+			.then(() => this.setState({ ...this.state, avatar: this.state.newAvatar }))
+			.catch((error) => console.error(error))
 	}
 
 	handleChange = (e) => {
@@ -49,6 +61,7 @@ class Profile extends Component {
 							<Form.Label>Nombre de usuario</Form.Label>
 							<Form.Control name='username' type='text' onChange={this.handleChange} placeholder={this.props.loggedInDash.username} value={this.state.username} />
 						</Form.Group>
+						<input className='form-upload' name='newAvatar' type='file' onChange={this.handleUpload} />
 						<Form.Group>
 							<Form.Label>Email address</Form.Label>
 							<Form.Control name='email' type='email' onChange={this.handleChange} placeholder={this.props.loggedInDash.email} value={this.state.email} />

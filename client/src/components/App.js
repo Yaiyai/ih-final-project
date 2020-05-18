@@ -10,6 +10,7 @@ import Home from './pages/home/Home'
 import Signup from './pages/signup/signup'
 import Login from './pages/login/Login'
 import Dashboard from './pages/dashboard/Dashboard'
+import PortfolioCreated from './pages/dashboard/portfolios/created/Created'
 
 class App extends Component {
 	constructor() {
@@ -44,6 +45,7 @@ class App extends Component {
 							this.state.loggedInUser ? <Dashboard {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} /> : <Login {...props} setTheUser={this.setTheUser} />
 						}
 					/>
+					<Route path='/sharing/:url' render={(props) => <PortfolioCreated {...props} loggedInUser={this.state.loggedInUser} />} />
 				</Switch>
 			</>
 		)

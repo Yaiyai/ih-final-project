@@ -4,6 +4,7 @@ import './Portfolio.css'
 import CvServices from '../../../../service/cv.service'
 import InfoServices from '../../../../service/info.service'
 import PortfolioServices from '../../../../service/portfolio.service'
+import UrlServices from '../../../../service/url.service'
 
 class PortfolioCreator extends Component {
 	constructor(props) {
@@ -18,11 +19,13 @@ class PortfolioCreator extends Component {
 				experience: [],
 				works: [],
 				avatar: '',
+				url: 'cuidao-que-molo',
 			},
 		}
 		this.cvServices = new CvServices()
 		this.infoServices = new InfoServices()
 		this.portfolioServices = new PortfolioServices()
+		this.urlServices = new UrlServices()
 	}
 	getMyThings() {
 		this.cvServices
@@ -154,7 +157,7 @@ class PortfolioCreator extends Component {
 	createPortfolio = () => {
 		this.portfolioServices
 			.createNew(this.props.loggedInDash._id, this.state.portfolio)
-			.then((response) => this.portfolioServices.createUrl(response.data._id, 'yaiza-mola'))
+			.then((response) => this.props.history.push(`/sharing/${response.data.url}`))
 			.catch((err) => new Error(err))
 	}
 
@@ -216,11 +219,12 @@ class PortfolioCreator extends Component {
 								Header
 							</article>
 							<figure onDrop={this.drop} onDragOver={this.dragOverReceptor} className='avatarReceptor'></figure>
+
 							<article className='portfolioContent'>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer socialReceptor'>
 									Arrastra redes
 								</article>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer skillReceptor'>
 									Arrastra skill
 								</article>
 								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
@@ -229,7 +233,7 @@ class PortfolioCreator extends Component {
 								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
 									Arrastra educacion
 								</article>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer workReceptor'>
 									Arrastra works
 								</article>
 							</article>

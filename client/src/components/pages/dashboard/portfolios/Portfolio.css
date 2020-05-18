@@ -91,21 +91,22 @@
     background-color: lightblue;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     width: 100%;
     border-radius: 20px;
-    margin: 24px 0 0;
+    margin: 40px 0 0;
 }
 
-.portfolioCreator .allElements .portfolioConstructor .endContainer {
+.portfolioCreator .allElements .portfolioConstructor .portfolioContent .endContainer {
     width: 47%;
-    margin: 12px 0;
+    margin: 12px 1%;
     background-color: #FDFBFB;
     padding: 24px;
     min-height: 150px;
 
 }
 
-.portfolioCreator .allElements .portfolioConstructor .endContainer .newAdd {
+.portfolioCreator .allElements .portfolioConstructor .portfolioContent.endContainer .newAdd {
     border: solid 1px #FCCCD2;
     display: flex;
     flex-direction: column;

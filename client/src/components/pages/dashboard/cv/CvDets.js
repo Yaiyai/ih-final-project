@@ -179,7 +179,7 @@ class Cv extends Component {
 
 	socialSubmit = (e) => {
 		e.preventDefault()
-		console.log(this.state.newSocial)
+		
 		this.setState({ cv: { ...this.state.cv, socialMedia: [...this.state.cv.socialMedia, this.state.newSocial] } }, () => this.handleModal(false))
 	}
 

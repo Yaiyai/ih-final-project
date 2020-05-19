@@ -3,7 +3,7 @@ import axios from 'axios'
 class services {
 	constructor() {
 		this.service = axios.create({
-			baseURL: `${process.env.REACT_APP_API_URL}sharing`,
+			baseURL: `${process.env.REACT_APP_API_URL}/sharing`,
 			withCredentials: true,
 		})
 	}

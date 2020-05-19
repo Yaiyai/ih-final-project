@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="14px" viewBox="0 0 12 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ic-addnew copy 5</title>
+    <defs>
+        <path style="fill:#B39898" d="M12,12 C13.8910714,12 15.4285714,10.4304687 15.4285714,8.5 C15.4285714,6.56953125 13.8910714,5 12,5 C10.1089286,5 8.57142857,6.56953125 8.57142857,8.5 C8.57142857,10.4304687 10.1089286,12 12,12 Z M7.2,19 L16.8,19 C17.4642857,19 18,18.5296875 18,17.95 L18,16.9 C18,15.1609375 16.3875,13.75 14.4,13.75 C13.8214286,13.75 13.3982143,14.1875 12,14.1875 C10.5589286,14.1875 10.2107143,13.75 9.6,13.75 C7.6125,13.75 6,15.1609375 6,16.9 L6,17.95 C6,18.5296875 6.53571429,19 7.2,19 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-18.000000, -201.000000)" fill="#B39898">
+            <g id="ic-profile" transform="translate(12.000000, 196.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Shape" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

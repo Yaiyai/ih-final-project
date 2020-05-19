@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import UrlServices from '../../../../../service/url.service'
 import { Link } from 'react-router-dom'
 
-
 import Container from 'react-bootstrap/Container'
 
 import './Created.css'
@@ -42,42 +41,73 @@ class Created extends Component {
 	render() {
 		return (
 			<>
-				{this.props.loggedInUser && <Link to="/dashboard" className="myButton">Volver al dashboard</Link>}
-				<main className='portfolioPage'>
-					<Container className='portfolioInfo'>
-						<h1>
-							Hola {this.state.portfolio.owner.name} Soy tu portfolio id {this.state.portfolio._id} que quieres enviarle a la empresa {this.state.portfolio.companyName}
-						</h1>
-						<section className='ownerData'></section>
-						{this.state.portfolio.owner.avatar && (
-							<figure className='ownerAvatar'>
-								<img src={this.state.portfolio.owner.avatar} alt='' />
-							</figure>
-						)}
+				{this.props.loggedInUser && (
+					<Link to='/dashboard' className='myButton'>
+						Volver al dashboard
+					</Link>
+				)}
+				<main className='portfolio-page'>
+					<Container className='portfolio-info'>
+						<section className='section-bkg'>
+							<h2>
+								{this.state.portfolio.owner.name} {this.state.portfolio.owner.lastName}
+							</h2>
+							<article className='social-section'>
+								<span className='bar'>|</span>
+								{this.state.portfolio.socialMedia.map((sm, idx) => (
+									<>
+										<p className='social-tag' key={idx}>
+											{sm}
+										</p>
+										<span className='bar'>|</span>
+									</>
+								))}
+							</article>
+							<article className='skill-section'>
+								{this.state.portfolio.skills.map((skill, idx) => (
+									<p className='skill-tag'>{skill}</p>
+								))}
+							</article>
+						</section>
+
+						{this.state.portfolio.education ? (
+							<section className='section-bkg'>
+								<h3>Educación</h3>
+								{this.state.portfolio.education.map((ed, idx) => (
+									<article className='ed-tag' key={idx}>
+										<h6>{ed.place}</h6>
+										<small>{ed.duration}</small>
+										<p>{ed.experienceInfo}</p>
+									</article>
+								))}
+							</section>
+						) : null}
+
+						{this.state.portfolio.experience ? (
+							<section className='section-bkg'>
+								<h3>Trayectoria profesional</h3>
+								{this.state.portfolio.experience.map((job, idx) => (
+									<article className='job-tag' key={idx}>
+										<h6>{job.place}</h6>
+										<small>{job.duration}</small>
+										<p>{job.experienceInfo}</p>
+									</article>
+								))}
+							</section>
+						) : null}
+
+						<section className='section-bkg'>
+							<h3>Mis trabajos</h3>
+							<article className='work-section'>
+								{this.state.portfolio.works.map((work, idx) => (
+									<figure key={idx} className='work-tag'>
+										<img src={work} alt='' />
+									</figure>
+								))}
+							</article>
+						</section>
 					</Container>
 				</main>
-				{/* {this.state.portfolio.experience &&
-					this.state.portfolio.experience.map((job, idx) => (
-						<article key={idx}>
-							<p>{job.place}</p>
-							<p>{job.duration}</p>
-							<p>{job.experienceInfo}</p>
-						</article>
-					))}
-				{this.state.portfolio.education &&
-					this.state.portfolio.education.map((ed, idx) => (
-						<article key={idx}>
-							<p>{ed.place}</p>
-							<p>{ed.duration}</p>
-							<p>{ed.experienceInfo}</p>
-						</article>
-					))}
-				{this.state.portfolio.profile &&
-					this.state.portfolio.profile.map((elm, idx) => (
-						<article key={idx}>
-							<p>{elm}</p>
-						</article>
-					))} */}
 			</>
 		)
 	}

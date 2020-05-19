@@ -7,7 +7,7 @@ router.get('/:url', (req, res, next) => {
 		.populate('owner')
 		.populate('education')
 		.populate('experience')
-		.then((data) => res.json(data))
+		// .then((data) => res.json(data))
 		.catch((err) => new Error(err))
 })
 

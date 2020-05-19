@@ -25,11 +25,11 @@ router.post('/newPortfolio/:id', checkAuth, (req, res, next) => {
 		.catch((err) => new Error(err))
 })
 
-// //Gereate URL to share
-// router.post('/createUrlPortfolio/:portfolioID/:newUrl', (req, res, next) => {
-// 	Portfolio.findByIdAndUpdate(req.params.portfolioID, { url: req.params.newUrl }, { new: true })
-// 		.then((data) => res.json(data))
-// 		.catch((err) => new Error(err))
-// })
+router.post('/delete/:id', checkAuth, (req, res, next) => {
+	Portfolio.findByIdAndRemove(req.params.id)
+		.then((data) => res.json(data))
+		.catch((err) => new Error(err))
+})
+
 
 module.exports = router

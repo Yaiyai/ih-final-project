@@ -22,6 +22,17 @@ class dashHome extends Component {
 			.catch((err) => new Error(err))
 	}
 
+	deletePortfolio = (idx, id) => {
+		this.portfolioService
+			.deletePortfolio(id)
+			.then(() => {
+				let portfolioCopy = [...this.state.portfolios]
+				portfolioCopy.splice(idx, 1)
+				this.setState({ ...this.state, portfolios: portfolioCopy })
+			})
+			.catch((err) => new Error(err))
+	}
+
 	componentDidMount = () => {
 		this.getMyPortfolios()
 	}
@@ -46,14 +57,17 @@ class dashHome extends Component {
 
 						<Row as='article' className='everyPortfolio'>
 							{this.state.portfolios.map((portfolio, idx) => (
-								<Link key={idx} to={`/sharing/${portfolio.url}`}>
+								<>
 									<article className='eachPortfolio'>
-										<figure>
-											<img src='/imgs/ic/ic-signup.svg' alt='' />
-										</figure>
-										<p className='titlePortfolio'>{portfolio.title}</p>
+										<Link key={idx} to={`/sharing/${portfolio.url}`}>
+											<figure>
+												<img src='/imgs/ic/ic-signup.svg' alt='' />
+											</figure>
+											<p className='titlePortfolio'>{portfolio.title}</p>
+										</Link>
+										<button onClick={() => this.deletePortfolio(idx, portfolio._id)}>borrar</button>
 									</article>
-								</Link>
+								</>
 							))}
 							<Link to='/dashboard/portfolio'>
 								<div className='eachPortfolio add'>

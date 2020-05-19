@@ -29,8 +29,7 @@
     margin-top: 24px;
 }
 
-.homeDash .homePortfolios,
-.homeDash .homeCv {
+.homeDash .homePortfolios{
     border: 6px solid #FDFBFB;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
@@ -42,8 +41,7 @@
 }
 
 
-.homeDash .homePortfolios .everyPortfolio .eachPortfolio,
-.homeDash .homeCv .everyCv .eachCv {
+.homeDash .homePortfolios .everyPortfolio .eachPortfolio{
     background-color: #FDFBFB;
     display: flex;
     flex-direction: row;
@@ -55,34 +53,29 @@
     margin: 24px 24px 0 0;
 }
 
-.homeDash .homePortfolios .everyPortfolio .eachPortfolio:hover,
-.homeDash .homeCv .everyCv .eachCv:hover {
+.homeDash .homePortfolios .everyPortfolio .eachPortfolio:hover {
     border: 6px solid #B39898;
     padding: 18px;
     color: #B39898;
 }
 
-.homeDash .homePortfolios .everyPortfolio .eachPortfolio.add,
-.homeDash .homeCv .everyCv .eachCv.add {
+.homeDash .homePortfolios .everyPortfolio .eachPortfolio.add{
     background-color: #F5F6F9;
 }
 
-.homeDash .homePortfolios .everyPortfolio .eachPortfolio figure,
-.homeDash .homeCv .everyCv .eachCv figure {
+.homeDash .homePortfolios .everyPortfolio .eachPortfolio figure{
     width: 44px;
     height: 44px;
     overflow: hidden;
     margin: 0;
 }
 
-.homeDash .homePortfolios .everyPortfolio .eachPortfolio img,
-.homeDash .homeCv .everyCv .eachCv img {
+.homeDash .homePortfolios .everyPortfolio .eachPortfolio img{
     object-fit: cover;
     object-position: center;
 }
 
-.homeDash .homePortfolios .eachPortfolio .titlePortfolio,
-.homeDash .homeCv .everyCv .eachCv .titleCv {
+.homeDash .homePortfolios .eachPortfolio .titlePortfolio {
     color: #FCCCD2;
     text-transform: uppercase;
     font-weight: 700;
@@ -91,14 +84,12 @@
     text-align: right;
 }
 
-.homeDash .homePortfolios .eachPortfolio .titlePortfolio:hover,
-.homeDash .homeCv .everyCv .eachCv .titleCv:hover {
+.homeDash .homePortfolios .eachPortfolio .titlePortfolio:hover{
     color: #B39898;
     text-decoration: none;
 }
 
-.homeDash .homePortfolios .eachPortfolio .addPortfolio,
-.homeDash .homeCv .everyCv .eachCv .addCv {
+.homeDash .homePortfolios .eachPortfolio .addPortfolio{
     color: #F0D1D2;
     font-size: 18px;
     letter-spacing: 0.34px;

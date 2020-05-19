@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import UrlServices from '../../../../../service/url.service'
 import { Link } from 'react-router-dom'
+import HomeNav from './../../../../ui/homeNav/HomeNav'
 
 import Container from 'react-bootstrap/Container'
 
@@ -41,11 +42,7 @@ class Created extends Component {
 	render() {
 		return (
 			<>
-				{this.props.loggedInUser && (
-					<Link to='/dashboard' className='myButton'>
-						Volver al dashboard
-					</Link>
-				)}
+				<HomeNav loggedInHome={this.props.loggedInUser} setTheUser={this.props.setTheUser} />
 				<main className='portfolio-page'>
 					<Container className='portfolio-info'>
 						<section className='section-bkg'>
@@ -65,7 +62,9 @@ class Created extends Component {
 							</article>
 							<article className='skill-section'>
 								{this.state.portfolio.skills.map((skill, idx) => (
-									<p className='skill-tag'>{skill}</p>
+									<p key={idx} className='skill-tag'>
+										{skill}
+									</p>
 								))}
 							</article>
 						</section>

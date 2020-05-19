@@ -36,7 +36,7 @@ class App extends Component {
 		return (
 			<>
 				<Switch>
-					<Route path='/' exact render={() => <Home />} />
+					<Route path='/' exact render={(props) => <Home {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
 					<Route path='/signup' render={(props) => <Signup {...props} setTheUser={this.setTheUser} />} />
 					<Route path='/login' render={(props) => <Login {...props} setTheUser={this.setTheUser} />} />
 					<Route
@@ -45,7 +45,7 @@ class App extends Component {
 							this.state.loggedInUser ? <Dashboard {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} /> : <Login {...props} setTheUser={this.setTheUser} />
 						}
 					/>
-					<Route path='/sharing/:url' render={(props) => <PortfolioCreated {...props} loggedInUser={this.state.loggedInUser} />} />
+					<Route path='/sharing/:url' render={(props) => <PortfolioCreated {...props} loggedInUser={this.state.loggedInUser} setTheUser={this.setTheUser} />} />
 				</Switch>
 			</>
 		)

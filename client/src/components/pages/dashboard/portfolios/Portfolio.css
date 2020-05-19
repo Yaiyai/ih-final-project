@@ -72,8 +72,9 @@
     align-items: center;
     justify-content: center;
 }
+
 .portfolioCreator .allElements .portfolioConstructor .avatarReceptor {
-    background-color:#f5f6f9;
+    background-color: #f5f6f9;
     width: 200px;
     height: 200px;
     border-radius: 150px;
@@ -84,7 +85,8 @@
 .portfolioCreator .allElements .portfolioConstructor .creatorHeader .newAvatar {
     display: block;
     object-fit: contain;
-    object-position: bottom;
+    object-position: center;
+    height: 200px;
 }
 
 .portfolioCreator .allElements .portfolioConstructor .portfolioContent {
@@ -108,9 +110,11 @@
     flex-wrap: wrap;
     align-items: baseline;
 }
+
 .portfolioCreator .allElements .portfolioConstructor .portfolioContent .endContainer.workReceptor {
     width: 90%;
 }
+
 .portfolioCreator .allElements .portfolioConstructor .portfolioContent .endContainer .newAdd,
 .portfolioCreator .allElements .portfolioConstructor .portfolioContent .endContainer .workReceptor .newAdd {
     border: solid 1px #FCCCD2;

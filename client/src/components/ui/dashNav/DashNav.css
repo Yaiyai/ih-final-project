@@ -35,6 +35,7 @@
 .latNavBar .personalInfo .logoProfile img {
     object-fit: contain;
     object-position: bottom;
+    height: 77px;
 }
 
 .latNavBar .personalInfo .dashName {
@@ -42,6 +43,7 @@
     font-size: 22px;
     font-weight: 500;
     margin: 0;
+    text-align: center;
 }
 
 .latNavBar .personalInfo .dashEmail {

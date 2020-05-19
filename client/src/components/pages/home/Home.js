@@ -8,10 +8,11 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-const Home = () => {
+const Home = (props) => {
+	console.log(props)
 	return (
 		<>
-			<HomeNav />
+			<HomeNav loggedInHome={props.loggedInUser} setTheUser={props.setTheUser} />
 			<main className='homePage'>
 				<Container>
 					<Row as='header'>

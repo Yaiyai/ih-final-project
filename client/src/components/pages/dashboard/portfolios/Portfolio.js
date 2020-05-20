@@ -6,10 +6,14 @@ import InfoServices from '../../../../service/info.service'
 import PortfolioServices from '../../../../service/portfolio.service'
 import UrlServices from '../../../../service/url.service'
 
+import Modal from 'react-bootstrap/Modal'
+import Form from 'react-bootstrap/Form'
+
 class PortfolioCreator extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
+			modalShow: false,
 			cv: '',
 			education: '',
 			experience: '',
@@ -44,7 +48,10 @@ class PortfolioCreator extends Component {
 
 	componentDidMount() {
 		this.getMyThings()
+		this.handleModal(true)
 	}
+
+	handleModal = (visible) => this.setState({ modalShow: visible })
 
 	handleChange = (e) => {
 		const { name, value } = e.target
@@ -60,6 +67,7 @@ class PortfolioCreator extends Component {
 				url: `${this.props.loggedInDash.name}-for-${this.state.companyName}`,
 			},
 		})
+		this.handleModal(false)
 	}
 
 	//Drag and Drop Methods
@@ -98,7 +106,7 @@ class PortfolioCreator extends Component {
 
 		setTimeout(() => {
 			target.style.display = 'none'
-			target.className = 'newAdd'
+			target.className = 'new-add'
 			this.setState({
 				portfolio: {
 					...this.state.portfolio,
@@ -114,7 +122,7 @@ class PortfolioCreator extends Component {
 
 		setTimeout(() => {
 			target.style.display = 'none'
-			target.className = 'newAdd'
+			target.className = 'new-add'
 			this.setState({
 				portfolio: {
 					...this.state.portfolio,
@@ -130,7 +138,7 @@ class PortfolioCreator extends Component {
 
 		setTimeout(() => {
 			target.style.display = 'none'
-			target.className = 'newAdd'
+			target.className = 'new-add'
 			this.setState({
 				portfolio: {
 					...this.state.portfolio,
@@ -146,7 +154,7 @@ class PortfolioCreator extends Component {
 
 		setTimeout(() => {
 			target.style.display = 'none'
-			target.className = 'newAdd'
+			target.className = 'new-add'
 			this.setState({
 				portfolio: {
 					...this.state.portfolio,
@@ -161,7 +169,7 @@ class PortfolioCreator extends Component {
 
 		setTimeout(() => {
 			target.style.display = 'none'
-			target.className = 'newAdd'
+			target.className = 'new-add'
 			this.setState({
 				portfolio: {
 					...this.state.portfolio,
@@ -175,6 +183,7 @@ class PortfolioCreator extends Component {
 		e.stopPropagation()
 	}
 
+	//Saving changes
 	createPortfolio = () => {
 		this.portfolioServices
 			.createNew(this.props.loggedInDash._id, this.state.portfolio)
@@ -190,20 +199,29 @@ class PortfolioCreator extends Component {
 						Crear Portfolio
 					</button>
 
-					<form onSubmit={this.handleSubmit}>
-						<input name='portfolioTitle' onChange={this.handleChange} className='form-input' type='text' placeholder='introducre el titulo de tu portfolio' />
-						<input name='companyName' onChange={this.handleChange} className='form-input' type='text' placeholder='introduce el nombre de la empresa' />
-						<button type='submit' className='my-button'>
-							guardar datos
+					<Modal className='my-modal' show={this.state.modalShow}>
+						<h3>¡Importante!</h3>
+						<p>Es muy importante que introduzcas un título para tu portfolio y la empresa a la que lo vas a enviar, porque el link que les enviarás depende de estos datos.</p>
+						<Form onSubmit={this.handleSubmit}>
+							<Form.Label className='form-label'>Introduce el título de tu portfolio</Form.Label>
+							<Form.Control name='portfolioTitle' onChange={this.handleChange} className='form-input' type='text' placeholder='Título' required />
+
+							<Form.Label className='form-label'>Empresa a la que le vas a enviar el portfolio</Form.Label>
+							<Form.Control name='companyName' onChange={this.handleChange} className='form-input' type='text' placeholder='Empresa' required />
+							<button type='submit' className='form-button'>
+								guardar datos
+							</button>
+						</Form>
+						<button className='mini-link' onClick={() => this.handleModal(false)}>
+							cerrar
 						</button>
-					</form>
+						{/* <button className='mini-link' onClick={() => this.props.history.push('/dashboard')}>
+							cerrar
+						</button> */}
+					</Modal>
 
 					<section className='all-elements'>
 						<article className='selector'>
-							<figure draggable='true' onDragStart={this.dragStartAvatar} onDragOver={this.dragOver} id={this.props.loggedInDash.avatar} className='selector-tag'>
-								<img src={this.props.loggedInDash.avatar} alt='' />
-							</figure>
-
 							<h6 className='section-title'>Mis trabajos</h6>
 							{this.state.cv &&
 								this.state.cv.whatIveDone.map((work, idx) => (
@@ -245,14 +263,11 @@ class PortfolioCreator extends Component {
 								))}
 						</article>
 						<article className='portfolio-constructor'>
-							<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='creator-header'></article>
-							<figure onDrop={this.drop} onDragOver={this.dragOverReceptor} className='avatar-receptor'></figure>
-
 							<article className='portfolio-content'>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container'></article>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container'></article>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container'></article>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container'></article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container social-receptor'></article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container skill-receptor'></article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container ed-receptor'></article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container job-receptor'></article>
 								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container work-receptor'></article>
 							</article>
 						</article>

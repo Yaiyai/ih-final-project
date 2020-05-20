@@ -97,8 +97,6 @@ footer p {
   padding: 32px;
 }
 
-
-
 .form-label {
   font-size: 14px;
   margin: 4px 0;
@@ -121,6 +119,7 @@ footer p {
   border: none;
   margin: 32px auto 16px;
   display: block;
+  color: white;
 }
 
 

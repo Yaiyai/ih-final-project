@@ -30,8 +30,8 @@
     margin: 24px 0;
     font-size: 21px;
     text-align: center;
-    border-top: #B39898 1px solid;
-    border-bottom: #B39898 1px solid;
+    border-top: #FCCCD2 1px solid;
+    border-bottom: #FCCCD2 1px solid;
     padding: 24px 0;
 }
 
@@ -63,35 +63,11 @@
     align-items: center;
 }
 
-.portfolio-creator .all-elements .portfolio-constructor .creator-header {
-    width: 100%;
-    background-color: khaki;
-    padding: 80px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.portfolio-creator .all-elements .portfolio-constructor .avatar-receptor {
-    background-color: #f5f6f9;
-    width: 200px;
-    height: 200px;
-    border-radius: 150px;
-    margin-top: -120px;
-    overflow: hidden;
-}
-
-.portfolio-creator .all-elements .portfolio-constructor .creator-header .new-avatar {
-    display: block;
-    object-fit: contain;
-    object-position: center;
-    height: 200px;
-}
 
 .portfolio-creator .all-elements .portfolio-constructor .portfolio-content {
-    background-color: lightblue;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
@@ -101,29 +77,62 @@
 }
 
 .portfolio-creator .all-elements .portfolio-constructor .portfolio-content .end-container {
-    width: 47%;
-    margin: 12px 1%;
     background-color: #FDFBFB;
-    padding: 24px;
-    min-height: 150px;
+    border: solid 6px #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    margin: 12px 0;
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
 }
 
+.portfolio-creator .all-elements .portfolio-constructor .portfolio-content .end-container.ed-receptor {
+    background-image: url('/imgs/portfolio/education.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-blend-mode: luminosity;
+    background-size: 21em;
+}
+
+.portfolio-creator .all-elements .portfolio-constructor .portfolio-content .end-container.job-receptor {
+    background-image: url('/imgs/portfolio/job.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-blend-mode: luminosity;
+    background-size: 16em;
+}
+
+.portfolio-creator .all-elements .portfolio-constructor .portfolio-content .end-container.social-receptor {
+    background-image: url('/imgs/portfolio/social.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-blend-mode: luminosity;
+    background-size: 18em;
+}
+
+.portfolio-creator .all-elements .portfolio-constructor .portfolio-content .end-container.skill-receptor {
+    background-image: url('/imgs/portfolio/skill.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-blend-mode: luminosity;
+    background-size: 18em;
+}
+
 .portfolio-creator .all-elements .portfolio-constructor .portfolio-content .end-container.work-receptor {
-    width: 90%;
+    background-image: url('/imgs/portfolio/work.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-blend-mode: luminosity;
+    background-size: 20em;
 }
 
 .portfolio-creator .all-elements .portfolio-constructor .portfolio-content .end-container .new-add,
 .portfolio-creator .all-elements .portfolio-constructor .portfolio-content .end-container .work-receptor .new-add {
     border: solid 1px #FCCCD2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
+    background-color: white;
     overflow: hidden;
-    max-width: 48%;
+    max-width: 20%;
     padding: 16px;
     border-radius: 10px;
     margin: 12px 1%;

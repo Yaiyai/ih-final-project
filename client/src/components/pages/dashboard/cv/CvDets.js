@@ -274,8 +274,12 @@ class Cv extends Component {
 		return (
 			<>
 				<section className='cv-page'>
-					{this.state.cv.owner && <h2>¡Hola {this.state.cv.owner.name}!</h2>}
-					<h6>Aquí puedes añadir y editar los elementos de tu CV</h6>
+					<section className='instructions'>
+						{this.state.cv.owner && <h4>¡Hola {this.state.cv.owner.name}!</h4>}
+						<p>Añade todos los elementos que definan tu perfil para poder configurar los portfolios posteriormente en la sección "Portfolios".</p>
+						<p>Cuánto más añadas, más combinaciones tendrás de portfolios :)</p>
+						<h6>Antes de salir, recuerda guardar los cambios para no perder todo lo que hayas añadido.</h6>
+					</section>
 
 					<section className='every-section'>
 						<article className='section-head'>
@@ -380,7 +384,7 @@ class Cv extends Component {
 						</Row>
 					</section>
 
-					<button onClick={this.handleCv} className='my-button'>
+					<button onClick={this.handleCv} className='my-button special-button'>
 						Guardar Cambios
 					</button>
 

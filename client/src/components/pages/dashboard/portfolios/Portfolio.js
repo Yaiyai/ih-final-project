@@ -21,7 +21,7 @@ class PortfolioCreator extends Component {
 				title: '',
 				skills: [],
 				socialMedia: [],
-				companyName: 'prueba',
+				companyName: '',
 				companyAvatar: '',
 				education: [],
 				experience: [],
@@ -192,16 +192,19 @@ class PortfolioCreator extends Component {
 	}
 
 	render() {
+		console.log(this.props.loggedInDash)
 		return (
 			<>
 				<main className='portfolio-creator'>
-					<button className='my-button' onClick={this.createPortfolio}>
+					<button className='my-button special-button' onClick={this.createPortfolio}>
 						Crear Portfolio
 					</button>
 
 					<Modal className='my-modal' show={this.state.modalShow}>
 						<h3>¡Importante!</h3>
-						<p>Es muy importante que introduzcas un título para tu portfolio y la empresa a la que lo vas a enviar, porque el link que les enviarás depende de estos datos.</p>
+						<p>
+							Es <strong>muy importante</strong> que introduzcas un título para tu portfolio y la empresa a la que lo vas a enviar, porque el link que les enviarás depende de estos datos.
+						</p>
 						<Form onSubmit={this.handleSubmit}>
 							<Form.Label className='form-label'>Introduce el título de tu portfolio</Form.Label>
 							<Form.Control name='portfolioTitle' onChange={this.handleChange} className='form-input' type='text' placeholder='Título' required />
@@ -219,6 +222,18 @@ class PortfolioCreator extends Component {
 							cerrar
 						</button> */}
 					</Modal>
+
+					<section className='instructions'>
+						<h4>¡Bienvenid@ a tu generador de portfolios!</h4>
+						<h6>¿Cómo generar un portfolio? ¡Muy fácil!</h6>
+						<p>
+							A la izquierda encontrarás un selector con todos los elementos que has añadido en la sección "Experiencia"*. Simplemente tendrás que arrastrar cada elemento al área preparada para ello.
+							No te preocupes si no lo ves como te gustaría. Una vez que des al botón "Crear portfolio", todo se ordenará dentro de la plantilla que has elegido.<br></br>
+							<small>
+								<em>*Si te falta alguno, te recomendamos que vuelvas a esa sección para añadirlos.</em>
+							</small>
+						</p>
+					</section>
 
 					<section className='all-elements'>
 						<article className='selector'>
@@ -243,7 +258,7 @@ class PortfolioCreator extends Component {
 										<p>{skill}</p>
 									</article>
 								))}
-							<h6 className='section-title'>Mi Eduacación</h6>
+							<h6 className='section-title'>Mi Educación</h6>
 							{this.state.education &&
 								this.state.education.map((ed, idx) => (
 									<article onDragStart={this.dragStartEducation} onDragOver={this.dragOver} id={ed._id} draggable='true' key={idx} className='selector-tag'>
@@ -263,6 +278,22 @@ class PortfolioCreator extends Component {
 								))}
 						</article>
 						<article className='portfolio-constructor'>
+							<article className='portfolio-info'>
+								{this.state.portfolio.title && <p>Título: {this.state.portfolio.title}</p>}
+								{this.state.portfolio.companyName && <p>Empresa: {this.state.portfolio.companyName}</p>}
+							</article>
+							<article className='owner-data'>
+								{this.props.loggedInDash && (
+									<>
+										<h2>
+											{this.props.loggedInDash.name} {this.props.loggedInDash.lastName}
+										</h2>
+										<h6>
+											{this.props.loggedInDash.phone} <span className='bar'>|</span> {this.props.loggedInDash.email}
+										</h6>
+									</>
+								)}
+							</article>
 							<article className='portfolio-content'>
 								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container social-receptor'></article>
 								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container skill-receptor'></article>

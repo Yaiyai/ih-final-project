@@ -64,6 +64,12 @@ p {
   font-size: 12px;
 }
 
+.special-button {
+  position: fixed;
+  bottom: 24px;
+  left: 50vw;
+}
+
 footer {
   height: 60px;
   width: 100%;
@@ -78,7 +84,7 @@ footer p {
   text-align: center;
 }
 
-/* Modal syle handler */
+/* Modal style handler */
 
 .modal-backdrop {
   background-color: #D9A5A6;
@@ -96,10 +102,19 @@ footer p {
   background-color: #FFFFFF;
   padding: 32px;
 }
+.my-modal h3 {
+  color: #B39898;
+  font-weight: 700;
+}
+
+.my-modal p{
+  width: 368px;
+  margin: 16px 0;
+}
 
 .form-label {
   font-size: 14px;
-  margin: 4px 0;
+  margin: 24px 0 4px;
 }
 
 .form-input {

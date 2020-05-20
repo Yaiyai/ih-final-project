@@ -19,7 +19,7 @@
 }
 
 .profilePage .profileImg img {
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     height: 150px;
 }

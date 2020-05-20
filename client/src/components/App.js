@@ -19,7 +19,7 @@ class App extends Component {
 		this.authService = new AuthServices()
 	}
 
-	setTheUser = (userObj) => this.setState({ loggedInUser: userObj }, () => console.log('El estado es', this.state))
+	setTheUser = (userObj) => this.setState({ loggedInUser: userObj })
 
 	fetchUser = () => {
 		if (this.state.loggedInUser === null) {

@@ -104,11 +104,11 @@ class Cv extends Component {
 							</Form.Group>
 							<Form.Group>
 								<Form.Label className='form-label'>Duración</Form.Label>
-								<Form.Control className='form-input' name='duration' onChange={this.handleEducationChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
+								<Form.Control className='form-input' name='duration' onChange={this.handleEducationChange} type='text' placeholder='Duración' />
 							</Form.Group>
 							<Form.Group>
 								<Form.Label>¿Qué aprendiste?</Form.Label>
-								<Form.Control className='form-input' name='experienceInfo' onChange={this.handleEducationChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
+								<Form.Control className='form-input' name='experienceInfo' onChange={this.handleEducationChange} type='text' placeholder='Cuéntanos tu experiencia' />
 							</Form.Group>
 
 							<Button className='form-button' type='submit'>
@@ -121,15 +121,15 @@ class Cv extends Component {
 						<Form className='my-form' onSubmit={this.jobSubmit}>
 							<Form.Group>
 								<Form.Label className='form-label'>Puesto en la empresa</Form.Label>
-								<Form.Control className='form-input' name='place' onChange={this.handleJobChange} type='text' placeholder='Lugar de estudios' />
+								<Form.Control className='form-input' name='place' onChange={this.handleJobChange} type='text' placeholder='Puesto y empresa' />
 							</Form.Group>
 							<Form.Group>
 								<Form.Label className='form-label'>Duración</Form.Label>
-								<Form.Control className='form-input' name='duration' onChange={this.handleJobChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
+								<Form.Control className='form-input' name='duration' onChange={this.handleJobChange} type='text' placeholder='Duración' />
 							</Form.Group>
 							<Form.Group>
 								<Form.Label className='form-label'>Cuéntanos tus tareas</Form.Label>
-								<Form.Control className='form-input' name='experienceInfo' onChange={this.handleJobChange} type='text' placeholder='Pon un titulo nuevo a tu Cv' />
+								<Form.Control className='form-input' name='experienceInfo' onChange={this.handleJobChange} type='text' placeholder='Cuéntanos tu experiencia' />
 							</Form.Group>
 
 							<Button className='form-button' type='submit'>

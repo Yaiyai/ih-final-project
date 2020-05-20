@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import UrlServices from '../../../../../service/url.service'
-import { Link } from 'react-router-dom'
 import HomeNav from './../../../../ui/homeNav/HomeNav'
 
 import Container from 'react-bootstrap/Container'

@@ -40,7 +40,7 @@ class Signup extends Component {
 				this.props.setTheUser(response.data)
 				this.props.history.push('/login')
 			})
-			.catch((err) => console.log(err))
+			.catch((err) => this.setState({ errorMessage: err.response.data.message }))
 	}
 
 	render() {
@@ -64,6 +64,10 @@ class Signup extends Component {
 							<Form.Label>Contraseña</Form.Label>
 							<Form.Control className='form-input' name='password' onChange={this.handleInputChange} value={this.state.password} type='password' placeholder='Contraseña' />
 						</Form.Group>
+
+						<p className='error-message' style={{ display: this.state.errorMessage ? 'block' : 'none' }}>
+							{this.state.errorMessage}
+						</p>
 
 						<Button className='form-button' type='submit'>
 							Crear Usuario

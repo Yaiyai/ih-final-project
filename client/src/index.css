@@ -102,12 +102,13 @@ footer p {
   background-color: #FFFFFF;
   padding: 32px;
 }
+
 .my-modal h3 {
   color: #B39898;
   font-weight: 700;
 }
 
-.my-modal p{
+.my-modal p {
   width: 368px;
   margin: 16px 0;
 }
@@ -153,6 +154,17 @@ footer p {
 
 .my-form .form-input.file-upload::input {
   border: none;
+}
+
+.error-message {
+  background-color: #6EA8B5;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  margin-bottom: 0;
+  margin-top: 12px;
+  color: white;
+  border-radius: 5px;
 }
 
 button {

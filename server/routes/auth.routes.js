@@ -15,8 +15,8 @@ router.post('/signup', (req, res, next) => {
 		return
 	}
 
-	if (password.length < 2) {
-		res.status(400).json({ message: 'La contraseña debe tener mínimo 3 caracteres.' })
+	if (password.length < 5) {
+		res.status(400).json({ message: 'La contraseña debe tener mínimo 5 caracteres.' })
 		return
 	}
 
@@ -39,12 +39,12 @@ router.post('/signup', (req, res, next) => {
 
 	User.findOne({ username }, (err, foundUser) => {
 		if (err) {
-			res.status(500).json({ message: 'Username check went bad.' })
+			res.status(500).json({ message: 'El nombre de usuario no existe' })
 			return
 		}
 
 		if (foundUser) {
-			res.status(400).json({ message: 'Username taken. Choose another one.' })
+			res.status(400).json({ message: 'El nombre de usuario ya existe' })
 			return
 		}
 
@@ -58,14 +58,14 @@ router.post('/signup', (req, res, next) => {
 				Cv.create(newCV).catch((err) => console.log(err))
 			})
 			.then((newUser) => res.status(200).json(newUser))
-			.catch(() => res.status(400).json({ message: 'Saving user to database went wrong.' }))
+			.catch(() => res.status(400).json({ message: 'No se ha creado el usuario.' }))
 	})
 })
 
 router.post('/login', (req, res, next) => {
 	passport.authenticate('local', (err, theUser, failureDetails) => {
 		if (err) {
-			res.status(500).json({ message: 'Something went wrong authenticating user' })
+			res.status(500).json({ message: 'Algo ha ido mal. Inténtalo de nuevo.' })
 			return
 		}
 
@@ -79,7 +79,7 @@ router.post('/login', (req, res, next) => {
 		// save user in session
 		req.login(theUser, (err) => {
 			if (err) {
-				res.status(500).json({ message: 'Session save went bad.' })
+				res.status(500).json({ message: 'No se ha podido iniciar sesión' })
 				return
 			}
 
@@ -92,7 +92,7 @@ router.post('/login', (req, res, next) => {
 router.post('/logout', (req, res, next) => {
 	// req.logout() is defined by passport
 	req.logout()
-	res.status(200).json({ message: 'Log out success!' })
+	res.status(200).json({ message: '¡Has cerrado sesión!' })
 })
 
 router.get('/loggedin', (req, res, next) => {

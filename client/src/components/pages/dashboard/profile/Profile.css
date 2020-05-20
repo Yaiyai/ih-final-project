@@ -1,4 +1,4 @@
-.profilePage {
+.profile-page {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -7,19 +7,23 @@
     padding: 32px 64px;
 }
 
-.profilePage h4 {
+.profile-page h4 {
     color: #B39898;
 }
 
-.profilePage .profileImg {
+.profile-page .profile-img {
     width: 150px;
     height: 150px;
     overflow: hidden;
     border-radius: 100px;
 }
 
-.profilePage .profileImg img {
+.profile-page .profile-img img {
     object-fit: cover;
     object-position: center;
     height: 150px;
+}
+
+.profile-page .my-button {
+    margin-top: 32px;
 }

@@ -1,4 +1,4 @@
-.portfolioCreator {
+.portfolio-creator {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -8,13 +8,13 @@
     padding: 24px;
 }
 
-.portfolioCreator .allElements {
+.portfolio-creator .all-elements {
     min-width: 100%;
     display: flex;
 
 }
 
-.portfolioCreator .allElements .selector {
+.portfolio-creator .all-elements .selector {
     width: 20%;
     height: 100vh;
     overflow: scroll;
@@ -24,7 +24,7 @@
 
 }
 
-.portfolioCreator .allElements .selector .sectionTitle {
+.portfolio-creator .all-elements .selector .section-title {
     color: #B39898;
     font-weight: 700;
     margin: 24px 0;
@@ -35,7 +35,7 @@
     padding: 24px 0;
 }
 
-.portfolioCreator .allElements .selector .selectorTag {
+.portfolio-creator .all-elements .selector .selector-tag {
     background-color: #f5f6f9;
     display: flex;
     flex-direction: column;
@@ -49,7 +49,7 @@
     cursor: grabbing;
 }
 
-.portfolioCreator .allElements .portfolioConstructor {
+.portfolio-creator .all-elements .portfolio-constructor {
     width: 79%;
     margin-left: 1%;
     height: 100vh;
@@ -63,7 +63,7 @@
     align-items: center;
 }
 
-.portfolioCreator .allElements .portfolioConstructor .creatorHeader {
+.portfolio-creator .all-elements .portfolio-constructor .creator-header {
     width: 100%;
     background-color: khaki;
     padding: 80px;
@@ -73,7 +73,7 @@
     justify-content: center;
 }
 
-.portfolioCreator .allElements .portfolioConstructor .avatarReceptor {
+.portfolio-creator .all-elements .portfolio-constructor .avatar-receptor {
     background-color: #f5f6f9;
     width: 200px;
     height: 200px;
@@ -82,14 +82,14 @@
     overflow: hidden;
 }
 
-.portfolioCreator .allElements .portfolioConstructor .creatorHeader .newAvatar {
+.portfolio-creator .all-elements .portfolio-constructor .creator-header .new-avatar {
     display: block;
     object-fit: contain;
     object-position: center;
     height: 200px;
 }
 
-.portfolioCreator .allElements .portfolioConstructor .portfolioContent {
+.portfolio-creator .all-elements .portfolio-constructor .portfolio-content {
     background-color: lightblue;
     display: flex;
     justify-content: center;
@@ -100,7 +100,7 @@
     padding: 24px;
 }
 
-.portfolioCreator .allElements .portfolioConstructor .portfolioContent .endContainer {
+.portfolio-creator .all-elements .portfolio-constructor .portfolio-content .end-container {
     width: 47%;
     margin: 12px 1%;
     background-color: #FDFBFB;
@@ -111,12 +111,12 @@
     align-items: baseline;
 }
 
-.portfolioCreator .allElements .portfolioConstructor .portfolioContent .endContainer.workReceptor {
+.portfolio-creator .all-elements .portfolio-constructor .portfolio-content .end-container.work-receptor {
     width: 90%;
 }
 
-.portfolioCreator .allElements .portfolioConstructor .portfolioContent .endContainer .newAdd,
-.portfolioCreator .allElements .portfolioConstructor .portfolioContent .endContainer .workReceptor .newAdd {
+.portfolio-creator .all-elements .portfolio-constructor .portfolio-content .end-container .new-add,
+.portfolio-creator .all-elements .portfolio-constructor .portfolio-content .end-container .work-receptor .new-add {
     border: solid 1px #FCCCD2;
     display: flex;
     flex-direction: column;

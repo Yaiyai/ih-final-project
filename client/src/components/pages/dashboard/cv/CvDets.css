@@ -1,4 +1,4 @@
-.cvPage {
+.cv-page {
     width: inherit;
     display: flex;
     flex-direction: column;
@@ -8,7 +8,7 @@
     padding: 56px;
 }
 
-.cvPage .everySection {
+.cv-page .every-section {
     min-width: 100%;
     border: 6px solid #FDFBFB;
     background-color: rgba(255, 255, 255, 0.9);
@@ -22,27 +22,27 @@
 
 }
 
-.cvPage .everySection .sectionHead {
+.cv-page .every-section .section-head {
     width: inherit;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.cvPage .everySection .sectionHead h4 {
+.cv-page .every-section .section-head h4 {
     color: #B39898;
     margin-right: 24px;
 }
 
-.cvPage .workSection,
-.cvPage .infoSection,
-.cvPage .skillSection,
-.cvPage .socialSection {
+.cv-page .work-section,
+.cv-page .info-section,
+.cv-page .skill-section,
+.cv-page .social-section {
     display: flex;
     justify-content: flex-start;
 }
 
-.cvPage .socialTag{
+.cv-page .social-tag {
     background-color: #FDFBFB;
     display: flex;
     flex-direction: column;
@@ -54,7 +54,7 @@
     margin: 12px 8px;
 }
 
-.cvPage .skillTag {
+.cv-page .skill-tag {
     background-color: #FDFBFB;
     display: flex;
     justify-content: space-between;
@@ -65,7 +65,7 @@
     margin: 12px 8px;
 }
 
-.cvPage .infoTag {
+.cv-page .info-tag {
     background-color: #FDFBFB;
     display: flex;
     flex-direction: column;
@@ -77,27 +77,27 @@
     margin: 12px 8px;
 }
 
-.cvPage .workTag {
+.cv-page .work-tag {
     background-color: #FDFBFB;
     padding: 24px;
     margin: 12px 8px;
     border-radius: 10px;
 }
 
-.cvPage .workImage {
+.cv-page .work-image {
     width: 302px;
     height: 200px;
     border-radius: 10px;
     overflow: hidden;
 }
 
-.cvPage .workImage img {
+.cv-page .work-image img {
     object-fit: cover;
     object-position: bottom;
 }
 
-.cvPage .skillTag p,
-.cvPage .socialTag p {
+.cv-page .skill-tag p,
+.cv-page .social-tag p {
     margin: 0;
 
 }

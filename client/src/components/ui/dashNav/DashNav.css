@@ -1,4 +1,4 @@
-.latNavBar {
+.lat-navbar {
     background-color: #FDFBFB;
     width: 256px;
     height: 95vh;
@@ -13,18 +13,18 @@
     position: fixed;
 }
 
-.latNavBar .logoDash {
+.lat-navbar .logo-dash {
     width: 147px;
     margin-top: 24px;
 }
 
-.latNavBar .personalInfo {
+.lat-navbar .personal-info {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.latNavBar .personalInfo .logoProfile {
+.lat-navbar .personal-info .logo-profile {
     width: 77px;
     height: 77px;
     margin-top: 36px;
@@ -32,13 +32,13 @@
     overflow: hidden;
 }
 
-.latNavBar .personalInfo .logoProfile img {
-    object-fit: contain;
+.lat-navbar .personal-info .logo-profile img {
+    object-fit: cover;
     object-position: bottom;
     height: 77px;
 }
 
-.latNavBar .personalInfo .dashName {
+.lat-navbar .personal-info .dash-name {
     color: #B39898;
     font-size: 22px;
     font-weight: 500;
@@ -46,14 +46,14 @@
     text-align: center;
 }
 
-.latNavBar .personalInfo .dashEmail {
+.lat-navbar .personal-info .dash-email {
     color: #B39898;
     font-size: 18px;
     margin: 0;
     margin-bottom: 40px;
 }
 
-.latNavBar .dashLink {
+.lat-navbar .dash-link {
     border: none;
     width: inherit;
     padding: 16px 24px;
@@ -66,15 +66,11 @@
     align-items: center;
 }
 
-.latNavBar .buttonGroup {
+.lat-navbar .button-group {
     width: inherit;
 }
 
-button {
-    background-color: transparent;
-}
-
-.latNavBar .dashLink:hover {
+.lat-navbar .dash-link:hover {
     background-color: white;
     border-left: #FCCCD2 5px solid;
     border-right: #FCCCD2 5px solid;
@@ -83,6 +79,6 @@ button {
 
 }
 
-.latNavBar .dashLink img {
+.lat-navbar .dash-link img {
     width: 15px;
 }

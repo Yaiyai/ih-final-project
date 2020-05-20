@@ -38,36 +38,38 @@ class DashNav extends Component {
 	render() {
 		return (
 			<>
-				<nav className='latNavBar'>
-					<div className='personalInfo'>
-						<figure className='logoDash'>
-							<img src='/imgs/dashboard/logo-dash.svg' alt='Cuentame más' />
+				<nav className='lat-navbar'>
+					<div className='personal-info'>
+						<figure className='logo-dash'>
+							<Link to='/'>
+								<img src='/imgs/dashboard/logo-dash.svg' alt='Cuentame más' />
+							</Link>
 						</figure>
-						<figure className='logoProfile'>
+						<figure className='logo-profile'>
 							{this.props.loggedInDash.avatar ? <img src={this.props.loggedInDash.avatar} alt='Cuentame más' /> : <img src='/imgs/ic/ic-signup.svg' alt='Cuentame más' />}
 						</figure>
-						{this.props.loggedInDash.name ? <p className='dashName'>{`${this.props.loggedInDash.name} ${this.props.loggedInDash.lastName}`}</p> : <p className='dashName'>Añade nombre</p>}
+						{this.props.loggedInDash.name ? <p className='dash-name'>{`${this.props.loggedInDash.name} ${this.props.loggedInDash.lastName}`}</p> : <p className='dashName'>Añade nombre</p>}
 
-						<p className='dashEmail'>{this.props.loggedInDash.email}</p>
-						<Link to='/dashboard/profile' className='myButton mini'>
+						<p className='dash-email'>{this.props.loggedInDash.email}</p>
+						<Link to='/dashboard/profile' className='my-button mini'>
 							Editar perfil
 						</Link>
 					</div>
 
-					<div className='buttonGroup'>
-						<Link className='dashLink' to='/dashboard'>
+					<div className='button-group'>
+						<Link className='dash-link' to='/dashboard'>
 							dashboard <img src='/imgs/ic/ic-dashboard.svg' alt='' />
 						</Link>
 						{this.state.cv && (
-							<Link className='dashLink' to={`/dashboard/cv/${this.state.cv[0]._id}`}>
+							<Link className='dash-link' to={`/dashboard/cv/${this.state.cv[0]._id}`}>
 								experiencia <img src='/imgs/ic/ic-cv.svg' alt='' />
 							</Link>
 						)}
-						<Link className='dashLink' to='/dashboard/portfolio'>
+						<Link className='dash-link' to='/dashboard/portfolio'>
 							portfolios <img src='/imgs/ic/ic-addnew.svg' alt='' />
 						</Link>
 					</div>
-					<button className='dashLink' onClick={this.logout}>
+					<button className='dash-link' onClick={this.logout}>
 						Cerrar Sesión <img src='/imgs/ic/ic-close.svg' alt='' />
 					</button>
 				</nav>

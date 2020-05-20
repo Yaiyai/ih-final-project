@@ -185,75 +185,75 @@ class PortfolioCreator extends Component {
 	render() {
 		return (
 			<>
-				<main className='portfolioCreator'>
-					<button className='myButton' onClick={this.createPortfolio}>
+				<main className='portfolio-creator'>
+					<button className='my-button' onClick={this.createPortfolio}>
 						Crear Portfolio
 					</button>
 
 					<form onSubmit={this.handleSubmit}>
 						<input name='portfolioTitle' onChange={this.handleChange} className='form-input' type='text' placeholder='introducre el titulo de tu portfolio' />
 						<input name='companyName' onChange={this.handleChange} className='form-input' type='text' placeholder='introduce el nombre de la empresa' />
-						<button type='submit' className='myButton'>
+						<button type='submit' className='my-button'>
 							guardar datos
 						</button>
 					</form>
 
-					<section className='allElements'>
+					<section className='all-elements'>
 						<article className='selector'>
-							<figure draggable='true' onDragStart={this.dragStartAvatar} onDragOver={this.dragOver} id={this.props.loggedInDash.avatar} className='selectorTag'>
+							<figure draggable='true' onDragStart={this.dragStartAvatar} onDragOver={this.dragOver} id={this.props.loggedInDash.avatar} className='selector-tag'>
 								<img src={this.props.loggedInDash.avatar} alt='' />
 							</figure>
 
-							<h6 className='sectionTitle'>Mis trabajos</h6>
+							<h6 className='section-title'>Mis trabajos</h6>
 							{this.state.cv &&
 								this.state.cv.whatIveDone.map((work, idx) => (
-									<figure onDragStart={this.dragStartWork} onDragOver={this.dragOver} id={work} key={idx} draggable='true' className='selectorTag'>
-										<img src={work} alt='' />
+									<figure onDragStart={this.dragStartWork} onDragOver={this.dragOver} id={work} key={idx} draggable='true' className='selector-tag'>
+										<img draggable='false' src={work} alt='' />
 									</figure>
 								))}
-							<h6 className='sectionTitle'>Mis Redes Sociales</h6>
+							<h6 className='section-title'>Mis Redes Sociales</h6>
 							{this.state.cv &&
 								this.state.cv.socialMedia.map((social, idx) => (
-									<article onDragStart={this.dragStartSocial} onDragOver={this.dragOver} id={social} draggable='true' key={idx} className='selectorTag'>
+									<article onDragStart={this.dragStartSocial} onDragOver={this.dragOver} id={social} draggable='true' key={idx} className='selector-tag'>
 										<p>{social}</p>
 									</article>
 								))}
-							<h6 className='sectionTitle'>Mis Skills</h6>
+							<h6 className='section-title'>Mis Skills</h6>
 							{this.state.cv &&
 								this.state.cv.skills.map((skill, idx) => (
-									<article onDragStart={this.dragStartSkill} onDragOver={this.dragOver} id={skill} draggable='true' key={idx} className='selectorTag'>
+									<article onDragStart={this.dragStartSkill} onDragOver={this.dragOver} id={skill} draggable='true' key={idx} className='selector-tag'>
 										<p>{skill}</p>
 									</article>
 								))}
-							<h6 className='sectionTitle'>Mi Eduacación</h6>
+							<h6 className='section-title'>Mi Eduacación</h6>
 							{this.state.education &&
 								this.state.education.map((ed, idx) => (
-									<article onDragStart={this.dragStartEducation} onDragOver={this.dragOver} id={ed._id} draggable='true' key={idx} className='selectorTag'>
+									<article onDragStart={this.dragStartEducation} onDragOver={this.dragOver} id={ed._id} draggable='true' key={idx} className='selector-tag'>
 										<h6>{ed.place}</h6>
 										<p>{ed.duration}</p>
 										<p>{ed.experienceInfo}</p>
 									</article>
 								))}
-							<h6 className='sectionTitle'>Mi Experiencia</h6>
+							<h6 className='section-title'>Mi Experiencia</h6>
 							{this.state.experience &&
 								this.state.experience.map((job, idx) => (
-									<article onDragStart={this.dragStartJob} onDragOver={this.dragOver} id={job._id} draggable='true' key={idx} className='selectorTag'>
+									<article onDragStart={this.dragStartJob} onDragOver={this.dragOver} id={job._id} draggable='true' key={idx} className='selector-tag'>
 										<h6>{job.place}</h6>
 										<p>{job.duration}</p>
 										<p>{job.experienceInfo}</p>
 									</article>
 								))}
 						</article>
-						<article className='portfolioConstructor'>
-							<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='creatorHeader'></article>
-							<figure onDrop={this.drop} onDragOver={this.dragOverReceptor} className='avatarReceptor'></figure>
+						<article className='portfolio-constructor'>
+							<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='creator-header'></article>
+							<figure onDrop={this.drop} onDragOver={this.dragOverReceptor} className='avatar-receptor'></figure>
 
-							<article className='portfolioContent'>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'></article>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'></article>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'></article>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer'></article>
-								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='endContainer workReceptor'></article>
+							<article className='portfolio-content'>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container'></article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container'></article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container'></article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container'></article>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container work-receptor'></article>
 							</article>
 						</article>
 					</section>

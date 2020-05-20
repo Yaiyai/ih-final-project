@@ -1,4 +1,4 @@
-.homeDash {
+.home-dash {
     display: flex;
     width: 98%;
     flex-direction: column;
@@ -8,11 +8,11 @@
     height: 100vh;
 }
 
-.homeDash h4 {
+.home-dash h4 {
     color: #B39898;
 }
 
-.homeDash .welcomeBox {
+.home-dash .welcome-box {
     width: 98%;
     height: 300px;
     border-radius: 20px;
@@ -24,12 +24,12 @@
     margin-bottom: 16px;
 }
 
-.homeDash .welcomeBox p {
+.home-dash .welcome-box p {
     width: 400px;
     margin-top: 24px;
 }
 
-.homeDash .homePortfolios{
+.home-dash .home-portfolios {
     border: 6px solid #FDFBFB;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
@@ -41,7 +41,7 @@
 }
 
 
-.homeDash .homePortfolios .everyPortfolio .eachPortfolio{
+.home-dash .home-portfolios .every-portfolio .each-portfolio {
     background-color: #FDFBFB;
     display: flex;
     flex-direction: row;
@@ -49,47 +49,51 @@
     align-items: center;
     border-radius: 10px;
     padding: 24px;
-    width: 245px;
+    width: 300px;
     margin: 24px 24px 0 0;
 }
+.home-dash .home-portfolios .every-portfolio .each-portfolio .portfolio-link {
+    display: flex;
+    align-items: center;
+}
 
-.homeDash .homePortfolios .everyPortfolio .eachPortfolio:hover {
+.home-dash .home-portfolios .every-portfolio .each-portfolio:hover {
     border: 6px solid #B39898;
     padding: 18px;
     color: #B39898;
 }
 
-.homeDash .homePortfolios .everyPortfolio .eachPortfolio.add{
+.home-dash .home-portfolios .every-portfolio .each-portfolio.add {
     background-color: #F5F6F9;
+    width: 250px;
 }
 
-.homeDash .homePortfolios .everyPortfolio .eachPortfolio figure{
+.home-dash .home-portfolios .every-portfolio .each-portfolio figure {
     width: 44px;
     height: 44px;
     overflow: hidden;
     margin: 0;
 }
 
-.homeDash .homePortfolios .everyPortfolio .eachPortfolio img{
+.home-dash .home-portfolios .every-portfolio .each-portfolio img {
     object-fit: cover;
     object-position: center;
 }
 
-.homeDash .homePortfolios .eachPortfolio .titlePortfolio {
+.home-dash .home-portfolios .each-portfolio .title-portfolio {
     color: #FCCCD2;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 21px;
-    margin: 0;
-    text-align: right;
+    margin: 0 0 0 16px;
 }
 
-.homeDash .homePortfolios .eachPortfolio .titlePortfolio:hover{
+.home-dash .home-portfolios .each-portfolio .title-portfolio:hover {
     color: #B39898;
     text-decoration: none;
 }
 
-.homeDash .homePortfolios .eachPortfolio .addPortfolio{
+.home-dash .home-portfolios .each-portfolio .add-portfolio {
     color: #F0D1D2;
     font-size: 18px;
     letter-spacing: 0.34px;

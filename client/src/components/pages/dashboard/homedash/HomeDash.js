@@ -40,8 +40,8 @@ class dashHome extends Component {
 	render() {
 		return (
 			<>
-				<section className='homeDash'>
-					<Row as='article' className='welcomeBox'>
+				<section className='home-dash'>
+					<Row as='article' className='welcome-box'>
 						<div>
 							<h4>Bienvenid@ {this.props.loggedInUser.name}</h4>
 							<p>Este es tu dashboard de usuario. En él encontrarás todos los portfolios creados hasta el momento.</p>
@@ -52,29 +52,33 @@ class dashHome extends Component {
 						</figure>
 					</Row>
 
-					<Row as='article' className='homePortfolios'>
+					<Row as='article' className='home-portfolios'>
 						<h4>Mis portfolios</h4>
 
-						<Row as='article' className='everyPortfolio'>
+						<Row as='article' className='every-portfolio'>
 							{this.state.portfolios.map((portfolio, idx) => (
 								<>
-									<article className='eachPortfolio'>
+									<article className='each-portfolio'>
 										<Link key={idx} to={`/sharing/${portfolio.url}`}>
-											<figure>
-												<img src='/imgs/ic/ic-signup.svg' alt='' />
-											</figure>
-											<p className='titlePortfolio'>{portfolio.title}</p>
+											<article className='portfolio-link'>
+												<figure>
+													<img src='/imgs/ic/ic-signup.svg' alt='' />
+												</figure>
+												<p className='title-portfolio'>{portfolio.title}</p>
+											</article>
 										</Link>
-										<button onClick={() => this.deletePortfolio(idx, portfolio._id)}>borrar</button>
+										<button className='my-button mini outlined' onClick={() => this.deletePortfolio(idx, portfolio._id)}>
+											borrar
+										</button>
 									</article>
 								</>
 							))}
 							<Link to='/dashboard/portfolio'>
-								<div className='eachPortfolio add'>
+								<div className='each-portfolio add'>
 									<figure>
 										<img src='/imgs/ic/ic-addnew-portfolio.svg' alt='' />
 									</figure>
-									<p className='addPortfolio'>Nuevo Portfolio</p>
+									<p className='add-portfolio'>Nuevo Portfolio</p>
 								</div>
 							</Link>
 						</Row>

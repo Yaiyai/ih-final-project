@@ -1,56 +1,56 @@
-.homePage {
+.home-page {
     background-image: url('/imgs/home/bkg.svg');
     background-size: cover;
 }
 
-.homePage h1 {
+.home-page h1 {
     color: #B39898;
 }
 
-.homePage h2 {
+.home-page h2 {
     color: #B39898;
 }
 
-.homePage h4 {
+.home-page h4 {
     color: #B39898;
 }
 
-.homePage h5 {
+.home-page h5 {
     color: #D9A5A6;
     font-weight: 200;
 }
 
-.homePage .logo {
+.home-page .logo {
     width: 286px;
     margin: 64px 0 40px -21px;
 }
 
-.homePage .imgHeader {
+.home-page .img-header {
     width: 576px;
     margin: 380px 0 0;
 }
 
 
-.homePage .features {
+.home-page .features {
     font-size: 18px;
     color: #D9A5A6;
     font-weight: 500;
 }
 
-.homePage .myButton {
+.home-page .my-button {
     margin-top: 40px;
     width: 188px;
 }
 
-.homePage .infoSection {
+.home-page .info-section {
     padding: 200px 0;
 }
 
-.homePage .infoSection .imgInfo {
+.home-page .info-section .img-info {
     width: 364px;
 }
 
-.homePage .howWorks {
+.home-page .how-works {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -58,14 +58,14 @@
     padding-bottom: 104px;
 }
 
-.homePage .howWorks .groupCards {
+.home-page .how-works .group-cards {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 48px;
 }
 
-.homePage .howWorks .groupCards .eachCard {
+.home-page .how-works .group-cards .each-card {
     height: 278px;
     width: 258px;
     border: 6px solid #FCCCD2;
@@ -79,12 +79,11 @@
     margin-right: 24px;
 }
 
-.homePage .howWorks .groupCards .eachCard .icons {
+.home-page .how-works .group-cards .each-card .icons {
     width: 18px;
 }
 
-.homePage .howWorks .groupCards .eachCard .icons img {
+.home-page .how-works .group-cards .each-card .icons img {
     object-fit: contain;
     object-position: top;
 }
-

@@ -9,11 +9,10 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 const Home = (props) => {
-	console.log(props)
 	return (
 		<>
 			<HomeNav loggedInHome={props.loggedInUser} setTheUser={props.setTheUser} />
-			<main className='homePage'>
+			<main className='home-page'>
 				<Container>
 					<Row as='header'>
 						<Col as='article' md={6}>
@@ -26,20 +25,26 @@ const Home = (props) => {
 							</h5>
 							<p>Cuéntame Más te proporcinona las herramientas que necesitas para presentar portfolios específicos para la empresa en la que estás interesado en aplicar..</p>
 							<p className='features'>Totalmente gratis | No pierdas el tiempo con programas de diseño</p>
-							<Link className='myButton' to='/login'>
-								crear portfolio
-							</Link>
+							{props.loggedInUser ? (
+								<Link className='my-button' to='/dashboard'>
+									crear portfolio
+								</Link>
+							) : (
+								<Link className='my-button' to='/login'>
+									crear portfolio
+								</Link>
+							)}
 						</Col>
 						<Col as='article' md={6}>
-							<figure className='imgHeader'>
+							<figure className='img-header'>
 								<img src='/imgs/home/img-header.svg' alt='Cuentame más' />
 							</figure>
 						</Col>
 					</Row>
 
-					<Row as='section' className='infoSection'>
+					<Row as='section' className='info-section'>
 						<Col md={5} as='article'>
-							<figure className='imgInfo'>
+							<figure className='img-info'>
 								<img src='/imgs/home/mac.svg' alt='Cuentame más - Computer' />
 							</figure>
 						</Col>
@@ -54,10 +59,10 @@ const Home = (props) => {
 						</Col>
 					</Row>
 
-					<Row as='section' className='howWorks'>
+					<Row as='section' className='how-works'>
 						<h2>¿Cómo funciona?</h2>
-						<article className='groupCards'>
-							<article className='eachCard'>
+						<article className='group-cards'>
+							<article className='each-card'>
 								<figure className='icons'>
 									<img src='/imgs/ic/ic-profile.svg' alt='Cuentame más - Computer' />
 								</figure>
@@ -65,7 +70,7 @@ const Home = (props) => {
 								<p>Para empezar a montar tus portfolios, es necesario que te registres.</p>
 							</article>
 
-							<article className='eachCard'>
+							<article className='each-card'>
 								<figure className='icons'>
 									<img src='/imgs/ic/ic-cv.svg' alt='Cuentame más - Computer' />
 								</figure>
@@ -73,7 +78,7 @@ const Home = (props) => {
 								<p>Para empezar a montar tus portfolios, es necesario que te registres.</p>
 							</article>
 
-							<article className='eachCard'>
+							<article className='each-card'>
 								<figure className='icons'>
 									<img src='/imgs/ic/ic-addnew.svg' alt='Cuentame más - Computer' />
 								</figure>
@@ -81,7 +86,7 @@ const Home = (props) => {
 								<p>Para empezar a montar tus portfolios, es necesario que te registres.</p>
 							</article>
 
-							<article className='eachCard'>
+							<article className='each-card'>
 								<figure className='icons'>
 									<img src='/imgs/ic/ic-link.svg' alt='Cuentame más - Computer' />
 								</figure>
@@ -89,7 +94,7 @@ const Home = (props) => {
 								<p>Para empezar a montar tus portfolios, es necesario que te registres.</p>
 							</article>
 						</article>
-						<Link className='myButton' to='/login'>
+						<Link className='my-button' to='/login'>
 							¡empezar!
 						</Link>
 					</Row>

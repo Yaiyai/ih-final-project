@@ -13,7 +13,7 @@ import { Switch, Route } from 'react-router-dom'
 const Dashboard = (props) => {
 	return (
 		<>
-			<main className='dashPage'>
+			<main className='dash-page'>
 				<DashNav setTheUser={props.setTheUser} loggedInDash={props.loggedInUser} />
 
 				<Switch>

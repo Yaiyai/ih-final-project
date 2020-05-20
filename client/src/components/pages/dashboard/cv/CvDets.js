@@ -68,7 +68,7 @@ class Cv extends Component {
 			switch (modalId) {
 				case 'skills':
 					return (
-						<Form className='myForm' onSubmit={this.skillSubmit}>
+						<Form className='my-form' onSubmit={this.skillSubmit}>
 							<Form.Label className='form-label'>Añadir Skill</Form.Label>
 							<Form.Control className='form-input' name='newSkill' onChange={this.handleSkill} type='text' placeholder='Añadir Skill' />
 							<Button className='form-button' type='submit'>
@@ -78,7 +78,7 @@ class Cv extends Component {
 					)
 				case 'social':
 					return (
-						<Form className='myForm' onSubmit={this.socialSubmit}>
+						<Form className='my-form' onSubmit={this.socialSubmit}>
 							<Form.Group>
 								<Form.Label className='form-label'>Añadir Red Social</Form.Label>
 								<Form.Control className='form-input' name='newSocial' onChange={this.handleSocial} type='text' placeholder='Añadir Red Social' />
@@ -97,7 +97,7 @@ class Cv extends Component {
 					)
 				case 'education':
 					return (
-						<Form className='myForm' onSubmit={this.edSubmit}>
+						<Form className='my-form' onSubmit={this.edSubmit}>
 							<Form.Group>
 								<Form.Label className='form-label'>Lugar de estudios</Form.Label>
 								<Form.Control className='form-input' name='place' onChange={this.handleEducationChange} type='text' placeholder='Lugar de estudios' />
@@ -118,7 +118,7 @@ class Cv extends Component {
 					)
 				case 'job':
 					return (
-						<Form className='myForm' onSubmit={this.jobSubmit}>
+						<Form className='my-form' onSubmit={this.jobSubmit}>
 							<Form.Group>
 								<Form.Label className='form-label'>Puesto en la empresa</Form.Label>
 								<Form.Control className='form-input' name='place' onChange={this.handleJobChange} type='text' placeholder='Lugar de estudios' />
@@ -273,22 +273,22 @@ class Cv extends Component {
 	render() {
 		return (
 			<>
-				<section className='cvPage'>
+				<section className='cv-page'>
 					{this.state.cv.owner && <h2>¡Hola {this.state.cv.owner.name}!</h2>}
 					<h6>Aquí puedes añadir y editar los elementos de tu CV</h6>
 
-					<section className='everySection'>
-						<article className='sectionHead'>
+					<section className='every-section'>
+						<article className='section-head'>
 							<h4>My skills</h4>
-							<button onClick={() => this.handleModal(true, 'skills')} className='myButton mini outlined'>
+							<button onClick={() => this.handleModal(true, 'skills')} className='my-button mini outlined'>
 								Añadir
 							</button>
 						</article>
-						<Row className='skillSection' as='article'>
+						<Row className='skill-section' as='article'>
 							{this.state.cv.skills.map((skill, idx) => (
-								<article key={idx} className='skillTag'>
+								<article key={idx} className='skill-tag'>
 									<p>{skill}</p>
-									<Button onClick={() => this.removeSkill(idx)} className='myButton mini outlined'>
+									<Button onClick={() => this.removeSkill(idx)} className='my-button mini outlined'>
 										Borrar
 									</Button>
 								</article>
@@ -296,18 +296,18 @@ class Cv extends Component {
 						</Row>
 					</section>
 
-					<section className='everySection'>
-						<article className='sectionHead'>
+					<section className='every-section'>
+						<article className='section-head'>
 							<h4>Mis redes Sociales</h4>
-							<button onClick={() => this.handleModal(true, 'social')} className='myButton mini outlined'>
+							<button onClick={() => this.handleModal(true, 'social')} className='my-button mini outlined'>
 								Añadir
 							</button>
 						</article>
-						<Row className='socialSection' as='article'>
+						<Row className='social-section' as='article'>
 							{this.state.cv.socialMedia.map((sm, idx) => (
-								<article key={idx} className='socialTag'>
+								<article key={idx} className='social-tag'>
 									<p>{sm}</p>
-									<Button onClick={() => this.removeSocial(idx)} className='myButton mini outlined'>
+									<Button onClick={() => this.removeSocial(idx)} className='my-button mini outlined'>
 										Borrar
 									</Button>
 								</article>
@@ -315,21 +315,21 @@ class Cv extends Component {
 						</Row>
 					</section>
 
-					<section className='everySection'>
-						<article className='sectionHead'>
+					<section className='every-section'>
+						<article className='section-head'>
 							<h4>Educación</h4>
-							<button onClick={() => this.handleModal(true, 'education')} className='myButton mini outlined'>
+							<button onClick={() => this.handleModal(true, 'education')} className='my-button mini outlined'>
 								Añadir
 							</button>
 						</article>
-						<Row as='article' className='infoSection'>
+						<Row as='article' className='info-section'>
 							{this.state.eds &&
 								this.state.eds.map((ed, idx) => (
-									<article className='infoTag' key={idx}>
+									<article className='info-tag' key={idx}>
 										<h6>{ed.place}</h6>
 										<p>{ed.duration}</p>
 										<p>{ed.experienceInfo}</p>
-										<Button onClick={() => this.removeEducation(idx, ed._id)} className='myButton mini outlined'>
+										<Button onClick={() => this.removeEducation(idx, ed._id)} className='my-button mini outlined'>
 											Borrar
 										</Button>
 									</article>
@@ -337,21 +337,21 @@ class Cv extends Component {
 						</Row>
 					</section>
 
-					<section className='everySection'>
-						<article className='sectionHead'>
+					<section className='every-section'>
+						<article className='section-head'>
 							<h4>Experiencia laboral</h4>
-							<button onClick={() => this.handleModal(true, 'job')} className='myButton mini outlined'>
+							<button onClick={() => this.handleModal(true, 'job')} className='my-button mini outlined'>
 								Añadir
 							</button>
 						</article>
-						<Row as='article' className='infoSection'>
+						<Row as='article' className='info-section'>
 							{this.state.experience &&
 								this.state.experience.map((job, idx) => (
-									<article className='infoTag' key={idx}>
+									<article className='info-tag' key={idx}>
 										<h6>{job.place}</h6>
 										<p>{job.duration}</p>
 										<p>{job.experienceInfo}</p>
-										<Button onClick={() => this.removeJob(idx, job._id)} className='myButton mini outlined'>
+										<Button onClick={() => this.removeJob(idx, job._id)} className='my-button mini outlined'>
 											Borrar
 										</Button>
 									</article>
@@ -359,20 +359,20 @@ class Cv extends Component {
 						</Row>
 					</section>
 
-					<section className='everySection'>
-						<article className='sectionHead'>
+					<section className='every-section'>
+						<article className='section-head'>
 							<h4>Mis trabajos</h4>
-							<button onClick={() => this.handleModal(true, 'works')} className='myButton mini outlined'>
+							<button onClick={() => this.handleModal(true, 'works')} className='my-button mini outlined'>
 								Añadir
 							</button>
 						</article>
-						<Row as='article' className='workSection'>
+						<Row as='article' className='work-section'>
 							{this.state.cv.whatIveDone.map((work, idx) => (
-								<article key={idx} className='workTag'>
-									<figure className='workImage'>
+								<article key={idx} className='work-tag'>
+									<figure className='work-image'>
 										<img key={idx} src={work} alt='' />
 									</figure>
-									<Button onClick={() => this.removeWork(idx)} className='myButton mini outlined'>
+									<Button onClick={() => this.removeWork(idx)} className='my-button mini outlined'>
 										Borrar
 									</Button>
 								</article>
@@ -380,11 +380,11 @@ class Cv extends Component {
 						</Row>
 					</section>
 
-					<button onClick={this.handleCv} className='myButton'>
+					<button onClick={this.handleCv} className='my-button'>
 						Guardar Cambios
 					</button>
 
-					<Modal className='myModal' show={this.state.modalShow} onHide={() => this.handleModal(false)}>
+					<Modal className='my-modal' show={this.state.modalShow} onHide={() => this.handleModal(false)}>
 						{this.displayModal(this.state.modalId)}
 
 						<button className='mini-link' onClick={() => this.handleModal(false)}>

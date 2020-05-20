@@ -38,7 +38,7 @@ p {
   line-height: 22px
 }
 
-.myButton {
+.my-button {
   display: block;
   background-color: #FF576F;
   border-radius: 50px;
@@ -50,13 +50,13 @@ p {
   text-align: center;
 }
 
-.myButton.mini {
+.my-button.mini {
   padding: 8px 16px;
   font-size: 12px;
 
 }
 
-.myButton.mini.outlined {
+.my-button.mini.outlined {
   color: #FF576F;
   background-color: transparent;
   border: none;
@@ -85,7 +85,7 @@ footer p {
   backdrop-filter: blur(10px)
 }
 
-.myModal .modal-content {
+.my-modal .modal-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,20 +128,21 @@ footer p {
   font-size: 12px;
 }
 
-.myModal .mini-link {
+.my-modal .mini-link {
   color: #6EA8B5;
   border: none;
 }
 
-.myForm .form-input.file-upload {
+.my-form .form-input.file-upload {
   border: none;
 }
 
-.myForm .form-input.file-upload::input {
+.my-form .form-input.file-upload::input {
   border: none;
 }
 
 button {
+  background: transparent;
   border: none;
   padding: 0;
   margin: 0;

@@ -215,12 +215,12 @@ class PortfolioCreator extends Component {
 								guardar datos
 							</button>
 						</Form>
-						<button className='mini-link' onClick={() => this.handleModal(false)}>
-							cerrar
-						</button>
-						{/* <button className='mini-link' onClick={() => this.props.history.push('/dashboard')}>
+						{/* <button className='mini-link' onClick={() => this.handleModal(false)}>
 							cerrar
 						</button> */}
+						<button className='mini-link' onClick={() => this.props.history.push('/dashboard')}>
+							cerrar
+						</button>
 					</Modal>
 
 					<section className='instructions'>

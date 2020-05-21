@@ -39,18 +39,65 @@ class Two extends Component {
 	}
 
 	render() {
-		console.log('holi')
 		return (
 			<>
 				<HomeNav loggedInHome={this.props.loggedInUser} setTheUser={this.props.setTheUser} />
-				<main className='portfolio-page'>
+				<main className='portfolio-two'>
 					{!this.state.portfolio ? (
 						<h1>cargando...</h1>
 					) : (
 						<Container className='portfolio-info'>
-							<section className='section-bkg'>
-								<h1>soy la t2</h1>
+							<section className='owner'>
+								<figure className='owner-avatar'>
+									<img src={this.state.portfolio.avatar} alt='owner' />
+								</figure>
+								<article className='owner-info'>
+									<h6>
+										¡Hola <span className='pink'>{this.state.portfolio.companyName}</span>!
+									</h6>
+									<h2 className='owner-name'>
+										Soy{' '}
+										<span className='pink'>
+											{this.state.portfolio.owner.name} {this.state.portfolio.owner.lastName}
+										</span>
+									</h2>
+									<h6>Puedes contactar conmigo así</h6>
+									<article className='social-media'>
+										<div>
+											<div className='sm'>
+												<figure>
+													<img src='/imgs/portfolio/ic-phone.svg' alt='' />
+												</figure>
+												<p>{this.state.portfolio.owner.phone}</p>
+											</div>
+											<div className='sm'>
+												<figure>
+													<img src='/imgs/portfolio/ic-email.svg' alt='' />
+												</figure>
+												<p>{this.state.portfolio.owner.email}</p>
+											</div>
+										</div>
+									</article>
+								</article>
+							</section>
+							<section className='section-bkg skills'>
+								<h6>me especializo en</h6>
+								{!this.state.portfolio.skills.length === 0 ? null : (
+									<article className='skill-section'>
+										{this.state.portfolio.skills.map((skill, idx) => (
+											<p key={idx} className='skill-tag'>
+												{skill}
+											</p>
+										))}
+									</article>
+								)}
+							</section>
+							<section className='life-experience'>
+								<article className='section-bkg education'></article>
+								<article className='section-bkg experience'></article>
+							</section>
 
+							{/* <section className='section-bkg'>
 								<h2>
 									{this.state.portfolio.owner.name} {this.state.portfolio.owner.lastName}
 								</h2>
@@ -120,7 +167,7 @@ class Two extends Component {
 										))}
 									</article>
 								</section>
-							)}
+							)} */}
 						</Container>
 					)}
 				</main>

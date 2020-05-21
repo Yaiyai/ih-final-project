@@ -91,7 +91,7 @@ class PortfolioCreator extends Component {
 
 		setTimeout(() => {
 			target.style.display = 'none'
-			target.className = 'newAvatar'
+			target.className = 'new-add'
 			this.setState({
 				portfolio: {
 					...this.state.portfolio,
@@ -211,8 +211,7 @@ class PortfolioCreator extends Component {
 				case 'pick':
 					return (
 						<>
-							<p>Elige la template que más te guste. Una vez le des al botón "Crear Portfolio", todos los datos que hayas añadido, serán ordenados en la template elegida.
-							</p>
+							<p>Elige la template que más te guste. Una vez le des al botón "Crear Portfolio", todos los datos que hayas añadido, serán ordenados en la template elegida.</p>
 
 							<button className='my-button' onClick={() => this.setPortfolio('t1')}>
 								Template 1
@@ -287,6 +286,11 @@ class PortfolioCreator extends Component {
 					<section className='all-elements'>
 						<article className='selector'>
 							<h6 className='section-title'>Mis trabajos</h6>
+
+							<figure draggable='true' onDragStart={this.dragStartAvatar} onDragOver={this.dragOver} id={this.props.loggedInDash.avatar} className='selector-tag'>
+								<img draggable='false' src={this.props.loggedInDash.avatar} alt='' />
+							</figure>
+
 							{this.state.cv &&
 								this.state.cv.whatIveDone.map((work, idx) => (
 									<figure onDragStart={this.dragStartWork} onDragOver={this.dragOver} id={work} key={idx} draggable='true' className='selector-tag'>

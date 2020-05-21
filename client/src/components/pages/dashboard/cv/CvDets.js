@@ -68,6 +68,7 @@ class Cv extends Component {
 			switch (modalId) {
 				case 'skills':
 					return (
+
 						<Form className='my-form' onSubmit={this.skillSubmit}>
 							<Form.Label className='form-label'>Añadir Skill</Form.Label>
 							<Form.Control className='form-input' name='newSkill' onChange={this.handleSkill} type='text' placeholder='Añadir Skill' />
@@ -233,11 +234,13 @@ class Cv extends Component {
 		socialCopy.splice(idx, 1)
 		this.setState({ cv: { ...this.state.cv, socialMedia: socialCopy } })
 	}
+
 	removeWork = (idx) => {
 		let worksCopy = [...this.state.cv.whatIveDone]
 		worksCopy.splice(idx, 1)
 		this.setState({ cv: { ...this.state.cv, whatIveDone: worksCopy } })
 	}
+
 	removeEducation = (idx, id) => {
 		this.infoServices
 			.deleteInfo(id)

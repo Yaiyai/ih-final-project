@@ -39,7 +39,6 @@ class Three extends Component {
 	}
 
 	render() {
-		console.log('holi')
 		return (
 			<>
 				<HomeNav loggedInHome={this.props.loggedInUser} setTheUser={this.props.setTheUser} />

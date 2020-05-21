@@ -22,6 +22,7 @@ class Three extends Component {
 				avatar: '',
 				url: '',
 				owner: {},
+				theme: '',
 			},
 		}
 		this.url = this.props.match.params.url
@@ -42,84 +43,99 @@ class Three extends Component {
 		return (
 			<>
 				<HomeNav loggedInHome={this.props.loggedInUser} setTheUser={this.props.setTheUser} />
-				<main className='portfolio-page'>
+				<main className='portfolio-three'>
 					{!this.state.portfolio ? (
 						<h1>cargando...</h1>
 					) : (
-						<Container className='portfolio-info'>
-                                <section className='section-bkg'>
-                                    <h1>soy la t3</h1>
-								<h2>
-									{this.state.portfolio.owner.name} {this.state.portfolio.owner.lastName}
-								</h2>
-								<h6>
-									{this.state.portfolio.owner.phone} <span className='bar'>|</span> {this.state.portfolio.owner.email}
-								</h6>
-
-								{!this.state.portfolio.socialMedia.length === 0 ? null : (
-									<article className='social-section'>
-										<span className='bar'>|</span>
-										{this.state.portfolio.socialMedia.map((sm, idx) => (
-											<>
-												<p className='social-tag' key={idx}>
-													{sm}
+						<div className={this.state.portfolio.theme}>
+							<Container className='portfolio-info'>
+								<section className='owner'>
+									<figure className='owner-avatar'>
+										<img src={this.state.portfolio.avatar} alt='owner' />
+									</figure>
+									<article className='owner-info'>
+										<h6>
+											¡Hola <span className='pink'>{this.state.portfolio.companyName}</span>!
+										</h6>
+										<h2 className='owner-name'>
+											Soy{' '}
+											<span className='pink'>
+												{this.state.portfolio.owner.name} {this.state.portfolio.owner.lastName}
+											</span>
+										</h2>
+										<h6>Puedes contactar conmigo así</h6>
+										<article className='social-media'>
+											<div>
+												<div className='sm'>
+													<figure>
+														<img src='/imgs/portfolio/ic-phone.svg' alt='' />
+													</figure>
+													<p>{this.state.portfolio.owner.phone}</p>
+												</div>
+												<div className='sm'>
+													<figure>
+														<img src='/imgs/portfolio/ic-email.svg' alt='' />
+													</figure>
+													<p>{this.state.portfolio.owner.email}</p>
+												</div>
+											</div>
+										</article>
+									</article>
+								</section>
+								{this.state.portfolio.skills.length === 0 ? null : (
+									<section className='section-bkg skills'>
+										<h6>me especializo en</h6>
+										<article className='skill-section'>
+											{this.state.portfolio.skills.map((skill, idx) => (
+												<p key={idx} className='skill-tag'>
+													{skill}
 												</p>
-												<span className='bar'>|</span>
-											</>
-										))}
-									</article>
+											))}
+										</article>
+									</section>
 								)}
 
-								{!this.state.portfolio.skills.length === 0 ? null : (
-									<article className='skill-section'>
-										{this.state.portfolio.skills.map((skill, idx) => (
-											<p key={idx} className='skill-tag'>
-												{skill}
-											</p>
-										))}
-									</article>
+								<section className='life-experience'>
+									{this.state.portfolio.education.length === 0 ? null : (
+										<article className='section-bkg education'>
+											<h6>mi educación</h6>
+											{this.state.portfolio.education.map((ed, idx) => (
+												<article key={idx}>
+													<p className='place'>{ed.place}</p>
+													<small className='duration'>{ed.duration}</small>
+													<p className='experience-text'>{ed.experienceInfo}</p>
+												</article>
+											))}
+										</article>
+									)}
+									{this.state.portfolio.experience.length === 0 ? null : (
+										<article className='section-bkg experience'>
+											<h6>mi experiencia</h6>
+
+											{this.state.portfolio.experience.map((job, idx) => (
+												<article key={idx}>
+													<p className='place'>{job.place}</p>
+													<small className='duration'>{job.duration}</small>
+													<p className='experience-text'>{job.experienceInfo}</p>
+												</article>
+											))}
+										</article>
+									)}
+								</section>
+								{this.state.portfolio.works.length === 0 ? null : (
+									<section className='section-bkg works'>
+										<h6>mis trabajos</h6>
+										<article className='work-section'>
+											{this.state.portfolio.works.map((work, idx) => (
+												<figure key={idx} className='work-tag'>
+													<img src={work} alt='' />
+												</figure>
+											))}
+										</article>
+									</section>
 								)}
-							</section>
-
-							{this.state.portfolio.education.length === 0 ? null : (
-								<section className='section-bkg'>
-									<h3>Educación</h3>
-									{this.state.portfolio.education.map((ed, idx) => (
-										<article className='ed-tag' key={idx}>
-											<h6>{ed.place}</h6>
-											<small>{ed.duration}</small>
-											<p>{ed.experienceInfo}</p>
-										</article>
-									))}
-								</section>
-							)}
-
-							{this.state.portfolio.experience.length === 0 ? null : (
-								<section className='section-bkg'>
-									<h3>Trayectoria profesional</h3>
-									{this.state.portfolio.experience.map((job, idx) => (
-										<article className='job-tag' key={idx}>
-											<h6>{job.place}</h6>
-											<small>{job.duration}</small>
-											<p>{job.experienceInfo}</p>
-										</article>
-									))}
-								</section>
-							)}
-
-							{this.state.portfolio.works.length === 0 ? null : (
-								<section className='section-bkg'>
-									<h3>Mis trabajos</h3>
-									<article className='work-section'>
-										{this.state.portfolio.works.map((work, idx) => (
-											<figure key={idx} className='work-tag'>
-												<img src={work} alt='' />
-											</figure>
-										))}
-									</article>
-								</section>
-							)}
-						</Container>
+							</Container>
+						</div>
 					)}
 				</main>
 			</>

@@ -40,7 +40,7 @@ const users = [
 const cvs = [
 	{
 		title: "Yai's CV",
-		socialMedia: [],
+		socialMedia: ['https://github.com/Yaiyai', 'https://www.linkedin.com/in/yaiza-del-rio/'],
 		skills: [
 			'FullStack Dev',
 			'MongoDB',
@@ -62,6 +62,8 @@ const cvs = [
 		whatIveDone: [
 			'https://res.cloudinary.com/cuentamemasih/image/upload/v1589106138/Captura_de_pantalla_2020-05-10_a_las_12.22.02_ms8e9a.png',
 			'https://res.cloudinary.com/cuentamemasih/image/upload/v1589106138/Captura_de_pantalla_2020-05-10_a_las_12.21.53_tenw1t.png',
+			'https://res.cloudinary.com/cuentamemasih/image/upload/v1590060263/cuentame-mas/Captura%20de%20pantalla%202020-05-21%20a%20las%2013.23.15.png.png',
+			'https://res.cloudinary.com/cuentamemasih/image/upload/v1590060250/cuentame-mas/Captura%20de%20pantalla%202020-05-21%20a%20las%2013.23.06.png.png',
 		],
 	},
 	{
@@ -86,8 +88,8 @@ const cvs = [
 			'Adobe Premier',
 		],
 		whatIveDone: [
-			'https://res.cloudinary.com/cuentamemasih/image/upload/v1589106138/Captura_de_pantalla_2020-05-10_a_las_12.22.02_ms8e9a.png',
-			'https://res.cloudinary.com/cuentamemasih/image/upload/v1589106138/Captura_de_pantalla_2020-05-10_a_las_12.21.53_tenw1t.png',
+			'https://res.cloudinary.com/cuentamemasih/image/upload/v1590060231/cuentame-mas/Captura%20de%20pantalla%202020-05-21%20a%20las%2013.23.37.png.png',
+			'https://res.cloudinary.com/cuentamemasih/image/upload/v1590060239/cuentame-mas/Captura%20de%20pantalla%202020-05-21%20a%20las%2013.23.24.png.png',
 		],
 	},
 ]
@@ -95,11 +97,50 @@ const cvs = [
 const portfolios = [
 	{
 		title: 'Yai for Cabify',
-		url: '',
+		url: 'seed-user-one',
+		theme: 'color',
+		template: 't2',
+		companyName: 'Cabify',
+		socialMedia: ['https://github.com/Yaiyai', 'https://www.linkedin.com/in/yaiza-del-rio/'],
+
+		avatar: 'https://res.cloudinary.com/cuentamemasih/image/upload/v1589105713/IMG_5477_skvqnf.jpg',
+		skills: [
+			'FullStack Dev',
+			'MongoDB',
+			'NodeJS',
+			'Express',
+			'React',
+			'Javascript',
+			'Sass',
+			'Html',
+			'Css',
+			'Git & GitHub',
+			'Sketch',
+			'Invision',
+			'Adobe Illustrator',
+			'Adobe Indesign',
+			'Adobe Photoshop',
+			'Adobe Premier',
+		],
+		works: [
+			'https://res.cloudinary.com/cuentamemasih/image/upload/v1589106138/Captura_de_pantalla_2020-05-10_a_las_12.22.02_ms8e9a.png',
+			'https://res.cloudinary.com/cuentamemasih/image/upload/v1589106138/Captura_de_pantalla_2020-05-10_a_las_12.21.53_tenw1t.png',
+			'https://res.cloudinary.com/cuentamemasih/image/upload/v1590060263/cuentame-mas/Captura%20de%20pantalla%202020-05-21%20a%20las%2013.23.15.png.png',
+			'https://res.cloudinary.com/cuentamemasih/image/upload/v1590060250/cuentame-mas/Captura%20de%20pantalla%202020-05-21%20a%20las%2013.23.06.png.png',
+		],
 	},
 	{
 		title: 'Armando for Glovo',
-		url: '',
+		url: 'seed-user-two',
+		theme: 'simple',
+		skills: ['FullStack Dev', 'MongoDB', 'NodeJS', 'Express', 'React', 'Javascript', 'Sass', 'Html', 'Css'],
+		template: 't3',
+		companyName: 'Glovo',
+		avatar: 'https://res.cloudinary.com/cuentamemasih/image/upload/v1589107987/avataaars_1_qyb9j7.png',
+		works: [
+			'https://res.cloudinary.com/cuentamemasih/image/upload/v1590060231/cuentame-mas/Captura%20de%20pantalla%202020-05-21%20a%20las%2013.23.37.png.png',
+			'https://res.cloudinary.com/cuentamemasih/image/upload/v1590060239/cuentame-mas/Captura%20de%20pantalla%202020-05-21%20a%20las%2013.23.24.png.png',
+		],
 	},
 ]
 

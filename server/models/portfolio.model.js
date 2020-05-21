@@ -15,6 +15,7 @@ const portfolioSchema = new Schema(
 		url: String,
 		avatar: String,
 		template: String,
+		theme: String,
 	},
 	{
 		timestamps: true,

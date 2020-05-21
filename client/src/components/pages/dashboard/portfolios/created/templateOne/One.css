@@ -1,15 +1,15 @@
-.portfolio-page {
+.portfolio-one .color {
     background-image: url('/imgs/home/bkg.svg');
     background-size: cover;
     padding: 80px 0;
 }
 
-.portfolio-page .portfolio-info {
+.portfolio-one .color .portfolio-info {
     display: flex;
     flex-direction: column;
 }
 
-.portfolio-page .section-bkg {
+.portfolio-one .color .section-bkg {
     background-color: #FDFBFB;
     border: solid 6px #ffffff;
     padding: 24px 48px 48px;
@@ -17,7 +17,7 @@
     margin: 24px 0;
 }
 
-.portfolio-page h2 {
+.portfolio-one .color h2 {
     color: #B39898;
     font-size: 54px;
     font-weight: bold;
@@ -25,7 +25,7 @@
     margin: 0;
 }
 
-.portfolio-page h3 {
+.portfolio-one .color h3 {
     color: #B39898;
     font-size: 42px;
     font-weight: bold;
@@ -33,7 +33,7 @@
     margin-bottom: 32px;
 }
 
-.portfolio-page h6 {
+.portfolio-one .color h6 {
     color: #D9A5A6;
     font-size: 24px;
     font-weight: 500;
@@ -41,33 +41,31 @@
     text-align: center;
 }
 
-.portfolio-page .social-section h6 {
+.portfolio-one .color .social-section h6 {
     color: #D9A5A6;
     font-size: 24px;
     font-weight: bold;
     margin: 0;
 }
 
-.portfolio-page .social-section,
-.portfolio-page .skill-section {
+.portfolio-one .color .social-section,
+.portfolio-one .color .skill-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 24px 0 0;
+    margin: 16px 0 0;
     flex-wrap: wrap;
 }
 
-.portfolio-page .social-tag {
+.portfolio-one .color .social-tag {
     color: #D9A5A6;
     font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    line-height: 29px;
+    font-weight: 500;
+    margin: 12px 0;
     text-align: center;
-    margin: 0 12px;
 }
 
-.portfolio-page .skill-tag {
+.portfolio-one .color .skill-tag {
     padding: 8px 16px;
     background-color: white;
     border-radius: 100px;
@@ -75,51 +73,288 @@
     border: 1px solid #D9A5A6
 }
 
-.portfolio-page .ed-tag,
-.portfolio-page .job-tag {
+.portfolio-one .color .ed-tag,
+.portfolio-one .color .job-tag {
     margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.portfolio-page .ed-tag small,
-.portfolio-page .job-tag small {
+.portfolio-one .color .ed-tag small,
+.portfolio-one .color .job-tag small {
     color: #B39898;
     font-size: 14px;
     font-style: italic;
     letter-spacing: 1.33px;
 }
 
-.portfolio-page .ed-tag p,
-.portfolio-page .job-tag p {
+.portfolio-one .color .ed-tag p,
+.portfolio-one .color .job-tag p {
     margin-top: 24px;
     color: #6A6F71;
     font-size: 16px;
     line-height: 22px;
 }
 
-.portfolio-page .work-section {
+.portfolio-one .color .work-section {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
 
 }
-.portfolio-page .work-tag {
-    width: 200px;
+
+.portfolio-one .color .work-tag {
+    width: 210px;
     margin: 16px;
     overflow: hidden;
     border-radius: 20px;
     height: 200px;
 }
-.portfolio-page .work-tag img {
+
+.portfolio-one .color .work-tag img {
     object-fit: cover;
     object-position: center;
     display: block;
     height: 200px;
 }
 
-.bar {
-    font-weight: 500;
-    margin: 0 24px;
-    color: #D9A5A6;
-    font-size: 16px;
+/* ---------------------light -------------------------- */
+.portfolio-one .light {
+    padding: 80px 0;
+}
 
+.portfolio-one .light .portfolio-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-one .light .section-bkg {
+    background-color: #FDFBFB;
+    border: solid 6px #ffffff;
+    padding: 24px 48px 48px;
+    border-radius: 20px;
+    margin: 24px 0;
+}
+
+.portfolio-one .light h2 {
+    color: #B39898;
+    font-size: 54px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+
+.portfolio-one .light h3 {
+    color: #B39898;
+    font-size: 42px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.portfolio-one .light h6 {
+    color: #D9A5A6;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 12px 0;
+    text-align: center;
+}
+
+.portfolio-one .light .social-section h6 {
+    color: #D9A5A6;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.portfolio-one .light .social-section,
+.portfolio-one .light .skill-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px 0 0;
+    flex-wrap: wrap;
+}
+
+.portfolio-one .light .social-tag {
+    color: #D9A5A6;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 12px 0;
+    text-align: center;
+}
+
+.portfolio-one .light .skill-tag {
+    padding: 8px 16px;
+    background-color: white;
+    border-radius: 100px;
+    margin: 8px;
+    border: 1px solid #D9A5A6
+}
+
+.portfolio-one .light .ed-tag,
+.portfolio-one .light .job-tag {
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.portfolio-one .light .ed-tag small,
+.portfolio-one .light .job-tag small {
+    color: #B39898;
+    font-size: 14px;
+    font-style: italic;
+    letter-spacing: 1.33px;
+}
+
+.portfolio-one .light .ed-tag p,
+.portfolio-one .light .job-tag p {
+    margin-top: 24px;
+    color: #6A6F71;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.portfolio-one .light .work-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+.portfolio-one .light .work-tag {
+    width: 210px;
+    margin: 16px;
+    overflow: hidden;
+    border-radius: 20px;
+    height: 200px;
+}
+
+.portfolio-one .light .work-tag img {
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    height: 200px;
+}
+
+/* ---------------------simple -------------------------- */
+.portfolio-one .simple {
+    padding: 80px 0;
+}
+
+.portfolio-one .simple .portfolio-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-one .simple .section-bkg {
+    background-color: #ffffff;
+    border: solid 1px #000000;
+    padding: 24px 48px 48px;
+    border-radius: 20px;
+    margin: 24px 0;
+}
+
+.portfolio-one .simple h2 {
+    color: black;
+    font-size: 54px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+
+.portfolio-one .simple h3 {
+    color: black;
+    font-size: 42px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.portfolio-one .simple h6 {
+    color: #666665;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 12px 0;
+    text-align: center;
+}
+
+.portfolio-one .simple .social-section h6 {
+    color: #666665;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.portfolio-one .simple .social-section,
+.portfolio-one .simple .skill-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px 0 0;
+    flex-wrap: wrap;
+}
+
+.portfolio-one .simple .social-tag {
+    color: #666665;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 12px 0;
+    text-align: center;
+}
+
+.portfolio-one .simple .skill-tag {
+    padding: 8px 16px;
+    background-color: #f5f6f9;
+    border-radius: 100px;
+    margin: 8px;
+    border: 1px solid #666665
+}
+
+.portfolio-one .simple .ed-tag,
+.portfolio-one .simple .job-tag {
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.portfolio-one .simple .ed-tag small,
+.portfolio-one .simple .job-tag small {
+    color: black;
+    font-size: 14px;
+    font-style: italic;
+    letter-spacing: 1.33px;
+}
+
+.portfolio-one .simple .ed-tag p,
+.portfolio-one .simple .job-tag p {
+    margin-top: 24px;
+    color: #6A6F71;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.portfolio-one .simple .work-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+.portfolio-one .simple .work-tag {
+    width: 210px;
+    margin: 16px;
+    overflow: hidden;
+    border-radius: 20px;
+    height: 200px;
+}
+
+.portfolio-one .simple .work-tag img {
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    height: 200px;
 }

@@ -224,6 +224,21 @@ class PortfolioCreator extends Component {
 							</button>
 						</>
 					)
+				case 'theme':
+					return (
+						<>
+							<p>Elige los colores que más te gusten de la template elegida.</p>
+							<button className='my-button' onClick={() => this.setTheme('t1')}>
+								Color
+							</button>
+							<button className='my-button' onClick={() => this.setTheme('t2')}>
+								Light
+							</button>
+							<button className='my-button' onClick={() => this.setTheme('t3')}>
+								Simple
+							</button>
+						</>
+					)
 				default:
 					return <h1>Bug!</h1>
 			}
@@ -233,13 +248,27 @@ class PortfolioCreator extends Component {
 	setPortfolio = (template) => {
 		switch (template) {
 			case 't1':
-				this.setState({ ...this.state, portfolio: { ...this.state.portfolio, template: 't1' } }, () => this.handleModal(false))
+				this.setState({ ...this.state, portfolio: { ...this.state.portfolio, template: 't1' } }, () => this.handleModal(true, 'theme'))
 				break
 			case 't2':
-				this.setState({ ...this.state, portfolio: { ...this.state.portfolio, template: 't2' } }, () => this.handleModal(false))
+				this.setState({ ...this.state, portfolio: { ...this.state.portfolio, template: 't2' } }, () => this.handleModal(true, 'theme'))
 				break
 			case 't3':
-				this.setState({ ...this.state, portfolio: { ...this.state.portfolio, template: 't3' } }, () => this.handleModal(false))
+				this.setState({ ...this.state, portfolio: { ...this.state.portfolio, template: 't3' } }, () => this.handleModal(true, 'theme'))
+				break
+		}
+	}
+
+	setTheme = (template) => {
+		switch (template) {
+			case 't1':
+				this.setState({ ...this.state, portfolio: { ...this.state.portfolio, theme: 'color' } }, () => this.handleModal(false))
+				break
+			case 't2':
+				this.setState({ ...this.state, portfolio: { ...this.state.portfolio, theme: 'light' } }, () => this.handleModal(false))
+				break
+			case 't3':
+				this.setState({ ...this.state, portfolio: { ...this.state.portfolio, theme: 'simple' } }, () => this.handleModal(false))
 				break
 		}
 	}

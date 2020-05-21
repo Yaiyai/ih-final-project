@@ -1,16 +1,19 @@
-.portfolio-two {
+.portfolio-two .color {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 80px 0;
-
+    background-image: url('/imgs/home/bkg.svg');
+    background-position: 0 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .pink {
     color: #FCCCD2;
 }
 
-.portfolio-two .section-bkg {
+.portfolio-two .color .section-bkg {
     padding: 40px 32px;
     border-radius: 10px;
     background-color: #FFFFFF;
@@ -18,14 +21,14 @@
     margin: 28px 0;
 }
 
-.portfolio-two .owner {
+.portfolio-two .color .owner {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 40px 0;
 }
 
-.portfolio-two .owner-avatar {
+.portfolio-two .color .owner-avatar {
     height: 258px;
     width: 258px;
     border: 6px solid #FCCCD2;
@@ -34,24 +37,24 @@
     overflow: hidden;
 }
 
-.portfolio-two .owner-avatar img {
+.portfolio-two .color .owner-avatar img {
     object-fit: cover;
     object-position: center;
     height: 258px;
 }
 
-.portfolio-two .owner-info {
+.portfolio-two .color .owner-info {
     padding: 0 24px;
 }
 
-.portfolio-two .owner-info h2 {
+.portfolio-two .color .owner-info h2 {
     color: #B39898;
     font-size: 54px;
     font-weight: bold;
     margin: 0;
 }
 
-.portfolio-two h6 {
+.portfolio-two .color h6 {
     color: #B39898;
     font-size: 21px;
     font-weight: 500;
@@ -59,37 +62,37 @@
     text-transform: uppercase;
 }
 
-.portfolio-two .social-media {
+.portfolio-two .color .social-media {
     margin-top: 32px;
 }
 
-.portfolio-two .social-media .sm {
+.portfolio-two .color .social-media .sm {
     display: flex;
     justify-content: start;
     align-items: center;
 }
 
-.portfolio-two .social-media .sm figure {
+.portfolio-two .color .social-media .sm figure {
     width: 16px;
     margin-right: 16px;
 }
 
-.portfolio-two .social-media .sm:first-child figure {
+.portfolio-two .color .social-media .sm:first-child figure {
     width: 13px;
     margin-right: 16px;
 }
 
-.portfolio-two .social-media .sm p {
+.portfolio-two .color .social-media .sm p {
     color: #B39898;
     font-size: 16px;
     font-weight: bold;
 }
 
-.portfolio-two .skills h6 {
+.portfolio-two .color .skills h6 {
     text-align: center;
 }
 
-.portfolio-two .skills .skill-section {
+.portfolio-two .color .skills .skill-section {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,7 +100,7 @@
     margin-top: 24px;
 }
 
-.portfolio-two .skills .skill-section .skill-tag {
+.portfolio-two .color .skills .skill-section .skill-tag {
     padding: 8px 16px;
     background-color: white;
     border-radius: 100px;
@@ -107,13 +110,13 @@
     border: 1px solid #FCCCD2
 }
 
-.portfolio-two .life-experience {
+.portfolio-two .color .life-experience {
     display: flex;
     justify-content: space-between;
 }
 
-.portfolio-two .life-experience .education,
-.portfolio-two .life-experience .experience {
+.portfolio-two .color .life-experience .education,
+.portfolio-two .color .life-experience .experience {
     width: 543px;
     display: flex;
     flex-direction: column;
@@ -122,8 +125,8 @@
     text-align: center;
 }
 
-.portfolio-two .life-experience .education .place,
-.portfolio-two .life-experience .experience .place {
+.portfolio-two .color .life-experience .education .place,
+.portfolio-two .color .life-experience .experience .place {
     color: #FCCCD2;
     font-size: 24px;
     font-weight: bold;
@@ -132,8 +135,8 @@
     margin: 16px;
 }
 
-.portfolio-two .life-experience .education .duration,
-.portfolio-two .life-experience .experience .duration {
+.portfolio-two .color .life-experience .education .duration,
+.portfolio-two .color .life-experience .experience .duration {
     color: #B39898;
     font-size: 16px;
     letter-spacing: 1.33px;
@@ -142,8 +145,8 @@
 
 }
 
-.portfolio-two .life-experience .education .experience-text,
-.portfolio-two .life-experience .experience .experience-text {
+.portfolio-two .color .life-experience .education .experience-text,
+.portfolio-two .color .life-experience .experience .experience-text {
     color: #B39898;
     font-size: 16px;
     line-height: 19px;
@@ -151,20 +154,365 @@
 
 }
 
-.portfolio-two .works {
+.portfolio-two .color .works {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.portfolio-two .works .work-section {
+.portfolio-two .color .works .work-section {
     display: flex;
     align-self: center;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.portfolio-two .works .work-section .work-tag {
+.portfolio-two .color .works .work-section .work-tag {
+    width: 240px;
+    height: 156px;
+    overflow: hidden;
+    margin: 8px 8px;
+    border-radius: 10px;
+}
+
+/*---------------------- light ---------------------------------*/
+
+.portfolio-two .light {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 80px 0;
+}
+
+.portfolio-two .light .section-bkg {
+    padding: 40px 32px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 9px 2px rgba(252, 204, 210, 0.3);
+    margin: 28px 0;
+}
+
+.portfolio-two .light .owner {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.portfolio-two .light .owner-avatar {
+    height: 258px;
+    width: 258px;
+    border: 6px solid #FCCCD2;
+    border-radius: 20px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.portfolio-two .light .owner-avatar img {
+    object-fit: cover;
+    object-position: center;
+    height: 258px;
+}
+
+.portfolio-two .light .owner-info {
+    padding: 0 24px;
+}
+
+.portfolio-two .light .owner-info h2 {
+    color: #B39898;
+    font-size: 54px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.portfolio-two .light h6 {
+    color: #B39898;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 29px;
+    text-transform: uppercase;
+}
+
+.portfolio-two .light .social-media {
+    margin-top: 32px;
+}
+
+.portfolio-two .light .social-media .sm {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.portfolio-two .light .social-media .sm figure {
+    width: 16px;
+    margin-right: 16px;
+}
+
+.portfolio-two .light .social-media .sm:first-child figure {
+    width: 13px;
+    margin-right: 16px;
+}
+
+.portfolio-two .light .social-media .sm p {
+    color: #B39898;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.portfolio-two .light .skills h6 {
+    text-align: center;
+}
+
+.portfolio-two .light .skills .skill-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+.portfolio-two .light .skills .skill-section .skill-tag {
+    padding: 8px 16px;
+    background-color: white;
+    border-radius: 100px;
+    margin: 8px;
+    color: #B39898;
+
+    border: 1px solid #FCCCD2
+}
+
+.portfolio-two .light .life-experience {
+    display: flex;
+    justify-content: space-between;
+}
+
+.portfolio-two .light .life-experience .education,
+.portfolio-two .light .life-experience .experience {
+    width: 543px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px;
+    text-align: center;
+}
+
+.portfolio-two .light .life-experience .education .place,
+.portfolio-two .light .life-experience .experience .place {
+    color: #FCCCD2;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 29px;
+    margin: 16px;
+}
+
+.portfolio-two .light .life-experience .education .duration,
+.portfolio-two .light .life-experience .experience .duration {
+    color: #B39898;
+    font-size: 16px;
+    letter-spacing: 1.33px;
+    line-height: 19px;
+    margin: 0;
+
+}
+
+.portfolio-two .light .life-experience .education .experience-text,
+.portfolio-two .light .life-experience .experience .experience-text {
+    color: #B39898;
+    font-size: 16px;
+    line-height: 19px;
+    margin: 12px;
+
+}
+
+.portfolio-two .light .works {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.portfolio-two .light .works .work-section {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.portfolio-two .light .works .work-section .work-tag {
+    width: 240px;
+    height: 156px;
+    overflow: hidden;
+    margin: 8px 8px;
+    border-radius: 10px;
+}
+
+/*---------------------- simple ---------------------------------*/
+
+.portfolio-two .simple {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 80px 0;
+}
+
+.portfolio-two .simple .section-bkg {
+    padding: 40px 32px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    margin: 28px 0;
+    border: 1px solid black
+}
+
+.portfolio-two .simple .owner {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.portfolio-two .simple .owner-avatar {
+    height: 258px;
+    width: 258px;
+    border-radius: 20px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.portfolio-two .simple .owner-avatar img {
+    object-fit: cover;
+    object-position: center;
+    height: 258px;
+}
+
+.portfolio-two .simple .owner-info {
+    padding: 0 24px;
+}
+
+.portfolio-two .simple .pink {
+    color: black;
+}
+
+.portfolio-two .simple .owner-info h2 {
+    color: #666665;
+    font-size: 54px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.portfolio-two .simple h6 {
+    color: #666665;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 29px;
+    text-transform: uppercase;
+}
+
+.portfolio-two .simple .social-media {
+    margin-top: 32px;
+}
+
+.portfolio-two .simple .social-media .sm {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.portfolio-two .simple .social-media .sm figure {
+    width: 16px;
+    margin-right: 16px;
+
+}
+
+.portfolio-two .simple .social-media .sm:first-child figure {
+    width: 13px;
+    margin-right: 16px;
+}
+
+.portfolio-two .simple .social-media .sm p {
+    color: #666665;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.portfolio-two .simple .skills h6 {
+    text-align: center;
+}
+
+.portfolio-two .simple .skills .skill-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+.portfolio-two .simple .skills .skill-section .skill-tag {
+    padding: 8px 16px;
+    background-color: #f5f6f9;
+    border-radius: 100px;
+    margin: 8px;
+    color: #666665;
+    border: 1px solid #666665
+}
+
+.portfolio-two .simple .life-experience {
+    display: flex;
+    justify-content: space-between;
+}
+
+.portfolio-two .simple .life-experience .education,
+.portfolio-two .simple .life-experience .experience {
+    width: 543px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px;
+    text-align: center;
+}
+
+.portfolio-two .simple .life-experience .education .place,
+.portfolio-two .simple .life-experience .experience .place {
+    color: #666665;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 29px;
+    margin: 16px;
+}
+
+.portfolio-two .simple .life-experience .education .duration,
+.portfolio-two .simple .life-experience .experience .duration {
+    color: #666665;
+    font-size: 16px;
+    letter-spacing: 1.33px;
+    line-height: 19px;
+    margin: 0;
+
+}
+
+.portfolio-two .simple .life-experience .education .experience-text,
+.portfolio-two .simple .life-experience .experience .experience-text {
+    color: #666665;
+    font-size: 16px;
+    line-height: 19px;
+    margin: 12px;
+
+}
+
+.portfolio-two .simple .works {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.portfolio-two .simple .works .work-section {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.portfolio-two .simple .works .work-section .work-tag {
     width: 240px;
     height: 156px;
     overflow: hidden;

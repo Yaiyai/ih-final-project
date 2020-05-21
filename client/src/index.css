@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@200;400;500;700&display=swap');
 
+button:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
 body {
   font-family: 'Advent Pro', sans-serif;
   font-size: 16px;
@@ -48,6 +53,12 @@ p {
   color: white;
   text-transform: uppercase;
   text-align: center;
+}
+
+.my-button:hover {
+  background-color: #FCCCD2;
+  color: #FF576F;
+  text-decoration: none;
 }
 
 .my-button.mini {

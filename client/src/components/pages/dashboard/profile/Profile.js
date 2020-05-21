@@ -57,7 +57,7 @@ class Profile extends Component {
 						</figure>
 
 						<Form.Label className='form-label'>Editar avatar</Form.Label>
-						<Form.Control className='form-input' className='form-upload' name='newAvatar' type='file' onChange={this.handleUpload} />
+						<Form.Control className='form-upload' name='newAvatar' type='file' onChange={this.handleUpload} />
 
 						<Form.Label className='form-label'>Nombre de usuario</Form.Label>
 						<Form.Control className='form-input' name='username' type='text' onChange={this.handleChange} placeholder={this.props.loggedInDash.username} value={this.state.username} />

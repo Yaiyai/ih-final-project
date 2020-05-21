@@ -58,8 +58,8 @@ class dashHome extends Component {
 						<Row as='article' className='every-portfolio'>
 							{this.state.portfolios.map((portfolio, idx) => (
 								<>
-									<article className='each-portfolio'>
-										<Link key={idx} to={`/sharing/${portfolio.template}/${portfolio.url}`}>
+									<article key={idx} className='each-portfolio'>
+										<Link to={`/sharing/${portfolio.template}/${portfolio.url}`}>
 											<article className='portfolio-link'>
 												<figure>
 													<img src='/imgs/ic/ic-signup.svg' alt='' />

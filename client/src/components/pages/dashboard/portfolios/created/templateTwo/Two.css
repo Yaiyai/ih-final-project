@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding: 80px 0;
+
 }
 
 .pink {
@@ -83,26 +85,89 @@
     font-weight: bold;
 }
 
-.portfolio-two .skills h6{
+.portfolio-two .skills h6 {
     text-align: center;
 }
-.portfolio-two .skills .skill-section{
+
+.portfolio-two .skills .skill-section {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 24px;
 }
+
 .portfolio-two .skills .skill-section .skill-tag {
     padding: 8px 16px;
     background-color: white;
     border-radius: 100px;
     margin: 8px;
+    color: #B39898;
+
     border: 1px solid #FCCCD2
 }
 
 .portfolio-two .life-experience {
     display: flex;
     justify-content: space-between;
+}
+
+.portfolio-two .life-experience .education,
+.portfolio-two .life-experience .experience {
+    width: 543px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    padding: 32px;
+    text-align: center;
+}
+
+.portfolio-two .life-experience .education .place,
+.portfolio-two .life-experience .experience .place {
+    color: #FCCCD2;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 29px;
+    margin: 16px;
+}
+
+.portfolio-two .life-experience .education .duration,
+.portfolio-two .life-experience .experience .duration {
+    color: #B39898;
+    font-size: 16px;
+    letter-spacing: 1.33px;
+    line-height: 19px;
+    margin: 0;
+
+}
+
+.portfolio-two .life-experience .education .experience-text,
+.portfolio-two .life-experience .experience .experience-text {
+    color: #B39898;
+    font-size: 16px;
+    line-height: 19px;
+    margin: 12px;
+
+}
+
+.portfolio-two .works {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.portfolio-two .works .work-section {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.portfolio-two .works .work-section .work-tag {
+    width: 240px;
+    height: 156px;
+    overflow: hidden;
+    margin: 8px 8px;
+    border-radius: 10px;
 }

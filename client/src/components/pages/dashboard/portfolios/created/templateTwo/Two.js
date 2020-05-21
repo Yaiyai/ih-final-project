@@ -80,9 +80,9 @@ class Two extends Component {
 									</article>
 								</article>
 							</section>
-							<section className='section-bkg skills'>
-								<h6>me especializo en</h6>
-								{!this.state.portfolio.skills.length === 0 ? null : (
+							{this.state.portfolio.skills.length === 0 ? null : (
+								<section className='section-bkg skills'>
+									<h6>me especializo en</h6>
 									<article className='skill-section'>
 										{this.state.portfolio.skills.map((skill, idx) => (
 											<p key={idx} className='skill-tag'>
@@ -90,75 +90,39 @@ class Two extends Component {
 											</p>
 										))}
 									</article>
-								)}
-							</section>
+								</section>
+							)}
+
 							<section className='life-experience'>
-								<article className='section-bkg education'></article>
-								<article className='section-bkg experience'></article>
-							</section>
-
-							{/* <section className='section-bkg'>
-								<h2>
-									{this.state.portfolio.owner.name} {this.state.portfolio.owner.lastName}
-								</h2>
-								<h6>
-									{this.state.portfolio.owner.phone} <span className='bar'>|</span> {this.state.portfolio.owner.email}
-								</h6>
-
-								{!this.state.portfolio.socialMedia.length === 0 ? null : (
-									<article className='social-section'>
-										<span className='bar'>|</span>
-										{this.state.portfolio.socialMedia.map((sm, idx) => (
-											<>
-												<p className='social-tag' key={idx}>
-													{sm}
-												</p>
-												<span className='bar'>|</span>
-											</>
+								{this.state.portfolio.education.length === 0 ? null : (
+									<article className='section-bkg education'>
+										<h6>mi educación</h6>
+										{this.state.portfolio.education.map((ed, idx) => (
+											<article key={idx}>
+												<p className='place'>{ed.place}</p>
+												<small className='duration'>{ed.duration}</small>
+												<p className='experience-text'>{ed.experienceInfo}</p>
+											</article>
 										))}
 									</article>
 								)}
+								{this.state.portfolio.experience.length === 0 ? null : (
+									<article className='section-bkg experience'>
+										<h6>mi experiencia</h6>
 
-								{!this.state.portfolio.skills.length === 0 ? null : (
-									<article className='skill-section'>
-										{this.state.portfolio.skills.map((skill, idx) => (
-											<p key={idx} className='skill-tag'>
-												{skill}
-											</p>
+										{this.state.portfolio.experience.map((job, idx) => (
+											<article key={idx}>
+												<p className='place'>{job.place}</p>
+												<small className='duration'>{job.duration}</small>
+												<p className='experience-text'>{job.experienceInfo}</p>
+											</article>
 										))}
 									</article>
 								)}
 							</section>
-
 							{this.state.portfolio.education.length === 0 ? null : (
-								<section className='section-bkg'>
-									<h3>Educación</h3>
-									{this.state.portfolio.education.map((ed, idx) => (
-										<article className='ed-tag' key={idx}>
-											<h6>{ed.place}</h6>
-											<small>{ed.duration}</small>
-											<p>{ed.experienceInfo}</p>
-										</article>
-									))}
-								</section>
-							)}
-
-							{this.state.portfolio.experience.length === 0 ? null : (
-								<section className='section-bkg'>
-									<h3>Trayectoria profesional</h3>
-									{this.state.portfolio.experience.map((job, idx) => (
-										<article className='job-tag' key={idx}>
-											<h6>{job.place}</h6>
-											<small>{job.duration}</small>
-											<p>{job.experienceInfo}</p>
-										</article>
-									))}
-								</section>
-							)}
-
-							{this.state.portfolio.works.length === 0 ? null : (
-								<section className='section-bkg'>
-									<h3>Mis trabajos</h3>
+								<section className='section-bkg works'>
+									<h6>mis trabajos</h6>
 									<article className='work-section'>
 										{this.state.portfolio.works.map((work, idx) => (
 											<figure key={idx} className='work-tag'>
@@ -167,7 +131,7 @@ class Two extends Component {
 										))}
 									</article>
 								</section>
-							)} */}
+							)}
 						</Container>
 					)}
 				</main>

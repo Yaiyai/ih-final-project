@@ -8,12 +8,14 @@ import UrlServices from '../../../../service/url.service'
 
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
+import { Link } from 'react-router-dom'
 
 class PortfolioCreator extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			modalShow: false,
+			modalId: '',
 			cv: '',
 			education: '',
 			experience: '',
@@ -28,6 +30,7 @@ class PortfolioCreator extends Component {
 				works: [],
 				avatar: '',
 				url: '',
+				template: '',
 			},
 		}
 		this.cvServices = new CvServices()
@@ -48,10 +51,8 @@ class PortfolioCreator extends Component {
 
 	componentDidMount() {
 		this.getMyThings()
-		this.handleModal(true)
+		this.handleModal(true, 'needed')
 	}
-
-	handleModal = (visible) => this.setState({ modalShow: visible })
 
 	handleChange = (e) => {
 		const { name, value } = e.target
@@ -67,7 +68,7 @@ class PortfolioCreator extends Component {
 				url: `${this.props.loggedInDash.name}-for-${this.state.companyName}`,
 			},
 		})
-		this.handleModal(false)
+		this.handleModal(true, 'pick')
 	}
 
 	//Drag and Drop Methods
@@ -183,38 +184,86 @@ class PortfolioCreator extends Component {
 		e.stopPropagation()
 	}
 
+	handleModal = (visible, modalId) => this.setState({ modalShow: visible, modalId: modalId })
+
+	displayModal = (modalId) => {
+		if (this.state.modalShow) {
+			switch (modalId) {
+				case 'needed':
+					return (
+						<>
+							<h3>¡Importante!</h3>
+							<p>
+								Es <strong>muy importante</strong> que introduzcas un título para tu portfolio y la empresa a la que lo vas a enviar, porque el link que les enviarás depende de estos datos.
+							</p>
+							<Form onSubmit={this.handleSubmit}>
+								<Form.Label className='form-label'>Introduce el título de tu portfolio</Form.Label>
+								<Form.Control name='portfolioTitle' onChange={this.handleChange} className='form-input' type='text' placeholder='Título' required />
+
+								<Form.Label className='form-label'>Empresa a la que le vas a enviar el portfolio</Form.Label>
+								<Form.Control name='companyName' onChange={this.handleChange} className='form-input' type='text' placeholder='Empresa' required />
+								<button type='submit' className='form-button'>
+									guardar datos
+								</button>
+							</Form>
+						</>
+					)
+				case 'pick':
+					return (
+						<>
+							<p>Elige la template que más te guste. Una vez le des al botón "Crear Portfolio", todos los datos que hayas añadido, serán ordenados en la template elegida.
+							</p>
+
+							<button className='my-button' onClick={() => this.setPortfolio('t1')}>
+								Template 1
+							</button>
+							<button className='my-button' onClick={() => this.setPortfolio('t2')}>
+								Template 2
+							</button>
+							<button className='my-button' onClick={() => this.setPortfolio('t3')}>
+								Template 3
+							</button>
+						</>
+					)
+				default:
+					return <h1>Bug!</h1>
+			}
+		}
+	}
+
+	setPortfolio = (template) => {
+		switch (template) {
+			case 't1':
+				this.setState({ ...this.state, portfolio: { ...this.state.portfolio, template: 't1' } }, () => this.handleModal(false))
+				break
+			case 't2':
+				this.setState({ ...this.state, portfolio: { ...this.state.portfolio, template: 't2' } }, () => this.handleModal(false))
+				break
+			case 't3':
+				this.setState({ ...this.state, portfolio: { ...this.state.portfolio, template: 't3' } }, () => this.handleModal(false))
+				break
+		}
+	}
+
 	//Saving changes
 	createPortfolio = () => {
 		this.portfolioServices
 			.createNew(this.props.loggedInDash._id, this.state.portfolio)
-			.then((response) => this.props.history.push(`/sharing/${response.data.url}`))
+			.then((response) => this.props.history.push(`/sharing/${response.data.template}/${response.data.url}`))
 			.catch((err) => new Error(err))
 	}
 
 	render() {
-		console.log(this.props.loggedInDash)
 		return (
 			<>
 				<main className='portfolio-creator'>
-					<button className='my-button special-button' onClick={this.createPortfolio}>
+					<button className='my-button special-button' onClick={() => this.createPortfolio()}>
 						Crear Portfolio
 					</button>
 
 					<Modal className='my-modal' show={this.state.modalShow}>
-						<h3>¡Importante!</h3>
-						<p>
-							Es <strong>muy importante</strong> que introduzcas un título para tu portfolio y la empresa a la que lo vas a enviar, porque el link que les enviarás depende de estos datos.
-						</p>
-						<Form onSubmit={this.handleSubmit}>
-							<Form.Label className='form-label'>Introduce el título de tu portfolio</Form.Label>
-							<Form.Control name='portfolioTitle' onChange={this.handleChange} className='form-input' type='text' placeholder='Título' required />
+						{this.displayModal(this.state.modalId)}
 
-							<Form.Label className='form-label'>Empresa a la que le vas a enviar el portfolio</Form.Label>
-							<Form.Control name='companyName' onChange={this.handleChange} className='form-input' type='text' placeholder='Empresa' required />
-							<button type='submit' className='form-button'>
-								guardar datos
-							</button>
-						</Form>
 						{/* <button className='mini-link' onClick={() => this.handleModal(false)}>
 							cerrar
 						</button> */}

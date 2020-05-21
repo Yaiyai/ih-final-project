@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import UrlServices from '../../../../../service/url.service'
-import HomeNav from './../../../../ui/homeNav/HomeNav'
+import UrlServices from '../../../../../../service/url.service'
+import HomeNav from '../../../../../ui/homeNav/HomeNav'
 
 import Container from 'react-bootstrap/Container'
 
-import './Created.css'
+import './One.css'
 
-class Created extends Component {
+class One extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -49,6 +49,8 @@ class Created extends Component {
 					) : (
 						<Container className='portfolio-info'>
 							<section className='section-bkg'>
+								<h1>soy la t1</h1>
+
 								<h2>
 									{this.state.portfolio.owner.name} {this.state.portfolio.owner.lastName}
 								</h2>
@@ -78,8 +80,7 @@ class Created extends Component {
 											</p>
 										))}
 									</article>
-									) }
-									
+								)}
 							</section>
 
 							{this.state.portfolio.education.length === 0 ? null : (
@@ -128,4 +129,4 @@ class Created extends Component {
 	}
 }
 
-export default Created
+export default One

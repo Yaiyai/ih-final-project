@@ -211,32 +211,47 @@ class PortfolioCreator extends Component {
 				case 'pick':
 					return (
 						<>
-							<p>Elige la template que más te guste. Una vez le des al botón "Crear Portfolio", todos los datos que hayas añadido, serán ordenados en la template elegida.</p>
-
-							<button className='my-button' onClick={() => this.setPortfolio('t1')}>
-								Template 1
-							</button>
-							<button className='my-button' onClick={() => this.setPortfolio('t2')}>
-								Template 2
-							</button>
-							<button className='my-button' onClick={() => this.setPortfolio('t3')}>
-								Template 3
-							</button>
+							<p>Elige la plantilla que más te guste. Una vez le des al botón "Crear Portfolio", todos los datos que hayas añadido, serán ordenados en la template elegida.</p>
+							<article className='template-selector'>
+								<Link onClick={() => this.setPortfolio('t1')}>
+									<figure>
+										<img src='/imgs/portfolio/templates/Template1-colors.png' alt='template1' />
+									</figure>
+								</Link>
+								<Link onClick={() => this.setPortfolio('t2')}>
+									<figure>
+										<img src='/imgs/portfolio/templates/Template2-colors.png' alt='template2' />
+									</figure>
+								</Link>
+								<Link onClick={() => this.setPortfolio('t3')}>
+									<figure>
+										<img src='/imgs/portfolio/templates/Template3-colors.png' alt='template3' />
+									</figure>
+								</Link>
+							</article>
 						</>
 					)
 				case 'theme':
 					return (
 						<>
-							<p>Elige los colores que más te gusten de la template elegida.</p>
-							<button className='my-button' onClick={() => this.setTheme('t1')}>
-								Color
-							</button>
-							<button className='my-button' onClick={() => this.setTheme('t2')}>
-								Light
-							</button>
-							<button className='my-button' onClick={() => this.setTheme('t3')}>
-								Simple
-							</button>
+							<p>Elige los colores que más te gusten de la plantilla elegida.</p>
+							<article className="template-selector">
+								<Link onClick={() => this.setTheme('t1')}>
+									<figure>
+										<img src='/imgs/portfolio/templates/themes/color.png' alt='' />
+									</figure>
+								</Link>
+								<Link onClick={() => this.setTheme('t2')}>
+									<figure>
+										<img src='/imgs/portfolio/templates/themes/light.png' alt='' />
+									</figure>
+								</Link>
+								<Link onClick={() => this.setTheme('t3')}>
+									<figure>
+										<img src='/imgs/portfolio/templates/themes/simple.png' alt='' />
+									</figure>
+								</Link>
+							</article>
 						</>
 					)
 				default:
@@ -256,6 +271,8 @@ class PortfolioCreator extends Component {
 			case 't3':
 				this.setState({ ...this.state, portfolio: { ...this.state.portfolio, template: 't3' } }, () => this.handleModal(true, 'theme'))
 				break
+			default:
+				this.handleModal(false)
 		}
 	}
 
@@ -270,6 +287,8 @@ class PortfolioCreator extends Component {
 			case 't3':
 				this.setState({ ...this.state, portfolio: { ...this.state.portfolio, theme: 'simple' } }, () => this.handleModal(false))
 				break
+			default:
+				this.handleModal(false)
 		}
 	}
 
@@ -289,7 +308,7 @@ class PortfolioCreator extends Component {
 						Crear Portfolio
 					</button>
 
-					<Modal className='my-modal' show={this.state.modalShow}>
+					<Modal className='my-portfolio-modal' show={this.state.modalShow}>
 						{this.displayModal(this.state.modalId)}
 
 						{/* <button className='mini-link' onClick={() => this.handleModal(false)}>

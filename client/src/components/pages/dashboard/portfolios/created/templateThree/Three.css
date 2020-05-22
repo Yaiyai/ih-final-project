@@ -67,7 +67,6 @@
 
 .portfolio-three .color .social-media .sm {
     display: flex;
-    justify-content: start;
     align-items: center;
 }
 
@@ -241,7 +240,6 @@
 
 .portfolio-three .light .social-media .sm {
     display: flex;
-    justify-content: start;
     align-items: center;
 }
 
@@ -417,7 +415,6 @@
 
 .portfolio-three .simple .social-media .sm {
     display: flex;
-    justify-content: start;
     align-items: center;
 }
 

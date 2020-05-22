@@ -68,7 +68,6 @@
 
 .portfolio-two .color .social-media .sm {
     display: flex;
-    justify-content: start;
     align-items: center;
 }
 
@@ -239,7 +238,6 @@
 
 .portfolio-two .light .social-media .sm {
     display: flex;
-    justify-content: start;
     align-items: center;
 }
 
@@ -413,7 +411,6 @@
 
 .portfolio-two .simple .social-media .sm {
     display: flex;
-    justify-content: start;
     align-items: center;
 }
 

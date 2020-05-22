@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="1751px" viewBox="0 0 1440 1751" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>bkg</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Template3-colors">
+            <g id="bkg" transform="translate(-86.000000, -2.000000)">
+                <path d="M84,0 L460,0 C515.228475,-1.01453063e-14 560,44.771525 560,100 L560,591 C560,646.228475 515.228475,691 460,691 L84,691 L84,691 L84,0 Z" id="Rectangle" fill="#B39898"></path>
+                <path d="M55,1162 L362,1162 C417.228475,1162 462,1206.77153 462,1262 L462,1653 C462,1708.22847 417.228475,1753 362,1753 L55,1753 L55,1753 L55,1162 Z" id="Rectangle-Copy-3" fill="#D9A5A6"></path>
+                <circle id="Oval-Copy-29" stroke="#FFFFFF" stroke-width="27" transform="translate(109.500000, 415.500000) scale(-1, 1) translate(-109.500000, -415.500000) " cx="109.5" cy="415.5" r="82"></circle>
+                <circle id="Oval-Copy-45" stroke="#FFFFFF" stroke-width="14" transform="translate(172.500000, 187.500000) scale(-1, 1) translate(-172.500000, -187.500000) " cx="172.5" cy="187.5" r="88.5"></circle>
+                <circle id="Oval-Copy-30" stroke="#FFFFFF" stroke-width="9" transform="translate(221.500000, 505.500000) scale(-1, 1) translate(-221.500000, -505.500000) " cx="221.5" cy="505.5" r="85"></circle>
+                <circle id="Oval-Copy-31" stroke="#FFFFFF" stroke-width="9" transform="translate(76.500000, 1284.500000) scale(-1, 1) translate(-76.500000, -1284.500000) " cx="76.5" cy="1284.5" r="72"></circle>
+                <ellipse id="Oval-Copy-32" stroke="#FFFFFF" stroke-width="9" transform="translate(319.500000, 1419.000000) scale(-1, 1) translate(-319.500000, -1419.000000) " cx="319.5" cy="1419" rx="72" ry="72.5"></ellipse>
+                <circle id="Oval-Copy-33" stroke="#FFFFFF" stroke-width="9" transform="translate(152.500000, 1622.500000) scale(-1, 1) translate(-152.500000, -1622.500000) " cx="152.5" cy="1622.5" r="72"></circle>
+                <circle id="Oval-Copy-34" stroke="#FFFFFF" stroke-width="9" transform="translate(172.500000, 1545.500000) scale(-1, 1) translate(-172.500000, -1545.500000) " cx="172.5" cy="1545.5" r="45"></circle>
+                <path d="M1243,562 L1908,562 L1908,562 L1908,1227 L1243,1227 C1187.77153,1227 1143,1182.22847 1143,1127 L1143,662 C1143,606.771525 1187.77153,562 1243,562 Z" id="Rectangle" fill="#FCCCD2"></path>
+                <circle id="Oval-Copy-44" fill="#FFFFFF" transform="translate(416.000000, 157.000000) scale(-1, 1) translate(-416.000000, -157.000000) " cx="416" cy="157" r="46"></circle>
+                <circle id="Oval-Copy-46" fill="#FFFFFF" transform="translate(1456.000000, 1116.000000) scale(-1, 1) translate(-1456.000000, -1116.000000) " cx="1456" cy="1116" r="46"></circle>
+                <circle id="Oval-Copy-37" fill="#FFFFFF" transform="translate(135.500000, 216.500000) scale(-1, 1) translate(-135.500000, -216.500000) " cx="135.5" cy="216.5" r="13.5"></circle>
+                <circle id="Oval-Copy-39" fill="#FFFFFF" transform="translate(1298.500000, 826.500000) scale(-1, 1) translate(-1298.500000, -826.500000) " cx="1298.5" cy="826.5" r="13.5"></circle>
+                <circle id="Oval-Copy-36" fill="#B39898" transform="translate(235.500000, 352.500000) scale(-1, 1) translate(-235.500000, -352.500000) " cx="235.5" cy="352.5" r="13.5"></circle>
+                <circle id="Oval-Copy-35" stroke="#FFFFFF" stroke-width="9" transform="translate(1475.500000, 861.500000) scale(-1, 1) translate(-1475.500000, -861.500000) " cx="1475.5" cy="861.5" r="85"></circle>
+                <circle id="Oval-Copy-38" stroke="#FFFFFF" stroke-width="27" transform="translate(1344.500000, 676.500000) scale(-1, 1) translate(-1344.500000, -676.500000) " cx="1344.5" cy="676.5" r="82"></circle>
+                <circle id="Oval" fill="#FFFFFF" cx="110.5" cy="1428.5" r="20.5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -348,8 +348,6 @@
 
 /* ----------------------simple--------------------------- */
 
-/*---------------------- simple ---------------------------------*/
-
 .portfolio-three .simple {
     display: flex;
     flex-direction: column;
@@ -419,9 +417,7 @@
 }
 
 .portfolio-three .simple .social-media .sm figure {
-    width: 16px;
-    margin-right: 16px;
-
+    display: none
 }
 
 .portfolio-three .simple .social-media .sm:first-child figure {

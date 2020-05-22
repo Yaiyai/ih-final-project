@@ -421,9 +421,7 @@
 }
 
 .portfolio-two .simple .social-media .sm figure {
-    width: 16px;
-    margin-right: 16px;
-
+    display: none;
 }
 
 .portfolio-two .simple .social-media .sm:first-child figure {

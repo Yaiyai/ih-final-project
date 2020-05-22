@@ -12,6 +12,12 @@
 .pink {
     color: #FCCCD2;
 }
+.modal-show-img{
+    width: 500px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 20px;
+}
 
 .portfolio-two .color .section-bkg {
     padding: 40px 32px;

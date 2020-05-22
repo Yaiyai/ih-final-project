@@ -3,6 +3,10 @@ import UrlServices from '../../../../../../service/url.service'
 import HomeNav from '../../../../../ui/homeNav/HomeNav'
 
 import Container from 'react-bootstrap/Container'
+import Modal from 'react-bootstrap/Modal'
+
+import { Link } from 'react-router-dom'
+
 
 import './One.css'
 
@@ -10,6 +14,8 @@ class One extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
+			modalShow: false,
+			modalId: '',
 			portfolio: {
 				title: '',
 				skills: [],
@@ -38,9 +44,18 @@ class One extends Component {
 	componentDidMount() {
 		this.getThisPortfolio()
 	}
+	handleModal = (visible, modalId) => this.setState({ modalShow: visible, modalId: modalId })
+	displayModal = () => {
+		if (this.state.modalShow) {
+			return (
+				<figure className='modal-show-img'>
+					<img src={this.state.modalId} />
+				</figure>
+			)
+		}
+	}
 
 	render() {
-		console.log('holi')
 		return (
 			<>
 				<HomeNav loggedInHome={this.props.loggedInUser} setTheUser={this.props.setTheUser} />
@@ -48,9 +63,16 @@ class One extends Component {
 					{!this.state.portfolio ? (
 						<h1>cargando...</h1>
 					) : (
-					
-							<div className={this.state.portfolio.theme}>
+						<div className={this.state.portfolio.theme}>
 							<Container className='portfolio-info'>
+								<Modal className='my-portfolio-modal' show={this.state.modalShow}>
+									{this.displayModal(this.state.modalId)}
+
+									<button className='mini-link' onClick={() => this.handleModal(false)}>
+										cerrar
+									</button>
+								</Modal>
+
 								<section className='section-bkg'>
 									<h2>
 										{this.state.portfolio.owner.name} {this.state.portfolio.owner.lastName}
@@ -116,9 +138,13 @@ class One extends Component {
 										<h3>Mis trabajos</h3>
 										<article className='work-section'>
 											{this.state.portfolio.works.map((work, idx) => (
-												<figure key={idx} className='work-tag'>
-													<img src={work} alt='' />
-												</figure>
+												<>
+													<Link onClick={() => this.handleModal(true, work)}>
+														<figure key={idx} className='work-tag'>
+															<img src={work} alt='' />
+														</figure>
+													</Link>
+												</>
 											))}
 										</article>
 									</section>

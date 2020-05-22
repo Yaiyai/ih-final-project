@@ -235,7 +235,7 @@ class PortfolioCreator extends Component {
 					return (
 						<>
 							<p>Elige los colores que más te gusten de la plantilla elegida.</p>
-							<article className="template-selector">
+							<article className='template-selector'>
 								<Link onClick={() => this.setTheme('t1')}>
 									<figure>
 										<img src='/imgs/portfolio/templates/themes/color.png' alt='' />
@@ -311,9 +311,6 @@ class PortfolioCreator extends Component {
 					<Modal className='my-portfolio-modal' show={this.state.modalShow}>
 						{this.displayModal(this.state.modalId)}
 
-						{/* <button className='mini-link' onClick={() => this.handleModal(false)}>
-							cerrar
-						</button> */}
 						<button className='mini-link' onClick={() => this.props.history.push('/dashboard')}>
 							cerrar
 						</button>
@@ -333,18 +330,12 @@ class PortfolioCreator extends Component {
 
 					<section className='all-elements'>
 						<article className='selector'>
-							<h6 className='section-title'>Mis trabajos</h6>
+							<h6 className='section-title'>Mi foto</h6>
 
 							<figure draggable='true' onDragStart={this.dragStartAvatar} onDragOver={this.dragOver} id={this.props.loggedInDash.avatar} className='selector-tag'>
 								<img draggable='false' src={this.props.loggedInDash.avatar} alt='' />
 							</figure>
 
-							{this.state.cv &&
-								this.state.cv.whatIveDone.map((work, idx) => (
-									<figure onDragStart={this.dragStartWork} onDragOver={this.dragOver} id={work} key={idx} draggable='true' className='selector-tag'>
-										<img draggable='false' src={work} alt='' />
-									</figure>
-								))}
 							<h6 className='section-title'>Mis Redes Sociales</h6>
 							{this.state.cv &&
 								this.state.cv.socialMedia.map((social, idx) => (
@@ -377,6 +368,14 @@ class PortfolioCreator extends Component {
 										<p>{job.experienceInfo}</p>
 									</article>
 								))}
+							<h6 className='section-title'>Mis trabajos</h6>
+
+							{this.state.cv &&
+								this.state.cv.whatIveDone.map((work, idx) => (
+									<figure onDragStart={this.dragStartWork} onDragOver={this.dragOver} id={work} key={idx} draggable='true' className='selector-tag'>
+										<img draggable='false' src={work} alt='' />
+									</figure>
+								))}
 						</article>
 						<article className='portfolio-constructor'>
 							<article className='portfolio-info'>
@@ -396,6 +395,7 @@ class PortfolioCreator extends Component {
 								)}
 							</article>
 							<article className='portfolio-content'>
+								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container avatar-receptor'></article>
 								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container social-receptor'></article>
 								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container skill-receptor'></article>
 								<article onDrop={this.drop} onDragOver={this.dragOverReceptor} className='end-container ed-receptor'></article>

@@ -3,13 +3,17 @@ import UrlServices from './../../../../../../service/url.service'
 import HomeNav from '../../../../../ui/homeNav/HomeNav'
 
 import Container from 'react-bootstrap/Container'
+import Modal from 'react-bootstrap/Modal'
 
 import './Two.css'
+import { Link } from 'react-router-dom'
 
 class Two extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
+			modalShow: false,
+			modalId: '',
 			portfolio: {
 				title: '',
 				skills: [],
@@ -39,6 +43,17 @@ class Two extends Component {
 		this.getThisPortfolio()
 	}
 
+	handleModal = (visible, modalId) => this.setState({ modalShow: visible, modalId: modalId })
+	displayModal = () => {
+		if (this.state.modalShow) {
+			return (
+				<figure className='modal-show-img'>
+					<img src={this.state.modalId} />
+				</figure>
+			)
+		}
+	}
+
 	render() {
 		return (
 			<>
@@ -49,10 +64,20 @@ class Two extends Component {
 					) : (
 						<div className={this.state.portfolio.theme}>
 							<Container className='portfolio-info'>
+								<Modal className='my-portfolio-modal' show={this.state.modalShow}>
+									{this.displayModal(this.state.modalId)}
+
+									<button className='mini-link' onClick={() => this.handleModal(false)}>
+										cerrar
+									</button>
+								</Modal>
+
 								<section className='owner'>
-									<figure className='owner-avatar'>
-										<img src={this.state.portfolio.avatar} alt='owner' />
-									</figure>
+									{this.state.portfolio.avatar && (
+										<figure className='owner-avatar'>
+											<img src={this.state.portfolio.avatar} alt='owner' />
+										</figure>
+									)}
 									<article className='owner-info'>
 										<h6>
 											¡Hola <span className='pink'>{this.state.portfolio.companyName}</span>!
@@ -127,9 +152,13 @@ class Two extends Component {
 										<h6>mis trabajos</h6>
 										<article className='work-section'>
 											{this.state.portfolio.works.map((work, idx) => (
-												<figure key={idx} className='work-tag'>
-													<img src={work} alt='' />
-												</figure>
+												<>
+													<Link onClick={() => this.handleModal(true, work)}>
+														<figure key={idx} className='work-tag'>
+															<img src={work} alt='' />
+														</figure>
+													</Link>
+												</>
 											))}
 										</article>
 									</section>

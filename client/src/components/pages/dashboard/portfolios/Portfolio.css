@@ -169,6 +169,19 @@
     background-blend-mode: luminosity;
     background-size: 20em;
 }
+.portfolio-creator .all-elements .portfolio-constructor .portfolio-content .end-container.avatar-receptor {
+    background-image: url('/imgs/portfolio/avatar.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-blend-mode: luminosity;
+    background-size: 6em;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 500px;
+    margin: 0 auto 12px;
+    
+}
 
 .portfolio-creator .all-elements .portfolio-constructor .portfolio-content .end-container .new-add,
 .portfolio-creator .all-elements .portfolio-constructor .portfolio-content .end-container .work-receptor .new-add {

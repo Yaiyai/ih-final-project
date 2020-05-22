@@ -106,7 +106,21 @@ class Three extends Component {
 											</div>
 										</article>
 									</article>
-								</section>
+									</section>
+									
+								{this.state.portfolio.socialMedia.length === 0 ? null : (
+									<section className='section-bkg skills'>
+										<h6>mis redes sociales</h6>
+										<article className='skill-section'>
+											{this.state.portfolio.socialMedia.map((social, idx) => (
+												<p key={idx} className='skill-tag'>
+													{social}
+												</p>
+											))}
+										</article>
+									</section>
+								)}
+
 								{this.state.portfolio.skills.length === 0 ? null : (
 									<section className='section-bkg skills'>
 										<h6>me especializo en</h6>

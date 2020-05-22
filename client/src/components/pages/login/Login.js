@@ -67,9 +67,9 @@ class Signup extends Component {
 						</Button>
 					</Form>
 					<p>
-						¿No tienes cuenta?
+						¿No tienes cuenta?{' '}
 						<Link className='mini-link' to='/signup'>
-							Iniciar sesión
+							Crear una cuenta aquí
 						</Link>
 					</p>
 				</Container>

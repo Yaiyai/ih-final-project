@@ -5,11 +5,6 @@ const uploader = require('../configs/cloudinary.config')
 
 const checkAuth = (req, res, next) => (req.isAuthenticated() ? next() : res.redirect('/login'))
 
-router.post('/deleteUser/:id', checkAuth, (req, res, next) => {
-	User.findByIdAndRemove(req.params.id)
-		.then((data) => res.json(data))
-		.catch((err) => new Error(err))
-})
 
 router.post('/updateUser/:id', checkAuth, (req, res, next) => {
 	User.findByIdAndUpdate(req.params.id, req.body, { new: true })

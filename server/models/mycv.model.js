@@ -6,8 +6,6 @@ const cvSchema = new Schema(
 	{
 		title: String,
 		owner: { type: Schema.Types.ObjectId, ref: 'User' },
-		// education: [{ type: Schema.Types.ObjectId, ref: 'ExtraInfo' }],
-		// jobs: [{ type: Schema.Types.ObjectId, ref: 'ExtraInfo' }],
 		socialMedia: Array,
 		skills: Array,
 		whatIveDone: Array,
